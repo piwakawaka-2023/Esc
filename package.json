@@ -63,11 +63,13 @@
   },
   "dependencies": {
     "@devacademy/eslint-config": "^1.8.0",
+    "@react-spring/parallax": "^9.7.3",
     "@redux-devtools/extension": "^3.2.3",
     "express": "^4.17.2",
     "knex": "^2.3.0",
     "sqlite3": "^5.1.2",
     "superagent": "7.1.1",
+    "three": "^0.153.0",
     "ts-node": "^10.9.1"
   },
   "prettier": {
