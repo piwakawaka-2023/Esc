@@ -45,7 +45,10 @@
 }
 
 #start-form {
-  width: 50%;
+  background-color: #09364B;
+  width: 60%;
+  border: 4px solid #0BD7EC;
+  border-radius: 20px;
   min-height: 30vh;
   margin: 0 auto;
 }
@@ -53,13 +56,14 @@
 /* START GAME FORM STYLING */
 
 #start-game-form-container {
-  padding: 10px;
+  padding: 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .username-form-field {
+  padding: 10px 20px 10px 20px;
   font-size: 3rem;
   margin: 0 auto;
   margin-top: 10px;
@@ -67,14 +71,17 @@
 }
 
 .input-field {
+  background-color: #114A67;
+  border: 3px solid #0BD7EC;
+  border-radius: 20px;
+  color: #0BD7EC;
   margin: 0 auto;
-  font-size: 3rem;
+  font-size: 2.5rem;
   width: 24vw;
+  padding: 10px 20px 10px 20px;
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: monospace;
-  border-radius: 5px;
-
 }
 
 .start-button {
@@ -84,7 +91,6 @@
   font-family: monospace;
   font-size: 1.7rem;
   border-radius: 5px;
-  margin: 0 auto;
   width: 12vw;
   height: 10vh;
   margin-top: 20px;
@@ -95,9 +101,6 @@
   background-color: #0BD7EC;
   color:#09364B;
   border-color: #114A67;
-
-
-
 }
 
 
@@ -141,4 +144,3 @@
   color:#09364B;
   border-color: #114A67;
   cursor: pointer;
-}

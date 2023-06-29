@@ -17,12 +17,11 @@ function StartGameForm() {
       complete: false,
       activePlayer: true,
     })
-    console.log(formData)
   }
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
-    dispatch(actions.addUser(formData))
+    dispatch(actions.addUserThunk(formData))
   }
 
   return (
@@ -30,7 +29,7 @@ function StartGameForm() {
       <form onSubmit={handleSubmit}>
         <div id="start-game-form-container">
           <label htmlFor="username" className="username-form-field">
-            Username
+            ...enter name
           </label>
           <input
             type="text"
@@ -39,8 +38,13 @@ function StartGameForm() {
             onChange={handleChange}
             className="input-field"
           />
-          <input type="submit" id="submit" value="Start Game" />
         </div>
+        <input
+          className="start-button"
+          type="submit"
+          id="submit"
+          value="Start Game"
+        />{' '}
       </form>
     </>
   )
