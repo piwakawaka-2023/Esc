@@ -5,11 +5,11 @@ import { finishGameThunk } from '../actions/user'
 import { useParams } from 'react-router-dom'
 
 export default function Complete() {
-  const id = useParams()
+  const { userId } = useParams()
   const dispatch = useAppDispatch()
-  console.log('component', id)
+  const newId = Number(userId)
   useEffect(() => {
-    dispatch(finishGameThunk(Number(id)))
+    dispatch(finishGameThunk(Number(userId)))
   }, [])
 
   return (
