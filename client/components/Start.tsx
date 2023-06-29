@@ -3,9 +3,12 @@ import StartGameForm from './StartGameForm'
 import audioUrl from '/sounds/short-music.mp3'
 import { useSound } from 'use-sound'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 
 
 function Start() {
+  const [viewForm, setViewForm] = useState(true)
+  const [viewStart, setViewStart] = useState(false)
   const [play] = useSound(audioUrl, { volume: 0.5, loop: true })
   const handlePlay = () => {
     play()
@@ -19,14 +22,23 @@ function Start() {
             <ESCLogo />
           </div>
         </div>
-        <div id="start-form-container">
+        <div id="start-form-container" style={{ textAlign: 'center' }}>
           <div id="start-form">
-            <StartGameForm />
+            {viewForm && (
+              <StartGameForm
+                viewForm={viewForm}
+                setViewForm={setViewForm}
+                viewStart={viewStart}
+                setViewStart={setViewStart}
+              />
+            )}
+            {viewStart && (
+              <Link to="/game">
+                <button className="start-button">Start</button>
+              </Link>
+            )}
           </div>
         </div>
-        <Link to="/game">
-          <button>Start</button>
-        </Link>
       </div>
     </>
   )
