@@ -8,6 +8,7 @@ import audioUrl from '/sounds/short-music.mp3'
 export default function Complete() {
   const { userId } = useParams()
   const audio = new Audio(audioUrl)
+  audio.loop = true
 
   const dispatch = useAppDispatch()
   useEffect(() => {
@@ -16,7 +17,6 @@ export default function Complete() {
 
   const handleClick = () => {
     audio.play()
-    audio.loop = true
   }
 
   return (
