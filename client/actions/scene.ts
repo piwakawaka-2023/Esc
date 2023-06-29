@@ -22,9 +22,6 @@ export function getScene(scene: Scene[]): SceneAction {
 
 
 
-
-
-
 // Thunk Actions
 
 export function getOneScene(id: number): ThunkAction {
