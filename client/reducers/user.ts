@@ -1,6 +1,6 @@
 import { UserAction, FINISH_GAME } from '../actions/user'
 
-import { User } from '../../models/user'
+import { User } from '../../models/users'
 
 const initialState = [] as User[]
 
