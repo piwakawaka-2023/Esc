@@ -3,13 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-  return knex.schema.createTable('users', (table) => {
+  return knex.schema.createTable('scenes', (table) => {
     table.increments('id')
-    table.string('username')
-    table.integer('current_level_id')
-    table.integer('time')
-    table.boolean('complete')
-    table.boolean('active_player')
+    table.integer('level_id')
+    table.string('text')
   })
 }
 
@@ -18,5 +15,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-  return knex.schema.dropTable('users')
+  return knex.schema.dropTable('scenes')
 }
