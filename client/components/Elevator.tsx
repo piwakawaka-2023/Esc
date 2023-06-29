@@ -1,5 +1,5 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useRef, useState } from 'react'
 //IMAGES//
 import codeBg from '/images/code-bg.png'
@@ -12,6 +12,7 @@ export default function Elevator() {
   const [viewOpen, setViewOpen] = useState(true)
   const [levelNum, setLevelNum] = useState(1)
   const ref = useRef()
+  const { userId } = useParams()
 
   const handleClick = () => {
     setLift('/images/liftgif.gif')
@@ -137,7 +138,7 @@ export default function Elevator() {
                 </button>
               )}
               {viewExit && (
-                <Link to="./scene/2">
+                <Link to={`/game/${userId}/scene/2`}>
                   <button className="start-button">Exit</button>
                 </Link>
               )}

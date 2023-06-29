@@ -22,7 +22,7 @@ export function getScenes() {
         <div className="scene-card-content">
           <p>{curScene?.text}</p>
         </div>
-        <Link to="/">Next</Link>
+        <Link to={`level/${curScene?.levelId}`}>Next</Link>
       </div>
     </>
   )

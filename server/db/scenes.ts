@@ -8,5 +8,5 @@ export function getAllScenes(): Promise<Scene[]> {
 }
 
 export function getScene(id: number): Promise<Scene[]> {
-  return db('scenes').where({ id }).select('id', 'text')
+  return db('scenes').where({ id }).select('id', 'text', 'level_id  AS levelId')
 }
