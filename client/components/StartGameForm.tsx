@@ -14,18 +14,23 @@ function StartGameForm() {
 
   return (
     <>
-      <div>
-        <form>
-          <label htmlFor="username">Username:</label>
+      <form>
+        <div id="start-game-form-container">
+          <label htmlFor="username" className="username-form-field">
+            Username
+          </label>
           <input
             type="text"
             name="username"
             id="username"
             onChange={handleInput}
+            className="input-field"
           />
-          <button onSubmit={handleSubmit}>Start Game</button>
-        </form>
-      </div>
+          <button onSubmit={handleSubmit} className="start-button">
+            Start Game
+          </button>
+        </div>
+      </form>
     </>
   )
 }
