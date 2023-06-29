@@ -22,11 +22,27 @@ body {
   background-color: #114A67;
   width: 100%;
   min-height: 50vh;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 #esc-logo {
   background-color: #09364B;
   width: 50%;
   min-height: 50vh;
+  margin: 0 auto;
+}
+
+#start-form-container {
+  background-color: #09364B;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#start-form {
+  background-color: #114A67;
+  width: 50%;
+  min-height: 30vh;
   margin: 0 auto;
 }

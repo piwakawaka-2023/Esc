@@ -1,3 +1,5 @@
+import StartGameForm from './StartGameForm'
+
 function Start() {
   return (
     <>
@@ -8,12 +10,11 @@ function Start() {
           <p>3JS ESC LOGO</p>
         </div>
       </div>
-      <form>
-        <label htmlFor=""></label>
-        <input type="text" />
-        <label htmlFor=""></label>
-        <input type="text" />
-      </form>
+      <div id="start-form-container">
+        <div id="start-form">
+          <StartGameForm />
+        </div>
+      </div>
     </>
   )
 }
