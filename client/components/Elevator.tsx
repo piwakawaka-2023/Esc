@@ -1,9 +1,7 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { Link } from 'react-router-dom'
 import { useRef, useState } from 'react'
-
 //IMAGES//
-
 import codeBg from '/images/code-bg.png'
 import codeBg2 from '/images/code-bg2.png'
 import eye from '/images/eye.png'
