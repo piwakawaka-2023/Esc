@@ -1,5 +1,5 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 //IMAGES//
 
@@ -7,6 +7,8 @@ import codeBg from '../../public/images/code-bg.jpeg'
 import lift from '../../public/images/lift.jpeg'
 
 export default function Elevator() {
+  // const {userId} = useParams()
+
   return (
     <>
       <div className="elevator-shaft">
@@ -40,7 +42,7 @@ export default function Elevator() {
               <button>Next</button>
             </Link>
           </ParallaxLayer>
-          {/* this link goes to scene 2? */}
+          {/* this link goes to scene 2 with userId from use params */}
         </Parallax>
       </div>
     </>
