@@ -1,5 +1,5 @@
 import type { ThunkAction } from '../store'
-import { finishGame } from '../apis'
+import { completeGame } from '../apis/user'
 
 import { User } from '../../models/user'
 
@@ -23,28 +23,20 @@ export function showError(errorMessage: string): UserAction {
   }
 }
 
-export function finishGame(
-  id: number,
-  complete: boolean,
-  active: boolean
-): UserAction {
+export function finishGame(id: number): UserAction {
   return {
     type: FINISH_GAME,
-    payload: { id, complete, active },
+    payload: { id },
   }
 }
 
-export function finishGameThunk(
-  id: number,
-  complete: boolean,
-  active: boolean
-): ThunkAction {
+export function finishGameThunk(id: number): ThunkAction {
   return async (dispatch) => {
     try {
-      await completeGame(id, complete, active)
-      dispatch(finishGame(id, complete, active))
+      await completeGame(id)
+      dispatch(finishGame(id))
     } catch (err) {
-      dispatch(showError)
+      dispatch(showError(String(err)))
     }
   }
 }
