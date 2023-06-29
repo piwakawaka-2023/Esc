@@ -13,14 +13,16 @@ export default function Complete() {
 
   return (
     <>
-      <div className="complete">
-        <div className="complete-message">
-          <h1>congratulations on escaping...</h1>
-        </div>
-        <div className="replay">
-          <Link to="/">
-            <button className="replay-btn">Play Again</button>
-          </Link>
+      <div className="background-style">
+        <div className="complete">
+          <div className="complete-message">
+            <h1>...congratulations on escaping</h1>
+          </div>
+          <div className="replay">
+            <Link to="/">
+              <button className="replay-btn">PLAY AGAIN</button>
+            </Link>
+          </div>
         </div>
       </div>
     </>
