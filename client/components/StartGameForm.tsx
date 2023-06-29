@@ -1,20 +1,33 @@
 import { ChangeEvent, FormEvent, useState } from 'react'
+import * as actions from '../actions/user'
+import { useAppDispatch } from '../hooks/hooks'
+import { User } from '../../models/users'
 
 function StartGameForm() {
-  const [formData, setFormData] = useState()
+  const dispatch = useAppDispatch()
+  const [formData, setFormData] = useState({} as User)
 
-  const handleInput = (evt: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     //set form data
+    setFormData({
+      ...formData,
+      [evt.target.name]: evt.target.value,
+      currentLevelId: 0,
+      time: 0,
+      complete: false,
+      activePlayer: true,
+    })
+    console.log(formData)
   }
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
-    //submit form to thunk here
+    dispatch(actions.addUser(formData))
   }
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div id="start-game-form-container">
           <label htmlFor="username" className="username-form-field">
             Username
@@ -23,12 +36,10 @@ function StartGameForm() {
             type="text"
             name="username"
             id="username"
-            onChange={handleInput}
+            onChange={handleChange}
             className="input-field"
           />
-          <button onSubmit={handleSubmit} className="start-button">
-            Start Game
-          </button>
+          <input type="submit" id="submit" value="Start Game" />
         </div>
       </form>
     </>
