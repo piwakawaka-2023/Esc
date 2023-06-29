@@ -1,4 +1,5 @@
 import StartGameForm from './StartGameForm'
+import { Link } from 'react-router-dom'
 
 function Start() {
   return (
@@ -15,6 +16,9 @@ function Start() {
             <StartGameForm />
           </div>
         </div>
+        <Link to="/game">
+          <button>Start</button>
+        </Link>
       </div>
     </>
   )

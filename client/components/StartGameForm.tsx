@@ -43,7 +43,7 @@ function StartGameForm() {
           className="start-button"
           type="submit"
           id="submit"
-          value="Start Game"
+          value="Save"
         />{' '}
       </form>
     </>
