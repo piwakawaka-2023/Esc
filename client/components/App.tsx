@@ -6,13 +6,10 @@ import Start from './Start'
 
 import Nav from './Nav'
 
-
 function App() {
   return (
     <>
       {/* nav goes here */}
-
-      <Start />
 
       <Nav />
 
