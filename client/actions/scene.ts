@@ -1,4 +1,4 @@
-import * as api from './api/scene'
+import * as api from '../apis/scene'
 import { Scene, SceneAction } from '../../models/scenes'
 import { ThunkAction } from '../store'
 
