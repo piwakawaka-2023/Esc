@@ -4,7 +4,7 @@ import { useAppDispatch } from '../hooks/hooks'
 import { finishGame } from '../actions/user'
 import { useParams } from 'react-router-dom'
 
-export default function complete() {
+export default function Complete() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
   useEffect(() => {
