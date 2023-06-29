@@ -1,9 +1,8 @@
 export interface User {
   id: number
   username: string
-  current_level_id: number
+  currentLevelId: number
   time?: number
   complete: boolean
-  active_player: boolean
+  activePlayer: boolean
 }
-

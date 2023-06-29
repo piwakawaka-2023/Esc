@@ -1,4 +1,4 @@
-import { UserAction, FINISH_GAME } from '../actions/user'
+import { UserAction, FINISH_GAME, ADD_USER } from '../actions/user'
 
 import { User } from '../../models/users'
 
@@ -9,6 +9,8 @@ export default function userReducer(state = initialState, action: UserAction) {
   switch (type) {
     case FINISH_GAME:
       return payload
+    case ADD_USER:
+      return [payload, ...state]
     default:
       return state
   }
