@@ -2,7 +2,7 @@
 import { useEffect } from 'react'
 import { useAppDispatch } from '../hooks/hooks'
 import { finishGameThunk } from '../actions/user'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 export default function Complete() {
   const { userId } = useParams()
@@ -13,8 +13,15 @@ export default function Complete() {
 
   return (
     <>
-      <div className="complete-message">
-        <h1>CONGRATS YOURE OUT</h1>
+      <div className="complete">
+        <div className="complete-message">
+          <h1>congratulations on escaping...</h1>
+        </div>
+        <div className="replay">
+          <Link to="/">
+            <button className="replay-btn">Play Again</button>
+          </Link>
+        </div>
       </div>
     </>
   )
