@@ -4,6 +4,7 @@
 /* #114A67 (MEDIUM BLUE) */
 /* #09364B (DARK BLUE) */
 
+
 /* STANDARD BACKGROUND STYLE FOR START PAGE */
 
 .background-style {
@@ -16,6 +17,13 @@
   font-family: monospace;
   width: 100vw;
   height: 100vh;
+
+
+
+
+.elevator-shaft{
+  background-color: #09364B;
+
 }
 
 /* START PAGE STYLING */
@@ -89,4 +97,7 @@
   background-color: #0BD7EC;
   color:#09364B;
   border-color: #114A67;
+
+
+
 }

@@ -1,13 +1,13 @@
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { Scene } from '../../models/scenes'
 import * as actions from '../actions/scene'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 export function getScene() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
-  const navigate = useNavigate()
 
   useEffect(() => {
     dispatch(actions.getScene(Number(id)))
@@ -21,10 +21,7 @@ export function getScene() {
         <div className="scene-card-content">
           <p>{scene.text}</p>
         </div>
-        <input 
-        type="navigate to next"
-        onChange={() => navigate('/game')}>
-        </input>
+        <Link to="/">Next</Link>
       </div>
     </>
   )
