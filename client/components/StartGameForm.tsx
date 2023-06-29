@@ -29,7 +29,7 @@ function StartGameForm() {
       <form onSubmit={handleSubmit}>
         <div id="start-game-form-container">
           <label htmlFor="username" className="username-form-field">
-            Username
+            ...enter name
           </label>
           <input
             type="text"
@@ -38,8 +38,13 @@ function StartGameForm() {
             onChange={handleChange}
             className="input-field"
           />
-          <input type="submit" id="submit" value="Start Game" />
         </div>
+        <input
+          className="start-button"
+          type="submit"
+          id="submit"
+          value="Start Game"
+        />{' '}
       </form>
     </>
   )
