@@ -7,13 +7,12 @@ import { ThunkAction } from '../store'
 export const SET_SCENE = 'SET_SCENE'
 export const GET_SCENE = 'GET_SCENE'
 
-
 // Simple Actions
 
 export function allScenes(scene: Scene[]): SceneAction {
   return {
-  type: SET_SCENE,
-  payload: scene
+    type: SET_SCENE,
+    payload: scene,
   }
 }
 
@@ -23,13 +22,6 @@ export function getScene(scene: Scene[]): SceneAction {
     payload: scene,
   }
 }
-
-
-
-
-
-
-
 
 // Thunk Actions
 
@@ -54,4 +46,3 @@ export function getOneScene(id: number): ThunkAction {
     }
   }
 }
-

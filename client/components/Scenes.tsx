@@ -11,25 +11,29 @@ import slackUrl from '/sounds/wow.mp3'
 export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
+
   const [play] = useSound(slackUrl, { volume: 0.5 })
 
   const handlePlay = () => {
     play()
   }
 
+  const scene = useAppSelector((state) => state.scene) as Scene[]
+  const curScene = scene[0]
+
+
   useEffect(() => {
-    dispatch(actions.getScene(Number(id)))
+    dispatch(actions.getOneScene(Number(id)))
   }, [dispatch, id])
 
-  const [scene] = useAppSelector((state) => state.scene) as Scene[]
 
   return (
     <>
       <div className="scene-card" onClick={() => handlePlay()}>
         <div className="scene-card-content">
-          <p>{scene.text}</p>
+          <p>{curScene?.text}</p>
         </div>
-        <Link to="/">Next</Link>
+        <Link to={`level/${curScene?.levelId}`}>Next</Link>
       </div>
     </>
   )

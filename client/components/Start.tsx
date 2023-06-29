@@ -1,6 +1,9 @@
+import ESCLogo from './ESCLogo'
 import StartGameForm from './StartGameForm'
 import audioUrl from '/sounds/short-music.mp3'
 import { useSound } from 'use-sound'
+import { Link } from 'react-router-dom'
+
 
 function Start() {
   const [play] = useSound(audioUrl, { volume: 0.5, loop: true })
@@ -13,8 +16,7 @@ function Start() {
       <div className="background-style" onClick={() => handlePlay()}>
         <div id="esc-logo-container">
           <div id="esc-logo">
-            {/* 3JS Logo goes here */}
-            <p>3JS ESC LOGO</p>
+            <ESCLogo />
           </div>
         </div>
         <div id="start-form-container">
@@ -22,6 +24,9 @@ function Start() {
             <StartGameForm />
           </div>
         </div>
+        <Link to="/game">
+          <button>Start</button>
+        </Link>
       </div>
     </>
   )
