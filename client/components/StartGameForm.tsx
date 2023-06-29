@@ -44,7 +44,8 @@ function StartGameForm() {
           type="submit"
           id="submit"
           value="Save"
-        />{' '}
+        />
+
       </form>
     </>
   )
