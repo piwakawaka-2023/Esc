@@ -27,13 +27,11 @@
 /* START PAGE STYLING */
 
 #esc-logo-container {
-  background-color: #114A67;
   width: 100%;
   height: 60vh;
 }
 
 #esc-logo {
-  background-color: #09364B;
   width: 50%;
   height: 60vh;
   margin: 0 auto;

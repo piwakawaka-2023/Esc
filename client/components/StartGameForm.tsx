@@ -44,7 +44,7 @@ function StartGameForm() {
           type="submit"
           id="submit"
           value="Start Game"
-        />{' '}
+        />
       </form>
     </>
   )

@@ -1,3 +1,4 @@
+import ESCLogo from './ESCLogo'
 import StartGameForm from './StartGameForm'
 
 function Start() {
@@ -6,8 +7,7 @@ function Start() {
       <div className="background-style">
         <div id="esc-logo-container">
           <div id="esc-logo">
-            {/* 3JS Logo goes here */}
-            <p>3JS ESC LOGO</p>
+            <ESCLogo />
           </div>
         </div>
         <div id="start-form-container">
