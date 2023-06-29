@@ -8,7 +8,6 @@ export const SET_SCENE = 'SET_SCENE'
 export const GET_SCENE = 'GET_SCENE'
 
 
-
 // Simple Actions
 
 export function allScenes(scene: Scene[]): SceneAction {
@@ -51,7 +50,7 @@ export function getOneScene(id: number): ThunkAction {
       const sceneArr = await api.fetchScene(id)
       dispatch(getScene(sceneArr))
     } catch (err) {
-      console.error('oh no, get one review error')
+      console.error('oh no, get one scene bad', err)
     }
   }
 }
