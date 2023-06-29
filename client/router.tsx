@@ -26,6 +26,10 @@ const router = createBrowserRouter(
         path="/game/:userId/scene/:id/level/2"
         element={<Basement />}
       ></Route>
+      <Route
+        path="/game/:userId/scene/:id/level/3"
+        element={<Complete />}
+      ></Route>
       <Route path="/game/:userId/complete" element={<Complete />}></Route>
       {/* <Route path="path/:params" element={<Component />}></Route> */}
     </Route>
