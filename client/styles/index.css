@@ -4,16 +4,11 @@
 /* #114A67 (MEDIUM BLUE) */
 /* #09364B (DARK BLUE) */
 
-body {
-  background-color: #2E2D2B;
-  color: #0BD7EC;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  font-family: monospace;
-  width: 100vw;
-  height: 100vh;
+
+
+
+.elevator-shaft{
+  background-color: #09364B;
 }
 
 /* START PAGE STYLING */
@@ -45,4 +40,5 @@ body {
   width: 50%;
   min-height: 30vh;
   margin: 0 auto;
+
 }
