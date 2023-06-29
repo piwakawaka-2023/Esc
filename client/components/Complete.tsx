@@ -1,5 +1,5 @@
 //CHANGE USER STATE TO ACTIVE: FALSE COMPLETE: TRUE
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../hooks/hooks'
 import { finishGameThunk } from '../actions/user'
 import { useParams, Link } from 'react-router-dom'
@@ -7,6 +7,7 @@ import { useSound } from 'use-sound'
 import audioUrl from '/sounds/short-music.mp3'
 
 export default function Complete() {
+  const [playing, setPlaying] = useState(false)
   const { userId } = useParams()
   //audio.loop = true
 
@@ -18,7 +19,10 @@ export default function Complete() {
   }, [])
 
   const handlePlay = () => {
-    play()
+    if (!playing) {
+      play()
+      setPlaying(true)
+    }
   }
 
   return (
