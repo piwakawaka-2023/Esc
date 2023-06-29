@@ -4,10 +4,10 @@
  */
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex('levels').del()
-  await knex('levels').insert([
-    { id: 1, name: 'level 1' },
-    { id: 2, name: 'level 2' },
-    { id: 3, name: 'level 3' },
+  await knex('questions').del()
+  await knex('questions').insert([
+    { id: 1, text: 'Where are you from?' },
+    { id: 2, text: 'Why are you here?' },
+    { id: 3, text: 'When did you get here?' },
   ])
 }
