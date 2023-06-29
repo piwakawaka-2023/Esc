@@ -13,3 +13,4 @@ export function completeGame(id: number) {
     active_player: false,
   })
 }
+
