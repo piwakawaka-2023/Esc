@@ -9,18 +9,18 @@ import { Link } from 'react-router-dom'
 export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
+  const scene = useAppSelector((state) => state.scene) as Scene[]
+  const curScene = scene[0]
 
   useEffect(() => {
-    dispatch(actions.getScene(Number(id)))
+    dispatch(actions.getOneScene(Number(id)))
   }, [dispatch, id])
 
-  const [scene] = useAppSelector((state) => state.scene) as Scene[]
-  
   return (
     <>
       <div className="scene-card">
         <div className="scene-card-content">
-          <p>{scene.text}</p>
+          <p>{curScene?.text}</p>
         </div>
         <Link to="/">Next</Link>
       </div>

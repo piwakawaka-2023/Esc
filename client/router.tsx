@@ -14,7 +14,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index element={<Start />} />
-      <Route path="/scenes" element={<Scenes />}></Route>
+      <Route path="/scenes/:id" element={<Scenes />}></Route>
       <Route path="/game/:userId/elevator" element={<Elevator />}></Route>
       <Route path="/:userId/complete" element={<Complete />}></Route>
       {/* <Route path="path/:params" element={<Component />}></Route> */}
