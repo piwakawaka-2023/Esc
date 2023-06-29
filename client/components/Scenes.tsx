@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-export function getScene() {
+export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
 
@@ -15,7 +15,7 @@ export function getScene() {
   }, [dispatch, id])
 
   const [scene] = useAppSelector((state) => state.scene) as Scene[]
-
+  
   return (
     <>
       <div className="scene-card">
@@ -27,3 +27,5 @@ export function getScene() {
     </>
   )
 }
+
+export default getScenes

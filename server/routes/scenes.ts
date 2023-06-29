@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const id = +req.params.id
   try {
-    const review = await db.getScene(id)
-    res.json(review)
+    const scene = await db.getScene(id)
+    res.json(scene)
   } catch (error) {
     console.error('Oh no, route error', error)
     res.sendStatus(500)
