@@ -2,7 +2,9 @@ import type { ThunkAction } from '../store'
 import * as api from '../apis/user'
 
 import { User } from '../../models/users'
+
 import { application } from 'express'
+
 
 export const ADD_USER = 'ADD_USER'
 export const REQUEST_USER = 'REQUEST_USER'
@@ -16,8 +18,8 @@ export type UserAction =
   | { type: typeof REQUEST_USER; payload: User }
   | { type: typeof RECEIVE_USER; payload: User }
   | { type: typeof SET_USER; payload: User }
-  | { type: typeof FINISH_GAME; payload: User }
-  | { type: typeof SHOW_ERROR; payload: User }
+  | { type: typeof FINISH_GAME; payload: number }
+  | { type: typeof SHOW_ERROR; payload: string }
 
 export function showError(errorMessage: string): UserAction {
   return {
@@ -29,7 +31,7 @@ export function showError(errorMessage: string): UserAction {
 export function finishGame(id: number): UserAction {
   return {
     type: FINISH_GAME,
-    payload: { id },
+    payload: id,
   }
 }
 
