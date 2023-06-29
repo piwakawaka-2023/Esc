@@ -34,15 +34,11 @@ export function finishGame(
   }
 }
 
-export function finishGameThunk(
-  id: number,
-  complete: boolean,
-  active: boolean
-): ThunkAction {
+export function finishGameThunk(id: number): ThunkAction {
   return async (dispatch) => {
     try {
-      await completeGame(id, complete, active)
-      dispatch(finishGame(id, complete, active))
+      await completeGame(id)
+      dispatch(finishGame(id))
     } catch (err) {
       dispatch(showError)
     }
