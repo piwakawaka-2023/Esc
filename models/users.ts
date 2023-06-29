@@ -6,3 +6,4 @@ export interface User {
   complete: boolean
   active_player: boolean
 }
+
