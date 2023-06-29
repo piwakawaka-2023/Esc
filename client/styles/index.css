@@ -4,11 +4,15 @@
 /* #114A67 (MEDIUM BLUE) */
 /* #09364B (DARK BLUE) */
 
-body {
+/* body {
   position: absolute;
   top: 0;
   left: 0;
   margin: 0;
   padding: 20px;
   font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+} */
+
+.elevator-shaft{
+  background-color: #09364B;
 }
