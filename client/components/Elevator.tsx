@@ -6,26 +6,50 @@ import codeBg from '/images/code-bg.png'
 import codeBg2 from '/images/code-bg2.png'
 import eye from '/images/eye.png'
 
+import { useSound } from 'use-sound'
+import ambienceUrl from '/sounds/ambience.wav'
+import liftBellUrl from '/sounds/bell.wav'
+import liftDoorUrl from '/sounds/elevator-door.wav'
+
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
   const [viewExit, setViewExit] = useState(false)
   const [viewOpen, setViewOpen] = useState(true)
   const [levelNum, setLevelNum] = useState(1)
+
+  const [playAmbience] = useSound(ambienceUrl, { volume: 0.8, loop: true })
+  const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
+  const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
+
   const ref = useRef()
+
+  const handlePlay = () => {
+    playAmbience()
+  }
 
   const handleClick = () => {
     setLift('/images/liftgif.gif')
     setViewExit(true)
     setViewOpen(false)
+    liftDoorFx()
   }
 
   const incrLevel = () => {
     setLevelNum(levelNum + 1)
+    liftBellFx()
+  }
+
+  const liftBellFx = () => {
+    playLiftBell()
+  }
+
+  const liftDoorFx = () => {
+    playLiftDoor()
   }
 
   return (
     <>
-      <div className="elevator-shaft">
+      <div className="elevator-shaft" onClick={() => handlePlay()}>
         <Parallax
           pages={6}
           ref={ref}
