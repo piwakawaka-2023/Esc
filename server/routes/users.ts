@@ -19,7 +19,7 @@ router.patch('/:id', async (req, res) => {
     await db.completeGame(id)
     res.sendStatus(204)
   } catch (e) {
-    console.log('Update user status: ', err)
+    console.log('Update user status: ', e)
     res.sendStatus(500)
   }
 })
