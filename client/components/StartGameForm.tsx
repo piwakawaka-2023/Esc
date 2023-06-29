@@ -17,12 +17,11 @@ function StartGameForm() {
       complete: false,
       activePlayer: true,
     })
-    console.log(formData)
   }
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
-    dispatch(actions.addUser(formData))
+    dispatch(actions.addUserThunk(formData))
   }
 
   return (
