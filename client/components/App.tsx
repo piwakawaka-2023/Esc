@@ -1,12 +1,17 @@
-import complete from './Complete'
+
+import { Outlet } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
 
 function App() {
   return (
     <>
+
       <header className="header">
-        <h1>My Collection</h1>
+        <h1>App Comp</h1>
       </header>
-      <section className="main">{/* add your code here */}</section>
+      <Outlet />
+
     </>
   )
 }
