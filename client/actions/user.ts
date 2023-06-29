@@ -1,7 +1,7 @@
 import type { ThunkAction } from '../store'
 import { completeGame } from '../apis/user'
 
-import { User } from '../../models/user'
+import { User } from '../../models/users'
 
 export const REQUEST_USER = 'REQUEST_USER'
 export const RECEIVE_USER = 'RECEIVE_USER'
@@ -13,8 +13,8 @@ export type UserAction =
   | { type: typeof REQUEST_USER; payload: User }
   | { type: typeof RECEIVE_USER; payload: User }
   | { type: typeof SET_USER; payload: User }
-  | { type: typeof FINISH_GAME; payload: User }
-  | { type: typeof SHOW_ERROR; payload: User }
+  | { type: typeof FINISH_GAME; payload: number }
+  | { type: typeof SHOW_ERROR; payload: string }
 
 export function showError(errorMessage: string): UserAction {
   return {
@@ -26,7 +26,7 @@ export function showError(errorMessage: string): UserAction {
 export function finishGame(id: number): UserAction {
   return {
     type: FINISH_GAME,
-    payload: { id },
+    payload: id,
   }
 }
 

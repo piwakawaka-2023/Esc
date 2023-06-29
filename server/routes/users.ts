@@ -19,4 +19,15 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.patch('/:id', async (req, res) => {
+  const id = Number(req.params.id)
+  try {
+    await db.completeGame(id)
+    res.sendStatus(204)
+  } catch (e) {
+    console.log('Update user status: ', e)
+    res.sendStatus(500)
+  }
+})
+
 export default router
