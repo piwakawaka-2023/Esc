@@ -143,3 +143,14 @@
   border-color: #114A67;
   cursor: pointer;
 }
+
+
+/* NAV BAR */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+
+}
