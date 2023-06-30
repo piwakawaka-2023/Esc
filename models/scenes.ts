@@ -6,6 +6,7 @@ export interface SceneData {
 }
 
 export interface Scene extends SceneData {
+  levelId: any
   id: number
 }
 
