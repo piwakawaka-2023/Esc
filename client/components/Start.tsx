@@ -37,7 +37,7 @@ import { useState } from 'react'
               />
             )}
             {viewStart && (
-              <Link to="/game">
+              <Link to="/welcome">
                 <button className="start-button">Start</button>
               </Link>
             )}
