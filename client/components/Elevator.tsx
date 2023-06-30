@@ -7,7 +7,6 @@ import codeBg2 from '/images/code-bg2.png'
 import eye from '/images/eye.png'
 
 import { useSound } from 'use-sound'
-import ambienceUrl from '/sounds/ambience.wav'
 import liftBellUrl from '/sounds/bell.wav'
 import liftDoorUrl from '/sounds/elevator-door.wav'
 
@@ -18,19 +17,11 @@ export default function Elevator() {
   const [levelNum, setLevelNum] = useState(1)
 
   const [playing, setPlaying] = useState(false)
-  const [playAmbience] = useSound(ambienceUrl, { volume: 0.8, loop: true })
   const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
 
   const ref = useRef()
   const { userId } = useParams()
-
-  const handlePlay = () => {
-    if (!playing) {
-      playAmbience()
-      setPlaying(true)
-    }
-  }
 
   const handleClick = () => {
     setLift('/images/liftgif.gif')
@@ -54,7 +45,7 @@ export default function Elevator() {
 
   return (
     <>
-      <div className="elevator-shaft" onClick={() => handlePlay()}>
+      <div className="elevator-shaft">
         <Parallax
           pages={6}
           ref={ref}
