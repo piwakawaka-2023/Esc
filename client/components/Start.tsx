@@ -56,25 +56,6 @@ function Start() {
               )}
             </div>
           </div>
-          <div id="start-form-container" style={{ textAlign: 'center' }}>
-            <div id="start-form">
-              {viewForm && (
-                <StartGameForm
-                  viewForm={viewForm}
-                  setViewForm={setViewForm}
-                  viewStart={viewStart}
-                  setViewStart={setViewStart}
-                />
-              )}
-              {viewStart && (
-                <Link to="/welcome">
-                  <button className="start-button" onClick={() => handleStop()}>
-                    Start
-                  </button>
-                </Link>
-              )}
-            </div>
-          </div>
         </div>
       </div>
     </>
