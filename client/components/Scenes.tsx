@@ -21,25 +21,21 @@ export function getScenes() {
   const scene = useAppSelector((state) => state.scene) as Scene[]
   const curScene = scene[0]
 
-
   useEffect(() => {
     dispatch(actions.getOneScene(Number(id)))
   }, [dispatch, id])
 
-
   return (
     <>
-
       <div className="background-style">
-
-      <div className="scene-card" onClick={() => handlePlay()}>
-
-        <div className="scene-card-content">
-          <div className="slack-card-logo"></div>
-          <div className="slack-message">
-            <p>{curScene?.text}</p>
+        <div className="scene-card" onClick={() => handlePlay()}>
+          <div className="scene-card-content">
+            <div className="slack-card-logo"></div>
+            <div className="slack-message">
+              <p>{curScene?.text}</p>
+            </div>
+            <Link to={`level/${curScene?.levelId}`}>Next</Link>
           </div>
-          <Link to={`level/${curScene?.levelId}`}>Next</Link>
         </div>
       </div>
     </>

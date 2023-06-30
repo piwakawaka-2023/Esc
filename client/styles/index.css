@@ -24,6 +24,26 @@
 
 }
 
+/* MAIN NAV STYLING */
+.main-nav-container{
+  /* background-color: #0BD7EC; */
+  color:#0BD7EC;
+  width: 100%;
+  height: 5vh;
+}
+
+.btn-container {
+  width: 60vw;
+  margin: 0 auto;
+  text-align: right;
+}
+
+.nav-link {
+  text-decoration: none;
+  text-align: right;
+  color: #0BD7EC;
+}
+
 /* START PAGE STYLING */
 
 #esc-logo-container {
@@ -39,7 +59,7 @@
 
 #start-form-container {
   width: 100%;
-  height: 40vh;
+  height: 35vh;
 }
 
 #start-form {
@@ -185,5 +205,4 @@ ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-
-
+}
