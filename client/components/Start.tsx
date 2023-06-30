@@ -45,10 +45,8 @@ function Start() {
               />
             )}
             {viewStart && (
-              <Link to="/game">
-                <button className="start-button" onClick={() => handleStop()}>
-                  Start
-                </button>
+              <Link to="/welcome">
+                <button className="start-button" onClick={() => handleStop()}>Start</button>
               </Link>
             )}
           </div>

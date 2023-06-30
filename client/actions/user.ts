@@ -3,8 +3,6 @@ import * as api from '../apis/user'
 
 import { User } from '../../models/users'
 
-import { application } from 'express'
-
 export const ADD_USER = 'ADD_USER'
 export const REQUEST_USER = 'REQUEST_USER'
 export const RECEIVE_USER = 'RECEIVE_USER'
@@ -41,6 +39,13 @@ export function addUser(user: User): UserAction {
   }
 }
 
+export function getPlayingUser(user: User): UserAction {
+  return {
+    type: REQUEST_USER,
+    payload: user,
+  }
+}
+
 export function finishGameThunk(id: number): ThunkAction {
   return async (dispatch) => {
     try {
@@ -57,6 +62,17 @@ export function addUserThunk(user: User): ThunkAction {
     try {
       const newUser = await api.addUser(user)
       dispatch(addUser(newUser))
+    } catch (err) {
+      dispatch(showError(String(err)))
+    }
+  }
+}
+
+export function getPlayingUserThunk(): ThunkAction {
+  return async (dispatch) => {
+    try {
+      const playingUser = await api.getPlayingUser()
+      dispatch(getPlayingUser(playingUser))
     } catch (err) {
       dispatch(showError(String(err)))
     }

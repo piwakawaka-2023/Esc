@@ -14,7 +14,7 @@
   top: 0;
   left: 0;
   margin: 0;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
   width: 100vw;
   height: 100vh; 
 }
@@ -79,14 +79,14 @@
   padding: 10px 20px 10px 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
 }
 
 .start-button {
   background-color: #09364B;
   color: #0BD7EC;
   border: 2px solid #0BD7EC;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
   font-size: 1.7rem;
   border-radius: 5px;
   width: 12vw;
@@ -99,6 +99,39 @@
   background-color: #0BD7EC;
   color:#09364B;
   border-color: #114A67;
+}
+
+/* SCENE CARD STYLING */
+
+.scene-card-content {
+  width: 90vw;
+  height: 90vh;
+  background-color: #09364B;
+  border: 3px solid;
+  border-radius: 30px;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.slack-message {
+  width: 55vw;
+  height: 60vh;
+  background-color: white;
+  border-radius: 30px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  align-content: center;
+}
+
+.slack-card-logo {
+  background-color: #4A154C;
+  width: 30vh;
+  height: 60vh;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+
 }
 
 
@@ -133,7 +166,7 @@
   border: 1px solid;
   border-radius: 20px;
   border-color: #0BD7EC;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
   font-size: 2.3em;
 }
 
@@ -142,3 +175,15 @@
   color:#09364B;
   border-color: #114A67;
   cursor: pointer;
+
+}
+
+
+/* NAV BAR */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+

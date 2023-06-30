@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router-dom'
 import { User } from '../../models/users'
 import { useAppSelector } from '../hooks/hooks'
 import { Link } from 'react-router-dom'
@@ -27,21 +28,8 @@ export default function Game() {
 
   return (
     <>
-      <div className="background-style" onClick={() => handlePlay()}>
-        <div className="complete">
-          <div className="complete-message">
-            <h1>...hello {user.username}</h1>
-            <h1>...do you want to play a game?</h1>
-          </div>
-          <div className="replay">
-            <Link to={`./${user.id}/scene/1`}>
-              <button className="replay-btn" onClick={() => handlePlayFx()}>
-                Start Game
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
+      <h1>...do you want to play a game?</h1>
+      <Outlet />
     </>
   )
 }
