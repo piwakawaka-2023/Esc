@@ -23,21 +23,24 @@ export function getScenes() {
       <div className="background-style">
         <div className="scene-card-content">
           <div className="slack-card-logo">
-            <img src={logo}  alt="slack-icon"></img></div>
-            <br></br>
+            <img src={logo} alt="slack-icon"></img>
+          </div>
+          <br></br>
           <div className="slack-message">
             <p>{curScene?.text}</p>
           </div>
           <span></span>
           <Link to={`level/${curScene?.levelId}`}>Next</Link>
-        <div className="scene-card" onClick={() => handlePlay()}>
-        <div className="scene-card">
-          <div className="scene-card-content">
-            <div className="slack-card-logo"></div>
-            <div className="slack-message">
-              <p>{curScene?.text}</p>
+          <div className="scene-card" onClick={() => handlePlay()}>
+            <div className="scene-card">
+              <div className="scene-card-content">
+                <div className="slack-card-logo"></div>
+                <div className="slack-message">
+                  <p>{curScene?.text}</p>
+                </div>
+                <Link to={`level/${curScene?.levelId}`}>Next</Link>
+              </div>
             </div>
-            <Link to={`level/${curScene?.levelId}`}>Next</Link>
           </div>
         </div>
       </div>

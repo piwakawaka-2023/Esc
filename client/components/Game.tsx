@@ -4,8 +4,7 @@ import { useAppSelector } from '../hooks/hooks'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import slackUrl from '/sounds/wow.mp3'
-import { GameNav } from '../components/GameNav'
-
+import GameNav from '../components/GameNav'
 
 export default function Game() {
   // const user = useAppSelector((state) => state.user) as User
