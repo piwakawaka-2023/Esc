@@ -1,12 +1,12 @@
 import { Outlet } from 'react-router-dom'
-import Nav from './Nav'
+import GameNav from './GameNav'
 
 function App() {
   return (
     <>
       {/* nav goes here */}
 
-      <Nav />
+      <GameNav />
 
       <Outlet />
     </>
