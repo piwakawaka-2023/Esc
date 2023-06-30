@@ -11,15 +11,15 @@ exports.seed = async function (knex) {
       username: 'Jesse',
       current_level_id: 0,
       time: 0,
-      complete: false,
-      active_player: true,
+      complete: true,
+      active_player: false,
     },
     {
       id: 2,
       username: 'Gabby',
       current_level_id: 0,
       time: 0,
-      complete: false,
+      complete: true,
       active_player: false,
     },
     {
@@ -27,7 +27,7 @@ exports.seed = async function (knex) {
       username: 'Tayla',
       current_level_id: 0,
       time: 0,
-      complete: false,
+      complete: true,
       active_player: false,
     },
   ])
