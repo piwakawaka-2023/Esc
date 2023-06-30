@@ -1,27 +1,33 @@
 //CHANGE USER STATE TO ACTIVE: FALSE COMPLETE: TRUE
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../hooks/hooks'
 import { finishGameThunk } from '../actions/user'
 import { useParams, Link } from 'react-router-dom'
+import { useSound } from 'use-sound'
 import audioUrl from '/sounds/short-music.mp3'
 
 export default function Complete() {
+  const [playing, setPlaying] = useState(false)
   const { userId } = useParams()
-  const audio = new Audio(audioUrl)
-  audio.loop = true
+  //audio.loop = true
+
+  const [play] = useSound(audioUrl, { volume: 0.5, loop: true })
+
+  const handlePlay = () => {
+    if (!playing) {
+      play()
+      setPlaying(true)
+    }
+  }
 
   const dispatch = useAppDispatch()
   useEffect(() => {
     dispatch(finishGameThunk(Number(userId)))
   }, [])
 
-  const handleClick = () => {
-    audio.play()
-  }
-
   return (
     <>
-      <div className="background-style" onClick={() => handleClick()}>
+      <div className="background-style" onClick={() => handlePlay()}>
         <div className="complete">
           <div className="complete-message">
             <h1>...congratulations on escaping</h1>

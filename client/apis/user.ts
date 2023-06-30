@@ -6,6 +6,11 @@ export async function addUser(user: User) {
   return res.body
 }
 
+export async function getPlayingUser() {
+  const res = await request.get('/api/v1/users')
+  return res.body
+}
+
 export async function completeGame(id: number) {
   console.log(id)
   return request.patch(`/api/v1/users/${id}`)

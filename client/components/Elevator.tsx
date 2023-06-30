@@ -6,11 +6,22 @@ import codeBg from '/images/code-bg.png'
 import codeBg2 from '/images/code-bg2.png'
 import eye from '/images/eye.png'
 
+import { useSound } from 'use-sound'
+import liftBellUrl from '/sounds/bell.wav'
+import liftDoorUrl from '/sounds/elevator-door.wav'
+import slackUrl from '/sounds/wow.mp3'
+
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
   const [viewExit, setViewExit] = useState(false)
   const [viewOpen, setViewOpen] = useState(true)
   const [levelNum, setLevelNum] = useState(1)
+
+  const [playing, setPlaying] = useState(false)
+  const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
+  const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
+  const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
+
   const ref = useRef()
   const { userId } = useParams()
 
@@ -18,10 +29,24 @@ export default function Elevator() {
     setLift('/images/liftgif.gif')
     setViewExit(true)
     setViewOpen(false)
+    liftDoorFx()
   }
 
   const incrLevel = () => {
     setLevelNum(levelNum + 1)
+    liftBellFx()
+  }
+
+  const liftBellFx = () => {
+    playLiftBell()
+  }
+
+  const liftDoorFx = () => {
+    playLiftDoor()
+  }
+
+  const handlePlayFx = () => {
+    playSlackUrl()
   }
 
   return (
@@ -139,7 +164,12 @@ export default function Elevator() {
               )}
               {viewExit && (
                 <Link to={`/game/${userId}/scene/2`}>
-                  <button className="start-button">Exit</button>
+                  <button
+                    className="start-button"
+                    onClick={() => handlePlayFx()}
+                  >
+                    Exit
+                  </button>
                 </Link>
               )}
             </div>

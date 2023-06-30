@@ -10,6 +10,7 @@ import logo from '../../public/images/slack-icon.png'
 export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
+
   const scene = useAppSelector((state) => state.scene) as Scene[]
   const curScene = scene[0]
 
@@ -29,6 +30,15 @@ export function getScenes() {
           </div>
           <span></span>
           <Link to={`level/${curScene?.levelId}`}>Next</Link>
+        <div className="scene-card" onClick={() => handlePlay()}>
+        <div className="scene-card">
+          <div className="scene-card-content">
+            <div className="slack-card-logo"></div>
+            <div className="slack-message">
+              <p>{curScene?.text}</p>
+            </div>
+            <Link to={`level/${curScene?.levelId}`}>Next</Link>
+          </div>
         </div>
       </div>
     </>

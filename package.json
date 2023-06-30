@@ -74,7 +74,8 @@
     "sqlite3": "^5.1.2",
     "superagent": "7.1.1",
     "three": "^0.153.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "use-sound": "^4.0.1"
   },
   "prettier": {
     "semi": false,

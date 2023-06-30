@@ -19,6 +19,15 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+router.get('/', async (req, res, next) => {
+  try {
+    const playingUser = await db.getPlayingUser()
+    res.json(playingUser[0])
+  } catch (e) {
+    next(e)
+  }
+})
+
 router.patch('/:id', async (req, res) => {
   const id = Number(req.params.id)
   try {
