@@ -29,11 +29,18 @@ export function getScenes() {
 
   return (
     <>
+
+      <div className="background-style">
+
       <div className="scene-card" onClick={() => handlePlay()}>
+
         <div className="scene-card-content">
-          <p>{curScene?.text}</p>
+          <div className="slack-card-logo"></div>
+          <div className="slack-message">
+            <p>{curScene?.text}</p>
+          </div>
+          <Link to={`level/${curScene?.levelId}`}>Next</Link>
         </div>
-        <Link to={`level/${curScene?.levelId}`}>Next</Link>
       </div>
     </>
   )
