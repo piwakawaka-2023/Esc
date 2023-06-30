@@ -20,6 +20,7 @@ export function getScenes() {
   return (
     <>
       <div className="background-style">
+        <div className="scene-card" onClick={() => handlePlay()}>
         <div className="scene-card">
           <div className="scene-card-content">
             <div className="slack-card-logo"></div>
