@@ -14,7 +14,7 @@
   top: 0;
   left: 0;
   margin: 0;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
   width: 100vw;
   height: 100vh; 
 }
@@ -79,14 +79,14 @@
   padding: 10px 20px 10px 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
 }
 
 .start-button {
   background-color: #09364B;
   color: #0BD7EC;
   border: 2px solid #0BD7EC;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
   font-size: 1.7rem;
   border-radius: 5px;
   width: 12vw;
@@ -133,7 +133,7 @@
   border: 1px solid;
   border-radius: 20px;
   border-color: #0BD7EC;
-  font-family: monospace;
+  font-family: 'B612 Mono', monospace;
   font-size: 2.3em;
 }
 
