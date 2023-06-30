@@ -27,16 +27,12 @@ export default function Complete() {
 
   return (
     <>
-      <div className="background-style" onClick={() => handlePlay()}>
-        <div className="complete">
-          <div className="complete-message">
-            <h1>...congratulations on escaping</h1>
-          </div>
-          <div className="replay">
-            <Link to="/">
-              <button className="replay-btn">PLAY AGAIN</button>
-            </Link>
-          </div>
+      <div className="grey-background" onClick={() => handlePlay()}>
+        <div className="screen">
+          <h2 className="screen-message">...congratulations on escaping</h2>
+          <Link to="/">
+            <button className="blue-button">PLAY AGAIN</button>
+          </Link>
         </div>
       </div>
     </>

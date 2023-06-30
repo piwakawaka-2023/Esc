@@ -30,7 +30,7 @@ function Start() {
   return (
     <>
       <div>
-        <div className="background-style" onClick={() => handlePlay()}>
+        <div className="grey-background" onClick={() => handlePlay()}>
           <div className="main-nav-container">
             <MainNav />
           </div>
@@ -51,7 +51,7 @@ function Start() {
               )}
               {viewStart && (
                 <Link to="/welcome">
-                  <button className="start-button">Start</button>
+                  <button className="blue-button">Start</button>
                 </Link>
               )}
             </div>

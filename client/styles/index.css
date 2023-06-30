@@ -7,7 +7,7 @@
 
 /* STANDARD BACKGROUND STYLE FOR START PAGE */
 
-.background-style {
+.grey-background {
   background-color: #2E2D2B;
   color: #0BD7EC;
   position: absolute;
@@ -19,10 +19,6 @@
   height: 100vh; 
 }
 
-.elevator-shaft{
-  background-color: #09364B;
-
-}
 
 /* MAIN NAV STYLING */
 .main-nav-container{
@@ -36,6 +32,47 @@
   width: 60vw;
   margin: 0 auto;
   text-align: right;
+}
+
+.blue-button{
+  background-color: #114A67;
+  color: #0BD7EC;
+  width: 303px;
+  height: 67px;
+  border: 1px solid;
+  border-radius: 20px;
+  border-color: #0BD7EC;
+  font-family: 'B612 Mono', monospace;
+  font-size: 2.3em;
+}
+
+.blue-button:hover {
+  background-color: #0BD7EC;
+  color:#09364B;
+  border-color: #114A67;
+  cursor: pointer;
+  
+}
+
+.screen {
+  width: 996px;
+  height: 570px;
+  margin: 0 auto;
+  margin-top: 131px;
+  text-align: center;
+  background-color: #09364B;
+  border: 3px solid;
+  border-radius: 30px;
+  border-color: #0BD7EC;
+}
+
+.screen-message {
+  font-size: 1.8em;
+  margin-top: 180px;
+}
+
+.replay {
+  margin-top: 120px;
 }
 
 .nav-link {
@@ -62,6 +99,10 @@
   height: 35vh;
 }
 
+.elevator-shaft{
+  background-color: #09364B;
+
+}
 #start-form {
   background-color: #09364B;
   width: 60%;
@@ -165,48 +206,9 @@
 }
 
 
-/* GAME COMPLETE PAGE STYLING */
 
-.complete {
-  width: 996px;
-  height: 570px;
-  margin: 0 auto;
-  margin-top: 131px;
-  text-align: center;
-  background-color: #09364B;
-  border: 3px solid;
-  border-radius: 30px;
-  border-color: #0BD7EC;
-}
 
-.complete-message {
-  font-size: 1.8em;
-  margin-top: 180px;
-}
 
-.replay {
-  margin-top: 120px;
-}
-
-.replay-btn {
-  background-color: #114A67;
-  color: #0BD7EC;
-  width: 303px;
-  height: 67px;
-  border: 1px solid;
-  border-radius: 20px;
-  border-color: #0BD7EC;
-  font-family: 'B612 Mono', monospace;
-  font-size: 2.3em;
-}
-
-.replay-btn:hover {
-  background-color: #0BD7EC;
-  color:#09364B;
-  border-color: #114A67;
-  cursor: pointer;
-
-}
 
 
 /* NAV BAR */
