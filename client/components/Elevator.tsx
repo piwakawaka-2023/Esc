@@ -17,6 +17,7 @@ export default function Elevator() {
   const [viewOpen, setViewOpen] = useState(true)
   const [levelNum, setLevelNum] = useState(1)
 
+  const [playing, setPlaying] = useState(false)
   const [playAmbience] = useSound(ambienceUrl, { volume: 0.8, loop: true })
   const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
@@ -25,7 +26,10 @@ export default function Elevator() {
   const { userId } = useParams()
 
   const handlePlay = () => {
-    playAmbience()
+    if (!playing) {
+      playAmbience()
+      setPlaying(true)
+    }
   }
 
   const handleClick = () => {
