@@ -6,6 +6,7 @@ import { useSound } from 'use-sound'
 import ambienceUrl from '/sounds/ambience.wav'
 import { useState } from 'react'
 import slackUrl from '/sounds/wow.mp3'
+import { GameNav } from '../components/GameNav'
 
 export default function Game() {
   // const user = useAppSelector((state) => state.user) as User
@@ -28,6 +29,7 @@ export default function Game() {
 
   return (
     <>
+      <GameNav />
       <h1>...do you want to play a game?</h1>
       <Outlet />
     </>
