@@ -1,11 +1,17 @@
+import { useEffect } from 'react'
 import { User } from '../../models/users'
-import { useAppSelector } from '../hooks/hooks'
+import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { Link } from 'react-router-dom'
+import * as actions from '../actions/user'
 
 export default function Welcome() {
-  // const user = useAppSelector((state) => state.user) as User
+  const dispatch = useAppDispatch()
 
-  const user = { username: 'Gaby', id: 0 }
+  useEffect(() => {
+    dispatch(actions.getPlayingUserThunk())
+  }, [dispatch])
+
+  const user = useAppSelector((state) => state.user) as User
 
   return (
     <>
