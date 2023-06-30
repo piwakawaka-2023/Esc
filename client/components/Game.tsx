@@ -9,10 +9,19 @@ export default function Game() {
 
   return (
     <>
-      <p>Hello {user.username}</p>
-      <Link to={`./${user.id}/scene/1`}>
-        <button>Start Game</button>
-      </Link>
+      <div className="background-style">
+        <div className="complete">
+          <div className="complete-message">
+            <h1>...hello {user.username}</h1>
+            <h1>...do you want to play a game?</h1>
+          </div>
+          <div className="replay">
+            <Link to={`./${user.id}/scene/1`}>
+              <button className="replay-btn">Start Game</button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
