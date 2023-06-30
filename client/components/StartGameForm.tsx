@@ -2,8 +2,16 @@ import { ChangeEvent, FormEvent, useState } from 'react'
 import * as actions from '../actions/user'
 import { useAppDispatch } from '../hooks/hooks'
 import { User } from '../../models/users'
+import { Dispatch, SetStateAction } from 'react'
 
-function StartGameForm() {
+interface Props {
+  viewForm: boolean
+  setViewForm: Dispatch<SetStateAction<boolean>>
+  viewStart: boolean
+  setViewStart: Dispatch<SetStateAction<boolean>>
+}
+
+function StartGameForm(props: Props) {
   const dispatch = useAppDispatch()
   const [formData, setFormData] = useState({} as User)
 
@@ -22,11 +30,13 @@ function StartGameForm() {
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
     dispatch(actions.addUserThunk(formData))
+    props.setViewForm(!props.viewForm)
+    props.setViewStart(!props.viewStart)
   }
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form style={{ textAlign: 'center' }} onSubmit={handleSubmit}>
         <div id="start-game-form-container">
           <label htmlFor="username" className="username-form-field">
             ...enter name
@@ -45,7 +55,6 @@ function StartGameForm() {
           id="submit"
           value="Save"
         />
-
       </form>
     </>
   )
