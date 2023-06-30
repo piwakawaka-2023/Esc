@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom'
 import { useSound } from 'use-sound'
 import ambienceUrl from '/sounds/ambience.wav'
 import { useState } from 'react'
+import slackUrl from '/sounds/wow.mp3'
 
 export default function Game() {
   // const user = useAppSelector((state) => state.user) as User
   const user = { username: 'Gaby', id: 0 }
 
   const [playing, setPlaying] = useState(false)
+  const [play] = useSound(slackUrl, { volume: 0.5 })
   const [playAmbience] = useSound(ambienceUrl, { volume: 0.8, loop: true })
 
   const handlePlay = () => {
@@ -17,6 +19,10 @@ export default function Game() {
       playAmbience()
       setPlaying(true)
     }
+  }
+
+  const handlePlayFx = () => {
+    play()
   }
 
   return (
@@ -29,7 +35,9 @@ export default function Game() {
           </div>
           <div className="replay">
             <Link to={`./${user.id}/scene/1`}>
-              <button className="replay-btn">Start Game</button>
+              <button className="replay-btn" onClick={() => handlePlayFx()}>
+                Start Game
+              </button>
             </Link>
           </div>
         </div>
