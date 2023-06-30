@@ -7,9 +7,9 @@ import codeBg2 from '/images/code-bg2.png'
 import eye from '/images/eye.png'
 
 import { useSound } from 'use-sound'
-import ambienceUrl from '/sounds/ambience.wav'
 import liftBellUrl from '/sounds/bell.wav'
 import liftDoorUrl from '/sounds/elevator-door.wav'
+import slackUrl from '/sounds/wow.mp3'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -18,19 +18,12 @@ export default function Elevator() {
   const [levelNum, setLevelNum] = useState(1)
 
   const [playing, setPlaying] = useState(false)
-  const [playAmbience] = useSound(ambienceUrl, { volume: 0.8, loop: true })
   const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
+  const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
 
   const ref = useRef()
   const { userId } = useParams()
-
-  const handlePlay = () => {
-    if (!playing) {
-      playAmbience()
-      setPlaying(true)
-    }
-  }
 
   const handleClick = () => {
     setLift('/images/liftgif.gif')
@@ -52,9 +45,13 @@ export default function Elevator() {
     playLiftDoor()
   }
 
+  const handlePlayFx = () => {
+    playSlackUrl()
+  }
+
   return (
     <>
-      <div className="elevator-shaft" onClick={() => handlePlay()}>
+      <div className="elevator-shaft">
         <Parallax
           pages={6}
           ref={ref}
@@ -167,7 +164,12 @@ export default function Elevator() {
               )}
               {viewExit && (
                 <Link to={`/game/${userId}/scene/2`}>
-                  <button className="start-button">Exit</button>
+                  <button
+                    className="start-button"
+                    onClick={() => handlePlayFx()}
+                  >
+                    Exit
+                  </button>
                 </Link>
               )}
             </div>

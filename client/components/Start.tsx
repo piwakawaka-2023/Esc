@@ -10,12 +10,20 @@ function Start() {
   const [playing, setPlaying] = useState(false)
   const [viewForm, setViewForm] = useState(true)
   const [viewStart, setViewStart] = useState(false)
-  const [play] = useSound(audioUrl, { volume: 0.5, loop: true })
+  const [play, { stop }] = useSound(audioUrl, { volume: 0.5, loop: true })
 
   const handlePlay = () => {
     if (!playing) {
       play()
       setPlaying(true)
+    }
+  }
+
+  const handleStop = () => {
+    console.log('stop')
+    if (playing) {
+      stop()
+      setPlaying(false)
     }
   }
 
@@ -47,6 +55,22 @@ function Start() {
                 </Link>
               )}
             </div>
+        </div>
+        <div id="start-form-container" style={{ textAlign: 'center' }}>
+          <div id="start-form">
+            {viewForm && (
+              <StartGameForm
+                viewForm={viewForm}
+                setViewForm={setViewForm}
+                viewStart={viewStart}
+                setViewStart={setViewStart}
+              />
+            )}
+            {viewStart && (
+              <Link to="/welcome">
+                <button className="start-button" onClick={() => handleStop()}>Start</button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
