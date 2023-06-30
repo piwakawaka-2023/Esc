@@ -5,16 +5,24 @@ import { useSound } from 'use-sound'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 
- function Start() {
+function Start() {
   const [playing, setPlaying] = useState(false)
   const [viewForm, setViewForm] = useState(true)
   const [viewStart, setViewStart] = useState(false)
-  const [play] = useSound(audioUrl, { volume: 0.5, loop: true })
+  const [play, { stop }] = useSound(audioUrl, { volume: 0.5, loop: true })
 
   const handlePlay = () => {
     if (!playing) {
       play()
       setPlaying(true)
+    }
+  }
+
+  const handleStop = () => {
+    console.log('stop')
+    if (playing) {
+      stop()
+      setPlaying(false)
     }
   }
 
@@ -38,7 +46,7 @@ import { useState } from 'react'
             )}
             {viewStart && (
               <Link to="/welcome">
-                <button className="start-button">Start</button>
+                <button className="start-button" onClick={() => handleStop()}>Start</button>
               </Link>
             )}
           </div>

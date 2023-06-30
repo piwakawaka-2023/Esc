@@ -13,17 +13,17 @@ export default function Complete() {
 
   const [play] = useSound(audioUrl, { volume: 0.5, loop: true })
 
-  const dispatch = useAppDispatch()
-  useEffect(() => {
-    dispatch(finishGameThunk(Number(userId)))
-  }, [])
-
   const handlePlay = () => {
     if (!playing) {
       play()
       setPlaying(true)
     }
   }
+
+  const dispatch = useAppDispatch()
+  useEffect(() => {
+    dispatch(finishGameThunk(Number(userId)))
+  }, [])
 
   return (
     <>
