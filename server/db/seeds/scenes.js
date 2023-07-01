@@ -17,14 +17,14 @@ exports.seed = async function (knex) {
     {
       id: 2,
       level_id: 2,
-      text: "hey, Just checking in that your still in the building? I left my swipe card in the basement if you're still around maybe you could grab for me? Sorry should've mentioned before you turned all the lights off. Don't mind the javascript carnival gang, they get a little restless down there. But anyways let me know!",
+      text: "hey, Just checking in that you, still in the building? I left my swipe card in the basement if you're still around maybe you could grab for me? Sorry should've mentioned before you turned all the lights off. Don't mind the javascript carnival gang, they get a little restless down there. But anyways let me know!",
       final: false,
       slack: '7:53 PM Spread love everywhere you go.',
     },
     {
       id: 3,
       level_id: 3,
-      text: 'cool',
+      text: 'WOW, Thanks so much for grabbing my swipecard! Luckily you got out of there before the javascript carnival gang got to you!!',
       final: false,
       slack: 'Message from Slack',
     },
