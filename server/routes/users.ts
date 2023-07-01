@@ -39,4 +39,15 @@ router.patch('/:id', async (req, res) => {
   }
 })
 
+router.patch('/updateTime/:id', async (req, res, next) => {
+  const id = +req.params.id //could be user.id ?
+  const time = req.body
+  try {
+    await db.updatePlayingTime(id, time)
+    res.sendStatus(204)
+  } catch (e) {
+    next(e)
+  }
+})
+
 export default router

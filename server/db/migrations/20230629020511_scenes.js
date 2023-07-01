@@ -8,6 +8,7 @@ exports.up = function (knex) {
     table.integer('level_id')
     table.string('text')
     table.boolean('final')
+    table.string('slack')
   })
 }
 
