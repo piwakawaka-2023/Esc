@@ -22,7 +22,6 @@ const router = createBrowserRouter(
         <Route path=":userId/scene/:id" element={<Scenes />}></Route>
         <Route path=":userId/scene/:id/level/1" element={<Elevator />}></Route>
         <Route path=":userId/scene/:id/level/2" element={<Basement />}></Route>
-        <Route path=":userId/scene/:id/level/3" element={<Complete />}></Route>
       </Route>
 
       <Route path="/complete" element={<Complete />}></Route>
