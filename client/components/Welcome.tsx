@@ -34,19 +34,17 @@ export default function Welcome() {
 
   return (
     <>
-      <div className="background-style" onClick={() => handlePlay()}>
-        <div className="complete">
-          <div className="complete-message">
-            <h1>...hello {user.username}</h1>
-            <h1>...do you want to play a game?</h1>
-          </div>
-          <div className="replay">
-            <Link to={`/game/${user.id}/scene/1`}>
-              <button className="replay-btn" onClick={() => handlePlayFx()}>
-                Start Game
-              </button>
-            </Link>
-          </div>
+      <div className="grey-background" onClick={() => handlePlay()}>
+        <div className="screen">
+          <h1 className="screen-message typewriter">
+            ...hello {user.username}, do you want to play a game?
+          </h1>
+
+          <Link to={`/game/${user.id}/scene/1`}>
+            <button className="blue-button" onClick={() => handlePlayFx()}>
+              Start Game
+            </button>
+          </Link>
         </div>
       </div>
     </>

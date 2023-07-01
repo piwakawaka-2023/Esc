@@ -7,23 +7,6 @@
 
 /* STANDARD BACKGROUND STYLE FOR START PAGE */
 
-.background-style {
-  background-color: #2E2D2B;
-  color: #0BD7EC;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  font-family: 'B612 Mono', monospace;
-  width: 100vw;
-  height: 100vh; 
-}
-
-.elevator-shaft{
-  background-color: #09364B;
-
-}
-
 /* MAIN NAV STYLING */
 .main-nav-container{
   /* background-color: #0BD7EC; */
@@ -32,11 +15,75 @@
   height: 5vh;
 }
 
+.grey-background {
+  background-color: #2E2D2B;
+  color: #0BD7EC;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  /* padding: 20px; */
+  font-family: 'B612 Mono', monospace;
+  width: 100vw;
+  height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
 .btn-container {
   width: 60vw;
   margin: 0 auto;
   text-align: right;
 }
+
+.blue-button{
+  background-color: #114A67;
+  color: #0BD7EC;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #0BD7EC;
+  font-family: 'B612 Mono', monospace;
+  font-size: 2em;
+  font-weight: 500;
+  padding: 10px 15px 10px 15px;
+  margin: 20px;
+}
+
+.blue-button:hover {
+  background-color: #0BD7EC;
+  color:#09364B;
+  border-color: #114A67;
+  cursor: pointer;
+  
+}
+
+.screen {
+  min-width: 60%;
+  /* height: 570px; */ 
+  margin: 0 auto;
+  text-align: center;
+  background-color: #09364B;
+  border: 3px solid;
+  border-radius: 30px;
+  border-color: #0BD7EC;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+}
+
+.screen-message {
+  font-size: 1.4em;
+  padding: 30px;
+  font-weight: 400;
+}
+
+/* .replay {
+  margin-top: 120px;
+} */
 
 .nav-link {
   text-decoration: none;
@@ -57,19 +104,19 @@
   margin: 0 auto;
 }
 
-#start-form-container {
+/* #start-form-container {
   width: 100%;
   height: 35vh;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+} */
+
+.elevator-shaft{
+  background-color: #09364B;
+
 }
 
-#start-form {
-  background-color: #09364B;
-  width: 60%;
-  border: 4px solid #0BD7EC;
-  border-radius: 20px;
-  min-height: 30vh;
-  margin: 0 auto;
-}
 
 /* START GAME FORM STYLING */
 
@@ -80,29 +127,31 @@
   justify-content: center;
 }
 
-.username-form-field {
+.form-label {
   padding: 10px 20px 10px 20px;
-  font-size: 3rem;
+  font-size: 1.8rem;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
+  font-weight:100;
+}
+
+input{
+  background-color: #114A67;
+  border: 3px solid #0BD7EC;
 }
 
 .input-field {
-  background-color: #114A67;
-  border: 3px solid #0BD7EC;
+ 
   border-radius: 20px;
   color: #0BD7EC;
   margin: 0 auto;
-  font-size: 2.5rem;
-  width: 24vw;
+  font-size: 1.8rem;
   padding: 10px 20px 10px 20px;
-  margin-top: 10px;
-  margin-bottom: 10px;
   font-family: 'B612 Mono', monospace;
 }
 
-.start-button {
+/* .start-button {
   background-color: #09364B;
   color: #0BD7EC;
   border: 2px solid #0BD7EC;
@@ -118,12 +167,12 @@
 .start-button:hover {
   background-color: #0BD7EC;
   color:#09364B;
-  border-color: #114A67;
+  border-color: #114A67; */
 }
 
 /* SCENE CARD STYLING */
 
-.scene-card-content {
+/* .scene-card-content {
   width: 90vw;
   height: 90vh;
   background-color: #09364B;
@@ -131,7 +180,7 @@
   border-radius: 30px;
   margin: 0 auto;
   margin-top: 50px;
-}
+} */
 
 .slack-card {
   margin-top: 50px;
@@ -160,10 +209,8 @@
   width: 30vh;
   height: 60vh;
   border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
-  text-align: center;
+  border-bottom-left-radius: 30px;text-align: center;
 }
-
 
 .logo {
   margin-top: 45px;
@@ -176,55 +223,33 @@
 }
 
 
-
-/* GAME COMPLETE PAGE STYLING */
-
-.complete {
-  width: 996px;
-  height: 570px;
-  margin: 0 auto;
-  margin-top: 131px;
-  text-align: center;
-  background-color: #09364B;
-  border: 3px solid;
-  border-radius: 30px;
-  border-color: #0BD7EC;
-}
-
-.complete-message {
-  font-size: 1.8em;
-  margin-top: 180px;
-}
-
-.replay {
-  margin-top: 120px;
-}
-
-.replay-btn {
-  background-color: #114A67;
-  color: #0BD7EC;
-  width: 303px;
-  height: 67px;
-  border: 1px solid;
-  border-radius: 20px;
-  border-color: #0BD7EC;
-  font-family: 'B612 Mono', monospace;
-  font-size: 2.3em;
-}
-
-.replay-btn:hover {
-  background-color: #0BD7EC;
-  color:#09364B;
-  border-color: #114A67;
-  cursor: pointer;
-
-}
-
-
 /* NAV BAR */
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.typewriter{
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #0BD7EC ; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #0BD7EC }
 }
