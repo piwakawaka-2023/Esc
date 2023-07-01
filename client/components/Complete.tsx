@@ -11,12 +11,20 @@ export default function Complete() {
   const { userId } = useParams()
   //audio.loop = true
 
-  const [play] = useSound(audioUrl, { volume: 0.5, loop: true })
+  const [play, { stop }] = useSound(audioUrl, { volume: 0.5, loop: true })
 
   const handlePlay = () => {
     if (!playing) {
       play()
       setPlaying(true)
+    }
+  }
+
+  const handleStop = () => {
+    console.log('stop')
+    if (playing) {
+      stop()
+      setPlaying(false)
     }
   }
 
@@ -33,9 +41,11 @@ export default function Complete() {
             <h1>...congratulations on escaping</h1>
           </div>
           <div className="replay">
-            <Link to="/">
-              <button className="replay-btn">PLAY AGAIN</button>
-            </Link>
+            <a href="/">
+              <button className="replay-btn" onClick={() => handleStop()}>
+                PLAY AGAIN
+              </button>
+            </a>
           </div>
         </div>
       </div>
