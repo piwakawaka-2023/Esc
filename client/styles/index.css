@@ -97,20 +97,23 @@
 #start-form-container {
   width: 100%;
   height: 35vh;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .elevator-shaft{
   background-color: #09364B;
 
 }
-#start-form {
+/* #start-form {
   background-color: #09364B;
   width: 60%;
   border: 4px solid #0BD7EC;
   border-radius: 20px;
   min-height: 30vh;
   margin: 0 auto;
-}
+} */
 
 /* START GAME FORM STYLING */
 
@@ -121,7 +124,7 @@
   justify-content: center;
 }
 
-.username-form-field {
+.form-label {
   padding: 10px 20px 10px 20px;
   font-size: 3rem;
   margin: 0 auto;

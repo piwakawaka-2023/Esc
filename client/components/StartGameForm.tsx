@@ -38,7 +38,7 @@ function StartGameForm(props: Props) {
     <>
       <form style={{ textAlign: 'center' }} onSubmit={handleSubmit}>
         <div id="start-game-form-container">
-          <label htmlFor="username" className="username-form-field">
+          <label htmlFor="username" className="form-label">
             ...enter name
           </label>
           <input
@@ -49,12 +49,7 @@ function StartGameForm(props: Props) {
             className="input-field"
           />
         </div>
-        <input
-          className="start-button"
-          type="submit"
-          id="submit"
-          value="Save"
-        />
+        <input className="blue-button" type="submit" id="submit" value="Save" />
       </form>
     </>
   )

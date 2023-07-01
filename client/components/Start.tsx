@@ -39,7 +39,7 @@ function Start() {
               <ESCLogo />
             </div>
           </div>
-          <div id="start-form-container" style={{ textAlign: 'center' }}>
+          <div id="start-form-container" className='screen'style={{ textAlign: 'center' }}>
             <div id="start-form">
               {viewForm && (
                 <StartGameForm
