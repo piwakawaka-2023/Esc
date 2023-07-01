@@ -23,26 +23,27 @@ export function getScenes() {
       <div className="background-style">
         <div className="scene-card-content">
           <div className="slack-card">
-          <div className="slack-sidecard">
-            <img src={logo} className="logo" alt="slack-icon"></img>
-            <div className="slack-text" >
-            <strong>#2023_Piwakawaka</strong>
-            <br></br>
-            <strong>#code-help-desk</strong>
-            <br></br>
-            <br></br>
-            <strong> ⬇ Direct Messag..</strong>
-            <br></br>
-            📨
+            <div className="slack-sidecard">
+              <img src={logo} className="logo" alt="slack-icon"></img>
+              <div className="slack-text">
+                <strong>#2023_Piwakawaka</strong>
+                <br></br>
+                <strong>#code-help-desk</strong>
+                <br></br>
+                <br></br>
+                <strong> ⬇ Direct Messag..</strong>
+                <br></br>
+                📨
+              </div>
             </div>
+            <div className="slack-messagecard">
+              <p>{curScene?.text}</p>
+            </div>
+            <button className="start-button">
+              <Link to={`level/${curScene?.levelId}`}>Next</Link>
+            </button>
+            <div className="scene-card" onClick={() => handlePlay()}></div>
           </div>
-          <div className="slack-messagecard">
-            <p>{curScene?.text}</p>
-          </div>
-          <button className="start-button">
-            <Link to={`level/${curScene?.levelId}`}>Next</Link>
-          </button>
-          <div className="scene-card" onClick={() => handlePlay()}></div>
         </div>
       </div>
     </>
