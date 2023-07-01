@@ -11,7 +11,10 @@ export async function getPlayingUser() {
   return res.body
 }
 
+export async function updateUserTime(id: number, time: number){
+  return request.patch(`/api/v1/users/updatetime/${id}`).send() //send time in here TS error is occurring currently
+}
+
 export async function completeGame(id: number) {
-  console.log(id)
   return request.patch(`/api/v1/users/${id}`)
 }
