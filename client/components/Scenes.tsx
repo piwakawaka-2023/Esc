@@ -6,6 +6,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../public/images/slack-icon.png'
+import SceneNextButton from './SceneNextButton'
 
 export function getScenes() {
   const { id } = useParams()
@@ -41,10 +42,7 @@ export function getScenes() {
             </div>
             <div className="scene-card" onClick={() => handlePlay()}></div>
           </div>
-
-          <Link to={`level/${curScene?.levelId}`}>
-            <button className="blue-button">Next</button>
-          </Link>
+          <SceneNextButton curScene={curScene}/>
         </div>
       </div>
     </>
