@@ -9,6 +9,7 @@ export const RECEIVE_USER = 'RECEIVE_USER'
 export const SET_USER = 'SET_USER'
 export const FINISH_GAME = 'FINISH_GAME'
 export const SHOW_ERROR = 'SHOW_ERROR'
+export const SET_USER_TIME = 'SET_USER_TIME'
 
 export type UserAction =
   | { type: typeof ADD_USER; payload: User }
@@ -17,6 +18,7 @@ export type UserAction =
   | { type: typeof SET_USER; payload: User }
   | { type: typeof FINISH_GAME; payload: number }
   | { type: typeof SHOW_ERROR; payload: string }
+  | { type: typeof SET_USER_TIME; payload: number }
 
 export function showError(errorMessage: string): UserAction {
   return {
@@ -43,6 +45,13 @@ export function getPlayingUser(user: User): UserAction {
   return {
     type: REQUEST_USER,
     payload: user,
+  }
+}
+
+export function setUserPlayingTime(id: number, time: number): UserAction {
+  return {
+    type: SET_USER_TIME,
+    payload: id & time, //not 100% sure if this is correct
   }
 }
 
@@ -73,6 +82,17 @@ export function getPlayingUserThunk(): ThunkAction {
     try {
       const playingUser = await api.getPlayingUser()
       dispatch(getPlayingUser(playingUser))
+    } catch (err) {
+      dispatch(showError(String(err)))
+    }
+  }
+}
+
+export function setUserPlayingTimeThunk(id: number, time: number): ThunkAction {
+  return async (dispatch) => {
+    try {
+      await api.updateUserTime(id, time)
+      dispatch(setUserPlayingTime(id, time))
     } catch (err) {
       dispatch(showError(String(err)))
     }

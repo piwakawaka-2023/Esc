@@ -12,6 +12,31 @@
   height: 5vh;
 }
 
+/* NAV BAR */
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.in-game-logo{
+  width: 60px;
+  height:auto;
+  position: fixed;
+  right:0;
+  top:0;
+  z-index: 300;
+  margin: 5px;
+
+}
+
+.nav-link {
+  text-decoration: none;
+  text-align: right;
+  color: #0BD7EC;
+}
+
 /* Global Styles */
 
 .grey-background {
@@ -23,7 +48,6 @@
   top: 0;
   left: 0;
   margin: 0;
-  /* padding: 20px; */
   font-family: 'B612 Mono', monospace;
   width: 100vw;
   height: 100vh; 
@@ -48,12 +72,12 @@
   font-family: 'B612 Mono', monospace;
   font-size: 1.5em;
   font-weight: 400;
-padding-left: 3em;  
-padding-right: 3em;
-padding-top: .3em;
-padding-bottom: .3em;
-margin: 20px;
-text-transform: uppercase;
+  padding-left: 3em;  
+  padding-right: 3em;
+  padding-top: .3em;
+  padding-bottom: .3em;
+  margin: 20px;
+  text-transform: uppercase;
 }
 
 .blue-button:hover {
@@ -87,15 +111,7 @@ text-transform: uppercase;
   font-weight: 400;
 }
 
-/* .replay {
-  margin-top: 120px;
-} */
 
-.nav-link {
-  text-decoration: none;
-  text-align: right;
-  color: #0BD7EC;
-}
 
 /* START PAGE STYLING */
 
@@ -110,18 +126,7 @@ text-transform: uppercase;
   margin: 0 auto;
 }
 
-/* #start-form-container {
-  width: 100%;
-  height: 35vh;
-  display:flex;
-  align-items: center;
-  justify-content: space-around;
-} */
 
-.elevator-shaft{
-  background-color: #09364B;
-
-}
 
 
 /* START GAME FORM STYLING */
@@ -157,9 +162,7 @@ input{
   font-family: 'B612 Mono', monospace;
 }
 
-
 /* SCENE CARD STYLING */
-
 
 .slack-card {
   margin-top: 50px;
@@ -201,24 +204,26 @@ input{
   margin-top: 30px;
 }
 
-.in-game-logo{
-  width: 60px;
-  height:auto;
-  position: fixed;
-  right:0;
-  top:0;
-  z-index: 300;
-  margin: 5px;
+/* Elevator Styles */
 
+.elevator-shaft{
+  background-color: black;
+  margin: -20px;
 }
 
+#lift{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
 
-/* NAV BAR */
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+#lift-number{
+   
+    text-align: center;
+ font-family: 'B612 Mono', monospace;
+    color: #0BD7EC;
 }
 
 /* ANIMATIONS */
