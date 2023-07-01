@@ -1,15 +1,8 @@
 import { Link, useParams } from 'react-router-dom'
-import slackUrl from '/sounds/wow.mp3'
-import { useSound } from 'use-sound'
 import { useEffect } from 'react'
 
 export default function Basement() {
   const { userId } = useParams()
-  const [play] = useSound(slackUrl, { volume: 0.5 })
-
-  const handlePlayFx = () => {
-    play()
-  }
 
   useEffect(() => {
     // Run JavaScript script on this comp
@@ -20,7 +13,7 @@ export default function Basement() {
 
     // Attach CSS to this comp
     const link = document.createElement('link')
-    link.href = '/styles/basement.css'
+    link.href = '/styles/balcony.css'
     link.rel = 'stylesheet'
     link.type = 'text/css'
     document.head.appendChild(link)
@@ -39,7 +32,6 @@ export default function Basement() {
           <button
             style={{ position: 'fixed', bottom: '0' }}
             className="blue-button"
-            onClick={() => handlePlayFx()}
           >
             Exit
           </button>
