@@ -50,7 +50,10 @@ function Start() {
               )}
               {viewStart && (
                 <Link to="/welcome">
-                  <button className="blue-button">Start</button>
+                  <button className="blue-button" onClick={() => handleStop()}>
+                    Start
+                  </button>
+
                 </Link>
               )}
           </div>
