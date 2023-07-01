@@ -30,7 +30,7 @@ function Start() {
   return (
     <>
       <div>
-        <div className="background-style" onClick={() => handlePlay()}>
+        <div className="grey-background" onClick={() => handlePlay()}>
           <div className="main-nav-container">
             <MainNav />
           </div>
@@ -39,8 +39,7 @@ function Start() {
               <ESCLogo />
             </div>
           </div>
-          <div id="start-form-container" style={{ textAlign: 'center' }}>
-            <div id="start-form">
+          <div className='screen'> 
               {viewForm && (
                 <StartGameForm
                   viewForm={viewForm}
@@ -51,12 +50,12 @@ function Start() {
               )}
               {viewStart && (
                 <Link to="/welcome">
-                  <button className="start-button" onClick={() => handleStop()}>
+                  <button className="blue-button" onClick={() => handleStop()}>
                     Start
                   </button>
+
                 </Link>
               )}
-            </div>
           </div>
         </div>
       </div>

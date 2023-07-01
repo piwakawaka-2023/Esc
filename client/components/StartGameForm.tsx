@@ -36,25 +36,20 @@ function StartGameForm(props: Props) {
 
   return (
     <>
-      <form style={{ textAlign: 'center' }} onSubmit={handleSubmit}>
-        <div id="start-game-form-container">
-          <label htmlFor="username" className="username-form-field">
-            ...enter name
-          </label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            onChange={handleChange}
-            className="input-field"
-          />
-        </div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="username" className="form-label ">
+          ...enter name
+        </label>
         <input
-          className="start-button"
-          type="submit"
-          id="submit"
-          value="Save"
+          autoComplete="off"
+          type="text"
+          name="username"
+          id="username"
+          onChange={handleChange}
+          className="input-field"
+          placeholder="player name"
         />
+        <input className="blue-button" type="submit" id="submit" value="Save" />
       </form>
     </>
   )
