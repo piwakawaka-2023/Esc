@@ -39,8 +39,7 @@ function Start() {
               <ESCLogo />
             </div>
           </div>
-          <div id="start-form-container" className='screen'style={{ textAlign: 'center' }}>
-            <div id="start-form">
+          <div className='screen'> 
               {viewForm && (
                 <StartGameForm
                   viewForm={viewForm}
@@ -54,7 +53,6 @@ function Start() {
                   <button className="blue-button">Start</button>
                 </Link>
               )}
-            </div>
           </div>
         </div>
       </div>

@@ -49,7 +49,7 @@ export default function Basement() {
         <Link to={`/game/${userId}/scene/3`}>
           <button
             style={{ position: 'fixed', bottom: '0' }}
-            className="start-button"
+            className="blue-button"
             onClick={() => handlePlayFx()}
           >
             Exit

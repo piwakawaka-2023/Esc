@@ -36,7 +36,7 @@ export default function Welcome() {
     <>
       <div className="grey-background" onClick={() => handlePlay()}>
         <div className="screen">
-          <h1 className="screen-message">
+          <h1 className="screen-message typewriter">
             ...hello {user.username}, do you want to play a game?
           </h1>
 

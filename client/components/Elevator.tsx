@@ -86,7 +86,7 @@ export default function Elevator() {
             onClick={() => ref.current.scrollTo(1)}
           >
             <div>
-              <button onClick={incrLevel} className="start-button">
+              <button onClick={incrLevel} className="blue-button">
                 Go Down
               </button>
             </div>
@@ -98,7 +98,7 @@ export default function Elevator() {
             onClick={() => ref.current.scrollTo(2)}
           >
             <div>
-              <button onClick={incrLevel} className="start-button">
+              <button onClick={incrLevel} className="blue-button">
                 Go Down Again
               </button>
             </div>
@@ -110,7 +110,7 @@ export default function Elevator() {
             onClick={() => ref.current.scrollTo(3)}
           >
             <div>
-              <button onClick={incrLevel} className="start-button">
+              <button onClick={incrLevel} className="blue-button">
                 Annnd Again
               </button>
             </div>
@@ -133,7 +133,7 @@ export default function Elevator() {
             onClick={() => ref.current.scrollTo(5)}
           >
             <div>
-              <button onClick={incrLevel} className="start-button">
+              <button onClick={incrLevel} className="blue-button">
                 One more
               </button>
             </div>
@@ -158,14 +158,14 @@ export default function Elevator() {
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
               {viewOpen && (
-                <button className="start-button" onClick={handleClick}>
+                <button className="blue-button" onClick={handleClick}>
                   Open Doors
                 </button>
               )}
               {viewExit && (
                 <Link to={`/game/${userId}/scene/2`}>
                   <button
-                    className="start-button"
+                    className="blue-button"
                     onClick={() => handlePlayFx()}
                   >
                     Exit

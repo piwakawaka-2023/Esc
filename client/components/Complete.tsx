@@ -29,7 +29,7 @@ export default function Complete() {
     <>
       <div className="grey-background" onClick={() => handlePlay()}>
         <div className="screen">
-          <h2 className="screen-message">...congratulations on escaping</h2>
+          <h2 className="screen-message typewriter">...congratulations on escaping</h2>
           <Link to="/">
             <button className="blue-button">PLAY AGAIN</button>
           </Link>
