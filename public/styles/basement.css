@@ -3,6 +3,9 @@
   cursor: none;
   --cursorX: 50vw;
   --cursorY: 50vh;
+  background-image: url('/images/basement.jpg');
+  background-size: cover;
+  
 }
 :root:before {
   content: '';

@@ -36,15 +36,15 @@ export default function Basement() {
   return (
     <>
       <div
-        style={{
-          backgroundImage: `url(${basement})`,
-          textAlign: 'center',
-          width: '100%',
-          height: '100VH',
-          backgroundSize: 'cover',
-        }}
+        // style={{
+        //   backgroundImage: `url(${basement})`,
+        //   textAlign: 'center',
+        //   width: '100%',
+        //   height: '100VH',
+        //   backgroundSize: 'cover',
+        //   margin: '-20px',
+        // }}
       >
-        <p>Basement lol</p>
 
         <Link to={`/game/${userId}/scene/3`}>
           <button
