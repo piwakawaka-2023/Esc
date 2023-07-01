@@ -48,6 +48,7 @@ function StartGameForm(props: Props) {
           onChange={handleChange}
           className="input-field"
           placeholder="player name"
+          required
         />
         <input className="blue-button" type="submit" id="submit" value="Save" />
       </form>

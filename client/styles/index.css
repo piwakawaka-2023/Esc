@@ -5,18 +5,19 @@
 /* #09364B (DARK BLUE) */
 
 
-/* STANDARD BACKGROUND STYLE FOR START PAGE */
-
 /* MAIN NAV STYLING */
 .main-nav-container{
-  /* background-color: #0BD7EC; */
   color:#0BD7EC;
   width: 100%;
   height: 5vh;
 }
 
+/* Global Styles */
+
 .grey-background {
-  background-color: #2E2D2B;
+  /* background-color: #2E2D2B; */
+  background-image: url('/images/bg-texture.jpg');
+  background-size: cover;
   color: #0BD7EC;
   position: absolute;
   top: 0;
@@ -45,10 +46,14 @@
   border-radius: 20px;
   border-color: #0BD7EC;
   font-family: 'B612 Mono', monospace;
-  font-size: 2em;
-  font-weight: 500;
-  padding: 10px 15px 10px 15px;
-  margin: 20px;
+  font-size: 1.5em;
+  font-weight: 400;
+padding-left: 3em;  
+padding-right: 3em;
+padding-top: .3em;
+padding-bottom: .3em;
+margin: 20px;
+text-transform: uppercase;
 }
 
 .blue-button:hover {
@@ -60,11 +65,12 @@
 }
 
 .screen {
+  background-image: url('/images/screen-texture.png');
+  background-size: cover;
   min-width: 60%;
-  /* height: 570px; */ 
   margin: 0 auto;
   text-align: center;
-  background-color: #09364B;
+  /* background-color: #09364B; */
   border: 3px solid;
   border-radius: 30px;
   border-color: #0BD7EC;
@@ -77,7 +83,7 @@
 
 .screen-message {
   font-size: 1.4em;
-  padding: 30px;
+  padding:2em;
   font-weight: 400;
 }
 
@@ -151,36 +157,9 @@ input{
   font-family: 'B612 Mono', monospace;
 }
 
-/* .start-button {
-  background-color: #09364B;
-  color: #0BD7EC;
-  border: 2px solid #0BD7EC;
-  font-family: 'B612 Mono', monospace;
-  font-size: 1.7rem;
-  border-radius: 5px;
-  width: 12vw;
-  height: 10vh;
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.start-button:hover {
-  background-color: #0BD7EC;
-  color:#09364B;
-  border-color: #114A67; */
-}
 
 /* SCENE CARD STYLING */
 
-/* .scene-card-content {
-  width: 90vw;
-  height: 90vh;
-  background-color: #09364B;
-  border: 3px solid;
-  border-radius: 30px;
-  margin: 0 auto;
-  margin-top: 50px;
-} */
 
 .slack-card {
   margin-top: 50px;
@@ -222,6 +201,17 @@ input{
   margin-top: 30px;
 }
 
+.in-game-logo{
+  width: 60px;
+  height:auto;
+  position: fixed;
+  right:0;
+  top:0;
+  z-index: 300;
+  margin: 5px;
+
+}
+
 
 /* NAV BAR */
 
@@ -231,9 +221,11 @@ ul {
   padding: 0;
 }
 
+/* ANIMATIONS */
+
 .typewriter{
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid #0BD7EC ; /* The typwriter cursor */
+  border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */

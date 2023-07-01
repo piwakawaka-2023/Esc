@@ -16,7 +16,7 @@ function ESCLogo() {
         camera={{ fov: 45 }}
         style={{ position: 'absolute', width: '50vw', height: '60vh' }}
       >
-        <color attach="background" args={['#2E2D2B']} />
+        {/* <color attach="background" args={['#2E2D2B']} /> */}
         <PresentationControls
           speed={1.5}
           global
