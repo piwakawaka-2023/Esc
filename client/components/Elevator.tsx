@@ -26,7 +26,7 @@ export default function Elevator() {
   const { userId } = useParams()
 
   const handleClick = () => {
-    setLift('/images/liftgif.gif')
+    setLift('/images/liftgiff.gif')
     setViewExit(true)
     setViewOpen(false)
     liftDoorFx()
@@ -56,29 +56,47 @@ export default function Elevator() {
           pages={6}
           ref={ref}
           style={{
+            width: '105%',
             backgroundColor: 'black',
             color: 'white',
             textAlign: 'center',
           }}
         >
+          {/* BACKGROUND LAYERS */}
           <ParallaxLayer
             offset={0}
             speed={1}
-            style={{
-              backgroundImage: `url(${codeBg})`,
-              backgroundSize: 'fit',
-            }}
+            // style={{
+            //   backgroundImage: `url(${})`,
+            //   backgroundSize: 'fit',
+            // }}
             factor={5}
           ></ParallaxLayer>
           <ParallaxLayer
             offset={3}
             speed={1}
-            style={{
-              backgroundImage: `url(${codeBg2})`,
-              backgroundSize: 'cover',
-            }}
+            // style={{
+            //   backgroundImage: `url(${})`,
+            //   backgroundSize: 'cover',
+            // }}
             factor={5}
           ></ParallaxLayer>
+
+          {/* LIFT LAYERS */}
+
+          <ParallaxLayer
+            sticky={{ start: 0.1, end: 6.9 }}
+            style={{ textAlign: 'left', margin: '50px', width: '20%' }}
+          >
+            <div id='lift'>
+              <div id='lift-number'>
+                <p style={{textAlign: 'center'}}> LEVEL {levelNum}</p> 
+              </div>
+            </div>
+            <img style={{ width: '100%' }} src={lift} alt="lift" />
+          </ParallaxLayer>
+
+          {/* BUTTON LAYERS */}
 
           <ParallaxLayer
             offset={0.6}
@@ -117,17 +135,6 @@ export default function Elevator() {
           </ParallaxLayer>
 
           <ParallaxLayer
-            sticky={{ start: 2.5, end: 2.6 }}
-            style={{ textAlign: 'left', width: '10%' }}
-          >
-            <img
-              style={{ width: '100%', textAlign: 'right' }}
-              src={eye}
-              alt="eye"
-            />
-          </ParallaxLayer>
-
-          <ParallaxLayer
             offset={3.6}
             speed={1}
             onClick={() => ref.current.scrollTo(5)}
@@ -139,22 +146,7 @@ export default function Elevator() {
             </div>
           </ParallaxLayer>
 
-          <ParallaxLayer
-            sticky={{ start: 0.1, end: 6.9 }}
-            style={{ textAlign: 'left', margin: '50px', width: '20%' }}
-          >
-            <div>
-              <p
-                style={{
-                  textAlign: 'center',
-                  paddingTop: '50px',
-                }}
-              >
-                Level {levelNum}
-              </p>
-            </div>
-            <img style={{ width: '100%' }} src={lift} alt="lift" />
-          </ParallaxLayer>
+          
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
               {viewOpen && (
@@ -173,6 +165,19 @@ export default function Elevator() {
                 </Link>
               )}
             </div>
+          </ParallaxLayer>
+
+          {/* //FLYING ELEMENTS// */}
+
+          <ParallaxLayer
+            sticky={{ start: 2.5, end: 2.6 }}
+            style={{ textAlign: 'left', width: '10%' }}
+          >
+            <img
+              style={{ width: '100%', textAlign: 'right' }}
+              src={eye}
+              alt="eye"
+            />
           </ParallaxLayer>
         </Parallax>
       </div>
