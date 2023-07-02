@@ -3,14 +3,25 @@ import { useParams } from 'react-router-dom'
 import { Scene } from '../../models/scenes'
 import * as actions from '../actions/scene'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../public/images/slack-icon.png'
+import pfp from '../../public/images/bossman.png'
+import slackbot from '../../public/images/slackbot.png'
 import SceneNextButton from './SceneNextButton'
+
 
 export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
+
+  const [text, setText] = useState('')
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setText( 'this will be the slackbot auto message' )
+    }, 3000)
+  }, [])
 
   const scene = useAppSelector((state) => state.scene) as Scene[]
   const curScene = scene[0]
@@ -38,11 +49,26 @@ export function getScenes() {
               </div>
             </div>
             <div className="slack-messagecard">
+              <img src={pfp} className="pfp" alt="icon"></img>
               <p>{curScene?.text}</p>
+              {text && (
+              <>
+              <img src={slackbot} className='slackbot' alt='slackbot-icon' /> 
+              <br></br>
+              {text}
+              </>
+              )}
             </div>
             <div className="scene-card" onClick={() => handlePlay()}></div>
           </div>
+
+          
+          <Link to={`level/${curScene?.levelId}`}>
+            <button className="blue-button">Next</button>
+          </Link>
+
           <SceneNextButton curScene={curScene}/>
+
         </div>
       </div>
     </>
