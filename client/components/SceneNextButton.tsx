@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { toggleTimer } from '../actions/user'
 import { useAppDispatch } from '../hooks/hooks'
 import { useEffect } from 'react'
+import { finishGameThunk } from '../actions/user'
 
 interface Props {
   curScene: Level
@@ -14,10 +15,12 @@ interface Level {
 
 export default function SceneNextButton({ curScene }: Props) {
   const dispatch = useAppDispatch()
+  const { userId } = useParams()
 
   useEffect(() => {
     if (curScene?.final) {
       dispatch(toggleTimer(false))
+      dispatch(finishGameThunk(Number(userId)))
     }
   })
 

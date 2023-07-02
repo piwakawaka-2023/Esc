@@ -12,7 +12,7 @@ export async function getPlayingUser() {
 }
 
 export async function updateUserTime(id: number, time: number) {
-  return request.patch(`/api/v1/users/updatetime/${id}`).send() //send time in here TS error is occurring currently
+  return request.patch(`/api/v1/users/updatetime/${id}`).send({ time }) //send time in here TS error is occurring currently
 }
 
 export async function completeGame(id: number) {

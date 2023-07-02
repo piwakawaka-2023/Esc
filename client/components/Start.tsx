@@ -20,7 +20,6 @@ function Start() {
   }
 
   const handleStop = () => {
-    console.log('stop')
     if (playing) {
       stop()
       setPlaying(false)

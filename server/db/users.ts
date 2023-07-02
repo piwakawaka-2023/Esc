@@ -12,7 +12,7 @@ export function getPlayingUser() {
 }
 
 export function updatePlayingTime(id: number, time: number) {
-  return db('users').select().where({ id }).update({ time: time })
+  return db('users').select().where({ id }).update('time', time)
 }
 
 export function completeGame(id: number) {

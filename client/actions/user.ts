@@ -2,6 +2,7 @@ import type { ThunkAction } from '../store'
 import * as api from '../apis/user'
 
 import { User } from '../../models/users'
+import { UserTime } from '../../models/users'
 
 export const ADD_USER = 'ADD_USER'
 export const REQUEST_USER = 'REQUEST_USER'
@@ -19,7 +20,7 @@ export type UserAction =
   | { type: typeof SET_USER; payload: User }
   | { type: typeof FINISH_GAME; payload: number }
   | { type: typeof SHOW_ERROR; payload: string }
-  | { type: typeof SET_USER_TIME; payload: number }
+  | { type: typeof SET_USER_TIME; payload: UserTime }
   | { type: typeof TOGGLE_TIMER; payload: boolean }
 
 export function showError(errorMessage: string): UserAction {
@@ -53,7 +54,7 @@ export function getPlayingUser(user: User): UserAction {
 export function setUserPlayingTime(id: number, time: number): UserAction {
   return {
     type: SET_USER_TIME,
-    payload: id & time, //not 100% sure if this is correct
+    payload: { id, time }, //not 100% sure if this is correct
   }
 }
 
