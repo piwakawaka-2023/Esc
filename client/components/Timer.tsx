@@ -7,24 +7,26 @@ export default function Timer() {
   const [time, setTime] = useState(0)
   //const [isRunning, setIsRunning] = useState(true)
 
+  //I want to get the current payload of toggleTimer here without actually updating it
   useEffect(() => {
-    console.log('dispatch')
-    dispatch(actions.triggerTimerThunk())
+    dispatch(actions.toggleTimer(true))
   }, [dispatch])
 
-  const user = useAppSelector((state) => state.user) as User
+  //this will be assigned the current payload of toggleTimer action
+  const toggleTimer = true
+
+  ///in other components I could call toggleTimer with a true/false parameter
+  ///which changes the payload to true/false
 
   useEffect(() => {
     let intervalId
-    if (isRunning && !user.complete) {
+    if (toggleTimer) {
       intervalId = setInterval(() => setTime(time + 1), 10)
-    } else if (user.complete) {
-      console.log('stop')
-      const endTime = time
+    } else if (!toggleTimer) {
+      clearInterval(intervalId)
       setTime(0)
     }
-    return () => clearInterval(intervalId)
-  }, [isRunning, time])
+  }, [toggleTimer, time])
 
   const seconds = Math.floor((time % 6000) / 100)
   const milliseconds = time % 100

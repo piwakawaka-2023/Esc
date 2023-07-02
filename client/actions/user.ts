@@ -10,9 +10,7 @@ export const SET_USER = 'SET_USER'
 export const FINISH_GAME = 'FINISH_GAME'
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const SET_USER_TIME = 'SET_USER_TIME'
-export const START_TIMER = 'START_TIMER'
-export const STOP_TIMER = 'STOP_TIMER'
-export const TICK = 'TICK'
+export const TOGGLE_TIMER = 'TOGGLE_TIMER'
 
 export type UserAction =
   | { type: typeof ADD_USER; payload: User }
@@ -22,6 +20,7 @@ export type UserAction =
   | { type: typeof FINISH_GAME; payload: number }
   | { type: typeof SHOW_ERROR; payload: string }
   | { type: typeof SET_USER_TIME; payload: number }
+  | { type: typeof TOGGLE_TIMER; payload: boolean }
 
 export function showError(errorMessage: string): UserAction {
   return {
@@ -58,32 +57,10 @@ export function setUserPlayingTime(id: number, time: number): UserAction {
   }
 }
 
-//is this supposed to be a thunk?
-//should be able to call these anywhere in the app
-//not so sure about having setInterval in the back end though
-//considering just have a starttimer that returns a true boolean
-//and in the front end that boolean triggers a setInterval???
-export function startTimer(): ThunkAction {
-  return async (dispatch) => {
-    const interval = setInterval(() => {
-      dispatch({
-        type: TICK,
-        time: Date.now(),
-      })
-    }, 1000)
-
-    dispatch({
-      type: START_TIMER,
-      offset: Date.now(),
-      interval,
-    })
-  }
-}
-
-export function stopTimer(interval: NodeJS.Timer) {
-  clearInterval(interval)
+export function toggleTimer(isOn: boolean) {
   return {
-    type: 'STOP_TIMER',
+    type: TOGGLE_TIMER,
+    payload: isOn,
   }
 }
 
