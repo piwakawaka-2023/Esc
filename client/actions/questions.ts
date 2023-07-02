@@ -30,7 +30,6 @@ export function getSingleQuestionThunk(id: number): ThunkAction {
   return async (dispatch) => {
     try {
       const question = await api.getSingleQuestion(id)
-      console.log(question)
       dispatch(setQuestions(question))
     } catch (err) {
       dispatch(showError(String(err)))
