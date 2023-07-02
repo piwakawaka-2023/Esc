@@ -8,6 +8,7 @@ export default function Timer() {
   //const [isRunning, setIsRunning] = useState(true)
 
   //I want to get the current payload of toggleTimer here without actually updating it
+  //use getState???
   useEffect(() => {
     dispatch(actions.toggleTimer(true))
   }, [dispatch])
