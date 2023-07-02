@@ -6,6 +6,11 @@ exports.up = function (knex) {
   return knex.schema.createTable('questions', (table) => {
     table.increments('id')
     table.string('text')
+    table.string('answer1')
+    table.string('answer2')
+    table.string('answer3')
+    table.string('answer4')
+    table.string('correct')
   })
 }
 
