@@ -4,7 +4,7 @@
 }
 
 body{
-  /* background-image: url('/images/balcony.png'); */
+  background-image: url('/images/balcony.png');
   background-size: cover;
   display: flex;
   justify-content: center;
