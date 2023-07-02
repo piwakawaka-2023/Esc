@@ -49,15 +49,15 @@ export default function Timer() {
     clearInterval(intervalId)
   }
 
-  // const seconds = Math.floor((time % 6000) / 100)
+  //const seconds = Math.floor((time % 6000) / 100)
   // const milliseconds = time % 100
 
   return (
     <p className="stopwatch-time">
-      Timer: 
-      {/* {seconds.toString().padStart(2, '0')}:
-      {milliseconds.toString().padStart(2, '0')} */}
-      {time}
+      Timer:
+      {time.toString().padStart(2, '0')}
+      {/* {milliseconds.toString().padStart(2, '0')} */}
+      {/* {time} */}
     </p>
   )
 }
