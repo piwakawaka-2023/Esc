@@ -63,9 +63,9 @@ export function getScenes() {
           </div>
 
           
-          <Link to={`level/${curScene?.levelId}`}>
+          {/* <Link to={`level/${curScene?.levelId}`}>
             <button className="blue-button">Next</button>
-          </Link>
+          </Link> */}
 
           <SceneNextButton curScene={curScene}/>
 
