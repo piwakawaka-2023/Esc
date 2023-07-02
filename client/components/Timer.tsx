@@ -54,7 +54,7 @@ export default function Timer() {
 
   return (
     <p className="stopwatch-time">
-      Timer:
+      Timer: 
       {/* {seconds.toString().padStart(2, '0')}:
       {milliseconds.toString().padStart(2, '0')} */}
       {time}
