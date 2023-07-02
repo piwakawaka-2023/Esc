@@ -11,6 +11,5 @@ export async function fetchAllScenes(): Promise<Scene> {
 
 export async function fetchScene(id: number): Promise<Scene> {
   const res = await request.get(`${sceneUrl}/${id}`)
-  console.log('api', res.body, id)
   return res.body
 }
