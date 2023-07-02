@@ -7,7 +7,7 @@ export const GET_QUESTIONS = 'GET_QUESTIONS'
 export const SHOW_ERROR = 'SHOW_ERROR'
 
 export type QuestionAction =
-  | { type: typeof GET_QUESTIONS; payload: Question[] }
+  | { type: typeof GET_QUESTIONS; payload: Question }
   | { type: typeof SHOW_ERROR; payload: string }
 
 export function showError(errorMessage: string): QuestionAction {
@@ -17,7 +17,7 @@ export function showError(errorMessage: string): QuestionAction {
   }
 }
 
-export function setQuestions(question: Question[]): QuestionAction {
+export function setQuestions(question: Question): QuestionAction {
   return {
     type: GET_QUESTIONS,
     payload: question,
@@ -26,11 +26,12 @@ export function setQuestions(question: Question[]): QuestionAction {
 
 //THUNK ACTIONS
 
-export function getAllQuestionsThunk(): ThunkAction {
+export function getSingleQuestionThunk(id: number): ThunkAction {
   return async (dispatch) => {
     try {
-      const questionArr = await api.getQuestions()
-      dispatch(setQuestions(questionArr))
+      const question = await api.getSingleQuestion(id)
+      console.log(question)
+      dispatch(setQuestions(question))
     } catch (err) {
       dispatch(showError(String(err)))
     }

@@ -98,14 +98,13 @@ export default function Elevator() {
           </ParallaxLayer>
 
           {/* BUTTON LAYERS */}
-
+          <ElevatorQuestions data={levelNum} />
           <ParallaxLayer
             offset={0.6}
             speed={0.5}
             onClick={() => ref.current.scrollTo(1)}
           >
             <div>
-              <ElevatorQuestions />
               <button onClick={incrLevel} className="blue-button">
                 Go Down
               </button>

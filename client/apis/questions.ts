@@ -1,6 +1,6 @@
 import request from 'superagent'
 
-export async function getQuestions() {
-  const res = await request.get('/api/v1/questions')
+export async function getSingleQuestion(id: number) {
+  const res = await request.get(`/api/v1/questions/${id}`)
   return res.body
 }

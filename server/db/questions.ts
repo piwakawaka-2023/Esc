@@ -3,6 +3,6 @@ import connection from './connection'
 
 const db = connection
 
-export function getQuestions() {
-  return db('questions').select() //all
+export function getSingleQuestion(id: number) {
+  return db('questions').where({ id })
 }
