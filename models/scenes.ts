@@ -8,6 +8,7 @@ export interface SceneData {
 export interface Scene extends SceneData {
   levelId: any
   id: number
+  final: boolean
 }
 
 // Actions

@@ -85,7 +85,10 @@ ul {
   color:#09364B;
   border-color: #114A67;
   cursor: pointer;
-  
+}
+
+.blue-button-lge {
+  width: 15vw;
 }
 
 .screen {
@@ -103,6 +106,13 @@ ul {
   justify-content: center;
   text-align: center;
   padding: 50px;
+}
+
+.screen-sml {
+  min-width: 40%;
+  width: 40vw;
+  font-family: 'B612 Mono', monospace;
+  color:#0BD7EC
 }
 
 .screen-message {
@@ -198,10 +208,27 @@ input{
   margin-top: 45px;
 }
 
+
+.pfp {
+  max-width: 15%;
+  max-height: 15%;
+  margin-top: 50px;
+}
+
+.slackbot {
+  max-width: 12%;
+  max-height: 12%;
+  margin-top: -10%
+}
+
 .slack-text {
   font-family: sans-serif;
   color: white;
   margin-top: 30px;
+}
+
+p {
+  margin-bottom: 15%;
 }
 
 /* Elevator Styles */
