@@ -10,6 +10,7 @@ import { useSound } from 'use-sound'
 import liftBellUrl from '/sounds/bell.wav'
 import liftDoorUrl from '/sounds/elevator-door.wav'
 import slackUrl from '/sounds/wow.mp3'
+import ElevatorQuestions from './ElevatorQuestions'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -88,9 +89,9 @@ export default function Elevator() {
             sticky={{ start: 0.1, end: 6.9 }}
             style={{ textAlign: 'left', margin: '50px', width: '20%' }}
           >
-            <div id='lift'>
-              <div id='lift-number'>
-                <p style={{textAlign: 'center'}}> LEVEL {levelNum}</p> 
+            <div id="lift">
+              <div id="lift-number">
+                <p style={{ textAlign: 'center' }}> LEVEL {levelNum}</p>
               </div>
             </div>
             <img style={{ width: '100%' }} src={lift} alt="lift" />
@@ -104,6 +105,7 @@ export default function Elevator() {
             onClick={() => ref.current.scrollTo(1)}
           >
             <div>
+              <ElevatorQuestions />
               <button onClick={incrLevel} className="blue-button">
                 Go Down
               </button>
@@ -146,7 +148,6 @@ export default function Elevator() {
             </div>
           </ParallaxLayer>
 
-          
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
               {viewOpen && (
