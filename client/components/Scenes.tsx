@@ -64,7 +64,6 @@ export function getScenes() {
             </div>
             <div className="scene-card"></div>
           </div>
-
           <SceneNextButton curScene={curScene} />
         </div>
       </div>
