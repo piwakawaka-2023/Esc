@@ -59,7 +59,7 @@ export function getScenes() {
               </>
               )}
             </div>
-            <div className="scene-card" onClick={() => handlePlay()}></div>
+            <div className="scene-card"></div>
           </div>
 
           
