@@ -98,7 +98,7 @@ export default function Elevator() {
           </ParallaxLayer>
 
           {/* BUTTON LAYERS */}
-          <ElevatorQuestions />
+          <ElevatorQuestions data={levelNum} />
           <ParallaxLayer
             offset={0.6}
             speed={0.5}

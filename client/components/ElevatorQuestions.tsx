@@ -3,17 +3,22 @@ import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import * as actions from '../actions/questions'
 import { Question } from '../../models/questions'
 
-function ElevatorQuestions() {
+interface Props {
+  data: number
+}
+
+function ElevatorQuestions(props: Props) {
   const dispatch = useAppDispatch()
+  const levelId = props.data
 
   useEffect(() => {
-    dispatch(actions.getAllQuestionsThunk())
-  }, [dispatch])
+    dispatch(actions.getSingleQuestionThunk(levelId))
+  }, [dispatch, levelId])
 
-  const questions = useAppSelector((state) => state.question) as Question[]
+  const question = useAppSelector((state) => state.question[0]) as Question
 
   const checkAnswer = (answer: string | undefined) => {
-    if (answer == questions[0].correct) {
+    if (answer == question.correct) {
       console.log('you were right')
     } else {
       console.log("you're wrong")
@@ -22,7 +27,7 @@ function ElevatorQuestions() {
 
   return (
     <div className="screen screen-sml">
-      <h2>{questions[0].question}</h2>
+      <h2>{question.question}</h2>
       <div
         style={{
           display: 'flex',
@@ -31,28 +36,28 @@ function ElevatorQuestions() {
         }}
       >
         <button
-          onClick={() => checkAnswer(questions[0].answer1)}
+          onClick={() => checkAnswer(question.answer1)}
           className="blue-button blue-button-lge"
         >
-          {questions[0].answer1}
+          {question.answer1}
         </button>
         <button
-          onClick={() => checkAnswer(questions[0].answer2)}
+          onClick={() => checkAnswer(question.answer2)}
           className="blue-button blue-button-lge"
         >
-          {questions[0].answer2}
+          {question.answer2}
         </button>
         <button
-          onClick={() => checkAnswer(questions[0].answer3)}
+          onClick={() => checkAnswer(question.answer3)}
           className="blue-button blue-button-lge"
         >
-          {questions[0].answer3}
+          {question.answer3}
         </button>
         <button
-          onClick={() => checkAnswer(questions[0].answer4)}
+          onClick={() => checkAnswer(question.answer4)}
           className="blue-button blue-button-lge"
         >
-          {questions[0].answer4}
+          {question.answer4}
         </button>
       </div>
     </div>
