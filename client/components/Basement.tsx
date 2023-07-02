@@ -2,7 +2,8 @@ import { Link, useParams } from 'react-router-dom'
 import slackUrl from '/sounds/wow.mp3'
 import { useSound } from 'use-sound'
 import basement from '/images/basement.png'
-import { useEffect } from 'react'
+import keycard from '../../public/images/keycard.png'
+import { useEffect, useRef } from 'react'
 
 export default function Basement() {
   const { userId } = useParams()
@@ -35,17 +36,18 @@ export default function Basement() {
 
   return (
     <>
-      <div
-        // style={{
+      
+        
+        {/* // style
         //   backgroundImage: `url(${basement})`,
         //   textAlign: 'center',
         //   width: '100%',
         //   height: '100VH',
         //   backgroundSize: 'cover',
         //   margin: '-20px',
-        // }}
-      >
+        // */}
 
+        <div>
         <Link to={`/game/${userId}/scene/3`}>
           <button
             style={{ position: 'fixed', bottom: '0' }}

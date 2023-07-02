@@ -10,7 +10,6 @@ import pfp from '../../public/images/bossman.png'
 import slackbot from '../../public/images/slackbot.png'
 import SceneNextButton from './SceneNextButton'
 
-
 export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
@@ -19,7 +18,7 @@ export function getScenes() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setText( 'this will be the slackbot auto message' )
+      setText('this will be the slackbot auto message')
     }, 3000)
   }, [])
 
@@ -52,23 +51,20 @@ export function getScenes() {
               <img src={pfp} className="pfp" alt="icon"></img>
               <p>{curScene?.text}</p>
               {text && (
-              <>
-              <img src={slackbot} className='slackbot' alt='slackbot-icon' /> 
-              <br></br>
-              {text}
-              </>
+                <>
+                  <img
+                    src={slackbot}
+                    className="slackbot"
+                    alt="slackbot-icon"
+                  />
+                  <br></br>
+                  {text}
+                </>
               )}
             </div>
-            <div className="scene-card" onClick={() => handlePlay()}></div>
+            <div className="scene-card"></div>
           </div>
-
-          
-          <Link to={`level/${curScene?.levelId}`}>
-            <button className="blue-button">Next</button>
-          </Link>
-
-          <SceneNextButton curScene={curScene}/>
-
+          <SceneNextButton curScene={curScene} />
         </div>
       </div>
     </>

@@ -1,4 +1,7 @@
 import { Link } from 'react-router-dom'
+import { toggleTimer } from '../actions/user'
+import { useAppDispatch } from '../hooks/hooks'
+import { useEffect } from 'react'
 
 interface Props {
   curScene: Level
@@ -10,6 +13,14 @@ interface Level {
 }
 
 export default function SceneNextButton({ curScene }: Props) {
+  const dispatch = useAppDispatch()
+
+  useEffect(() => {
+    if (curScene?.final) {
+      dispatch(toggleTimer(false))
+    }
+  })
+
   return (
     <>
       {curScene?.final ? (
