@@ -5,7 +5,7 @@
 exports.up = function (knex) {
   return knex.schema.createTable('questions', (table) => {
     table.increments('id')
-    table.string('text')
+    table.string('question')
     table.string('answer1')
     table.string('answer2')
     table.string('answer3')
