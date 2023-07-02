@@ -1,21 +1,68 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import * as actions from '../actions/questions'
 import { Question } from '../../models/questions'
+import useSound from 'use-sound'
+import incorrectBuzzerUrl from '/sounds/wrong-buzzer.mp3'
+import correctBuzzerUrl from '/sounds/correct-buzzer.mp3'
 
-function ElevatorQuestions() {
+//currently receives levelnumber as props so the correct question can be loaded
+//needs to be able to take two parameters, one for the levelnumber and a second for a function
+//the function inside the parent component (elevator) will update the state to store when a question has been passed
+//then the state can be used to move through levels.
+
+//the Component will look similar to this
+{
+  /* <ElevatorQuestions data={levelNum} changeMessage={changeMessage}/> */
+}
+
+//the parent component will take a function and a state, similar to below
+
+// const [testPass, setTestPass] = useState("parent")
+
+// const changeMessage = (newMessage: string) => {
+//   setTestPass(newMessage)
+// }
+
+//the function will be called inside the onclick "checkAnswer" functions set below
+//state to show correct or fail to be sent back to parent
+
+interface Props {
+  // changeMessage: Game
+  data: number
+}
+
+// interface Game {
+//   message: string
+// }
+
+function ElevatorQuestions(props: Props) {
   const dispatch = useAppDispatch()
+  const levelId = props.data
+
+  const [playIncorrectBuzzer] = useSound(incorrectBuzzerUrl, { volume: 0.05 })
+  const [playCorrectBuzzer] = useSound(correctBuzzerUrl, { volume: 0.2 })
 
   useEffect(() => {
-    dispatch(actions.getAllQuestionsThunk())
-  }, [dispatch])
+    dispatch(actions.getSingleQuestionThunk(levelId))
+  }, [dispatch, levelId])
 
-  const questions = useAppSelector((state) => state.question) as Question[]
-  console.log(questions)
+  const question = useAppSelector((state) => state.question[0]) as Question
+
+  const checkAnswer = (answer: string | undefined) => {
+    if (answer === question.correct) {
+      console.log('you were right')
+      playCorrectBuzzer()
+      // changeMessage('child')
+    } else {
+      console.log('wrong')
+      playIncorrectBuzzer()
+    }
+  }
 
   return (
     <div className="screen screen-sml">
-      <h2>{questions[0].question}</h2>
+      <h2>{question?.question}</h2>
       <div
         style={{
           display: 'flex',
@@ -23,17 +70,29 @@ function ElevatorQuestions() {
           justifyContent: 'space-evenly',
         }}
       >
-        <button className="blue-button blue-button-lge">
-          {questions[0].answer1}
+        <button
+          onClick={() => checkAnswer(question?.answer1)}
+          className="blue-button blue-button-lge"
+        >
+          {question?.answer1}
         </button>
-        <button className="blue-button blue-button-lge">
-          {questions[0].answer2}
+        <button
+          onClick={() => checkAnswer(question?.answer2)}
+          className="blue-button blue-button-lge"
+        >
+          {question?.answer2}
         </button>
-        <button className="blue-button blue-button-lge">
-          {questions[0].answer3}
+        <button
+          onClick={() => checkAnswer(question?.answer3)}
+          className="blue-button blue-button-lge"
+        >
+          {question?.answer3}
         </button>
-        <button className="blue-button blue-button-lge">
-          {questions[0].answer4}
+        <button
+          onClick={() => checkAnswer(question?.answer4)}
+          className="blue-button blue-button-lge"
+        >
+          {question?.answer4}
         </button>
       </div>
     </div>

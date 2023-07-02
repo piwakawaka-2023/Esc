@@ -12,7 +12,7 @@ exports.seed = async function (knex) {
       current_level_id: 0,
       time: 0,
       complete: false,
-      active_player: true,
+      active_player: false,
     },
     {
       id: 2,

@@ -37,6 +37,21 @@ ul {
   color: #0BD7EC;
 }
 
+/* Timer  */
+.stopwatch-time{
+  width: 60px;
+  height:auto;
+  position: fixed;
+  right:50px;
+  top:40px;
+  z-index: 300;
+  margin: 20px;
+  color: #0BD7EC;
+  font-family: 'B612 Mono', monospace;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
 /* Global Styles */
 
 .grey-background {

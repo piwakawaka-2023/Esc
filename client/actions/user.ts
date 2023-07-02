@@ -10,6 +10,7 @@ export const SET_USER = 'SET_USER'
 export const FINISH_GAME = 'FINISH_GAME'
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const SET_USER_TIME = 'SET_USER_TIME'
+export const TOGGLE_TIMER = 'TOGGLE_TIMER'
 
 export type UserAction =
   | { type: typeof ADD_USER; payload: User }
@@ -19,6 +20,7 @@ export type UserAction =
   | { type: typeof FINISH_GAME; payload: number }
   | { type: typeof SHOW_ERROR; payload: string }
   | { type: typeof SET_USER_TIME; payload: number }
+  | { type: typeof TOGGLE_TIMER; payload: boolean }
 
 export function showError(errorMessage: string): UserAction {
   return {
@@ -52,6 +54,13 @@ export function setUserPlayingTime(id: number, time: number): UserAction {
   return {
     type: SET_USER_TIME,
     payload: id & time, //not 100% sure if this is correct
+  }
+}
+
+export function toggleTimer(isOn: boolean): UserAction {
+  return {
+    type: TOGGLE_TIMER,
+    payload: isOn,
   }
 }
 
@@ -98,3 +107,13 @@ export function setUserPlayingTimeThunk(id: number, time: number): ThunkAction {
     }
   }
 }
+
+// export function triggerTimerThunk(): ThunkAction {
+//   return async (dispatch) => {
+//     try {
+//       dispatch(triggerTimer())
+//     } catch (err) {
+//       dispatch(showError(String(err)))
+//     }
+//   }
+// }

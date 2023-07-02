@@ -4,11 +4,13 @@ import { combineReducers } from 'redux'
 
 import scene from './scene'
 import user from './user'
+import timer from './timer'
 import question from './questions'
 
 export default combineReducers({
   // stuff
   scene,
   user,
+  timer,
   question,
 })
