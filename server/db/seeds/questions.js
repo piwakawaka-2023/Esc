@@ -8,7 +8,7 @@ exports.seed = async function (knex) {
   await knex('questions').insert([
     {
       id: 1,
-      text: 'Where are you from?',
+      question: 'Where are you from?',
       answer1: 'answer1',
       answer2: 'answer2',
       answer3: 'answer3',
@@ -17,7 +17,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 2,
-      text: 'Why are you here?',
+      question: 'Why are you here?',
       answer1: 'answer1',
       answer2: 'answer2',
       answer3: 'answer3',
@@ -26,7 +26,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 3,
-      text: 'When did you get here?',
+      question: 'When did you get here?',
       answer1: 'answer1',
       answer2: 'answer2',
       answer3: 'answer3',
@@ -35,7 +35,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 4,
-      text: 'Who are you?',
+      question: 'Who are you?',
       answer1: 'answer1',
       answer2: 'answer2',
       answer3: 'answer3',

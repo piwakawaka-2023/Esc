@@ -15,7 +15,7 @@ function ElevatorQuestions() {
 
   return (
     <div className="screen screen-sml">
-      <h2>The question</h2>
+      <h2>{questions[0].question}</h2>
       <div
         style={{
           display: 'flex',
@@ -23,10 +23,18 @@ function ElevatorQuestions() {
           justifyContent: 'space-evenly',
         }}
       >
-        <button className="blue-button blue-button-lge">1</button>
-        <button className="blue-button blue-button-lge">2</button>
-        <button className="blue-button blue-button-lge">3</button>
-        <button className="blue-button blue-button-lge">4</button>
+        <button className="blue-button blue-button-lge">
+          {questions[0].answer1}
+        </button>
+        <button className="blue-button blue-button-lge">
+          {questions[0].answer2}
+        </button>
+        <button className="blue-button blue-button-lge">
+          {questions[0].answer3}
+        </button>
+        <button className="blue-button blue-button-lge">
+          {questions[0].answer4}
+        </button>
       </div>
     </div>
   )
