@@ -1,13 +1,15 @@
 import { Link, useParams } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import BalconyGame from './BalconyGame'
 
-export default function Basement() {
+export default function Balcony() {
   const { userId } = useParams()
+  const [exit, setExit] = useState(false)
 
   useEffect(() => {
     // Run JavaScript script on this comp
     const script = document.createElement('script')
-    script.src = '/scripts/flashlight.js'
+    script.src = '/scripts/balconycatch.js'
     script.async = true
     document.body.appendChild(script)
 
@@ -25,17 +27,24 @@ export default function Basement() {
     }
   }, [])
 
+  const ifWon = () => {
+    setExit(true)
+  }
+
   return (
     <>
+      <BalconyGame />
       <div>
-        <Link to={`/game/${userId}/scene/3`}>
-          <button
-            style={{ position: 'fixed', bottom: '0' }}
-            className="blue-button"
-          >
-            Exit
-          </button>
-        </Link>
+        {exit && (
+          <Link to={`/game/${userId}/scene/3`}>
+            <button
+              style={{ position: 'fixed', bottom: '0' }}
+              className="blue-button"
+            >
+              Exit
+            </button>
+          </Link>
+        )}
       </div>
     </>
   )

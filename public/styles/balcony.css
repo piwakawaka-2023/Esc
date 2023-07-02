@@ -1,4 +1,43 @@
+*{
+  margin:0;
+  padding: 0;
+}
+
 body{
-  background-image: url('/images/balcony.png');
+  /* background-image: url('/images/balcony.png'); */
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0BD7EC;
+}
+
+/* .balcony-game-board{
+  width: 90%;
+  height:100%;
+} */
+
+#game-stats{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: 'B612 Mono', monospace;
+  color: #0BD7EC;
+  padding: 10px;
+  margin: 30px;
+  width:100%;
+}
+
+.bus{
+  height: 50px;
+  width: auto;
+  position: fixed;
+  bottom: 0;
+}
+
+.vape{
+    height: 70px;
+  width: auto;
+  position: fixed;
+  bottom: 1;
 }
