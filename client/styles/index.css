@@ -7,9 +7,14 @@
 
 /* MAIN NAV STYLING */
 .main-nav-container{
-  color:#0BD7EC;
-  width: 100%;
-  height: 5vh;
+  width: 100vw;
+}
+
+#btn-container {
+  width: 70vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* NAV BAR */
@@ -33,6 +38,7 @@ ul {
 
 .nav-link {
   text-decoration: none;
+  border: 2px solid white;
   text-align: right;
   color: #0BD7EC;
 }
@@ -85,6 +91,14 @@ ul {
   color:#09364B;
   border-color: #114A67;
   cursor: pointer;
+}
+
+.blue-button-sml {
+  width: 10vw;
+  font-size: 1rem;
+  padding: .5em;
+  border-radius: 10px;
+  margin: 2px;
 }
 
 .blue-button-lge {
