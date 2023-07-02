@@ -1,12 +1,19 @@
 import { Link } from 'react-router-dom'
 import logo from '/images/static-esc-logo.png'
+import Timer from '../components/Timer'
 
 function GameNav() {
   return (
-    
-    <Link to="/">
-      <img src={logo} alt="static grey escape logo" className="in-game-logo" />
-    </Link>
+    <>
+      <Timer />
+      <Link to="/">
+        <img
+          src={logo}
+          alt="static grey escape logo"
+          className="in-game-logo"
+        />
+      </Link>
+    </>
   )
 }
 

@@ -17,6 +17,7 @@ export default function Welcome() {
 
   const handlePlayFx = () => {
     play()
+    timer()
   }
 
   const handlePlay = () => {
@@ -26,9 +27,9 @@ export default function Welcome() {
     }
   }
 
-  useEffect(() => {
+  function timer() {
     dispatch(actions.toggleTimer(true))
-  }, [])
+  }
 
   useEffect(() => {
     dispatch(actions.getPlayingUserThunk())
