@@ -28,6 +28,9 @@ export default function Welcome() {
 
   useEffect(() => {
     dispatch(actions.toggleTimer(true))
+  }, [])
+
+  useEffect(() => {
     dispatch(actions.getPlayingUserThunk())
   }, [dispatch])
 

@@ -1,29 +1,33 @@
 import { useState, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
+import timerReducer from '../reducers/timer'
 
 export default function Timer() {
   const [time, setTime] = useState(0)
   //const [isRunning, setIsRunning] = useState(true)
 
-  //I want to get the current payload of toggleTimer here without actually updating it
-  //use getState???
+  const toggleTimer = useAppSelector((state) => state.timer) as boolean
+  //const [isRunning, setRunning] = useState(false)
 
-  const toggleTimer = useAppSelector((state) => state.timer)
-  console.log('toggle timer', toggleTimer)
+  // useEffect(() => {
+  //   setRunning(toggleTimer)
+  // }, [toggleTimer])
 
-  //this will be assigned the current payload of toggleTimer action
-
-  ///in other components I could call toggleTimer with a true/false parameter
-  ///which changes the payload to true/false
+  ///in welcome and complete I call toggleTimer with a true/false parameter
+  //that much is working
 
   useEffect(() => {
-    let intervalId
+    let intervalId: any
     if (toggleTimer) {
-      intervalId = setInterval(() => setTime(time + 1), 10)
-    } else if (toggleTimer === false) {
+      intervalId = setInterval(() => setTime(time + 1), 1000)
+      console.log('why')
+    } else if (!toggleTimer) {
       console.log('stop')
-      setTime(0)
+      //else if (toggleTimer === false) {
+      //console.log('stop')
+      //setTime(0)
       clearInterval(intervalId)
+      setTime(0)
     }
   }, [toggleTimer, time])
 
