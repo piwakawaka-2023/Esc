@@ -6,8 +6,8 @@ const router = express.Router()
 router.get('/:id', async (req, res, next) => {
   const id = +req.params.id
   try {
-    const questions = await db.getSingleQuestion(id)
-    res.json(questions)
+    const question = await db.getSingleQuestion(id)
+    res.json(question)
   } catch (e) {
     next(e)
   }
