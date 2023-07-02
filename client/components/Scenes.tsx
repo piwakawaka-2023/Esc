@@ -39,7 +39,7 @@ export function getScenes() {
             <div className="slack-messagecard">
               <p>{curScene?.text}</p>
             </div>
-            <div className="scene-card" onClick={() => handlePlay()}></div>
+            <div className="scene-card"></div>
           </div>
 
           <Link to={`level/${curScene?.levelId}`}>

@@ -1,7 +1,7 @@
 //CHANGE USER STATE TO ACTIVE: FALSE COMPLETE: TRUE
 import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../hooks/hooks'
-import { finishGameThunk } from '../actions/user'
+import { finishGameThunk, toggleTimer } from '../actions/user'
 import { useParams, Link } from 'react-router-dom'
 import { useSound } from 'use-sound'
 import audioUrl from '/sounds/short-music.mp3'
@@ -30,6 +30,7 @@ export default function Complete() {
 
   const dispatch = useAppDispatch()
   useEffect(() => {
+    dispatch(toggleTimer(false))
     dispatch(finishGameThunk(Number(userId)))
   }, [])
 
@@ -37,9 +38,13 @@ export default function Complete() {
     <>
       <div className="grey-background" onClick={() => handlePlay()}>
         <div className="screen">
-          <h2 className="screen-message typewriter">...congratulations on escaping</h2>
+          <h2 className="screen-message typewriter">
+            ...congratulations on escaping
+          </h2>
           <a href="/">
-            <button className="blue-button" onClick={() => handleStop()}>PLAY AGAIN</button>
+            <button className="blue-button" onClick={() => handleStop()}>
+              PLAY AGAIN
+            </button>
           </a>
         </div>
       </div>

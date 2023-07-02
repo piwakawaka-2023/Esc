@@ -1,10 +1,11 @@
 import { TOGGLE_TIMER, UserAction } from '../actions/user'
 
-const initialState = {
-  isOn: false as boolean,
-}
+const initialState = false
 
-export default function useReducer(state = initialState, action: UserAction) {
+export default function timerReducer(
+  state = initialState,
+  action: UserAction
+): boolean {
   const { type, payload } = action
   switch (type) {
     case TOGGLE_TIMER:

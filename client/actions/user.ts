@@ -57,7 +57,7 @@ export function setUserPlayingTime(id: number, time: number): UserAction {
   }
 }
 
-export function toggleTimer(isOn: boolean) {
+export function toggleTimer(isOn: boolean): UserAction {
   return {
     type: TOGGLE_TIMER,
     payload: isOn,
