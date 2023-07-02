@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, Dispatch } from 'react'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import * as actions from '../actions/questions'
 import { Question } from '../../models/questions'
@@ -6,35 +6,11 @@ import useSound from 'use-sound'
 import incorrectBuzzerUrl from '/sounds/wrong-buzzer.mp3'
 import correctBuzzerUrl from '/sounds/correct-buzzer.mp3'
 
-//currently receives levelnumber as props so the correct question can be loaded
-//needs to be able to take two parameters, one for the levelnumber and a second for a function
-//the function inside the parent component (elevator) will update the state to store when a question has been passed
-//then the state can be used to move through levels.
-
-//the Component will look similar to this
-{
-  /* <ElevatorQuestions data={levelNum} changeMessage={changeMessage}/> */
-}
-
-//the parent component will take a function and a state, similar to below
-
-// const [testPass, setTestPass] = useState("parent")
-
-// const changeMessage = (newMessage: string) => {
-//   setTestPass(newMessage)
-// }
-
-//the function will be called inside the onclick "checkAnswer" functions set below
-//state to show correct or fail to be sent back to parent
-
 interface Props {
-  // changeMessage: Game
+  questionPassed: boolean
+  setQuestionPassed: Dispatch<SetStateAction<boolean>>
   data: number
 }
-
-// interface Game {
-//   message: string
-// }
 
 function ElevatorQuestions(props: Props) {
   const dispatch = useAppDispatch()
@@ -51,12 +27,11 @@ function ElevatorQuestions(props: Props) {
 
   const checkAnswer = (answer: string | undefined) => {
     if (answer === question.correct) {
-      console.log('you were right')
       playCorrectBuzzer()
-      // changeMessage('child')
+      props.setQuestionPassed(true)
     } else {
-      console.log('wrong')
       playIncorrectBuzzer()
+      props.setQuestionPassed(false)
     }
   }
 
@@ -74,25 +49,25 @@ function ElevatorQuestions(props: Props) {
           onClick={() => checkAnswer(question?.answer1)}
           className="blue-button blue-button-lge"
         >
-          {question?.answer1}
+          1.{question?.answer1}
         </button>
         <button
           onClick={() => checkAnswer(question?.answer2)}
           className="blue-button blue-button-lge"
         >
-          {question?.answer2}
+          2.{question?.answer2}
         </button>
         <button
           onClick={() => checkAnswer(question?.answer3)}
           className="blue-button blue-button-lge"
         >
-          {question?.answer3}
+          3.{question?.answer3}
         </button>
         <button
           onClick={() => checkAnswer(question?.answer4)}
           className="blue-button blue-button-lge"
         >
-          {question?.answer4}
+          4.{question?.answer4}
         </button>
       </div>
     </div>

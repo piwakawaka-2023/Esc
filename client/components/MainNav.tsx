@@ -8,6 +8,9 @@ function MainNav() {
           <Link to="/leaderboard" id="nav-link">
             Leaderboard
           </Link>
+          <Link to="/leaderboard" id="nav-link">
+            About
+          </Link>
         </div>
       </div>
     </>
