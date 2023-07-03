@@ -3,6 +3,10 @@ import slackUrl from '/sounds/wow.mp3'
 import { useSound } from 'use-sound'
 import basement from '/images/basement.png'
 import keycard from '/images/keycard.png'
+import body from '/images/body.png'
+import head from '/images/head.png'
+import mole from '/images/mole.png'
+import unicorn from '/images/unicorn.png'
 import { useEffect, useState } from 'react'
 
 export default function Basement() {
@@ -36,20 +40,44 @@ export default function Basement() {
     }
   }, [])
 
-    // Random Swipecard Position 
+    // Random Swipecard/JS Carnival Position 
 
-  const [position, setPosition] = useState({ x: 0, y: 0 })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const images = [
+      { id: 1, src: head, alt: 'JS-carnival-head' },
+      { id: 2, src: body, alt: 'JS-carnival-body' },
+      { id: 3, src: unicorn, alt: 'JS-carnival-unicorn' },
+      { id: 4, src: mole, alt: 'JS-carnival-mole'},
+      { id: 5, src: keycard, alt: 'keycard-to-exit', keycard: true}
+    ]
+
+    const getRandomPosition = () => {
+      const min = 0;
+      const max = 500; // Random for JS Carnival elements
+      const x = Math.floor(Math.random() * (max - min + 1) + min);
+      const y = Math.floor(Math.random() * (max - min + 1) + min);
+      return { x, y }
+    };
   
-  useEffect(() => {
-    const maxWidth = window.innerWidth - 200; 
-    const maxHeight = window.innerHeight - 200; 
-
-      const randomX = Math.floor(Math.random() * maxWidth)
-      const randomY = Math.floor(Math.random() * maxHeight)
+  //   const getSpecialPosition = () => {
+  //     const min = 600;
+  //     const max = 800; // Random for Keycard
+  //     const x = Math.floor(Math.random() * (max - min + 1) + min);
+  //     const y = Math.floor(Math.random() * (max - min + 1) + min);
+  //     return { x, y }
+  //   };
   
-      setPosition({ x: randomX, y: randomY })
-  }, [])
-
+  //   const [positions, setPositions] = useState([]);
+  
+  // useEffect(() => {
+  //   const generatedPositions = images.map((image) => {
+  //     if (image.keycard) {
+  //       return { id: image.id, ...getSpecialPosition() };
+  //     }
+  //     return { id: image.id, ...getRandomPosition() };
+  //   });
+  //   setPositions(generatedPositions);
+  // }, [images]);
     // Show Next button after swipecard clicked
 
     const [nextButton, setnextButton] = useState(false)
@@ -60,29 +88,21 @@ export default function Basement() {
 
   return (
     <>
+     <div>
+      {images.map((image) => (
+        <img
+          key={image.id}
+          src={image.src}
+          alt={image.alt}
+          style={{
+            position: 'absolute',
+            left: positions.find((pos) => pos.id === image.id)?.x,
+            top: positions.find((pos) => pos.id === image.id)?.y,
+          }}
+          onClick={image.keycard ? handleClick : undefined}
+      )), [] }
+    </div>
       
-        {/* // style
-        //   backgroundImage: `url(${basement})`,
-        //   textAlign: 'center',
-        //   width: '100%',
-        //   height: '100VH',
-        //   backgroundSize: 'cover',
-        //   margin: '-20px',
-        // */}
-
-      <div>
-      <img
-        src={keycard}
-        alt="swipecard"
-        className="swipecard"
-        onClick={handleClick}
-        style={{
-          position: 'absolute',
-          top: `${position.y}px`,
-          left: `${position.x}px`,
-        }}
-       />
-
       {nextButton && 
         <Link to={`/game/${userId}/scene/3`}>
           <button

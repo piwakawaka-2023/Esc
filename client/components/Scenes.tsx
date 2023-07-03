@@ -22,7 +22,7 @@ export function getScenes() {
     play()
   }
 
-  // setting slackBot text to appear + next button
+  // setting slackBot text to appear 
   const [audioPlay, setAudioPlay] = useState(false)
   const [showContent, setShowContent] = useState(false)
 
