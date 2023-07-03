@@ -7,9 +7,9 @@ function MainNav() {
         <a href="/leaderboard">
           <button className="blue-button blue-button-sml">Leaderboard</button>
         </a>
-        <Link to="/about">
+        <a href="/about">
           <button className="blue-button blue-button-sml">About</button>
-        </Link>
+        </a>
       </div>
     </>
   )
