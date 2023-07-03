@@ -1,4 +1,3 @@
-import MainNav from './MainNav'
 import { Link } from 'react-router-dom'
 
 function About() {

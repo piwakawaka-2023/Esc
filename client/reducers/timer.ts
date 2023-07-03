@@ -14,6 +14,3 @@ export default function timerReducer(
       return state
   }
 }
-
-//use reducer to set initial state of timer and set increment size for set interval
-//and reset to initial state if timer stops

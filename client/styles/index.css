@@ -6,6 +6,7 @@
 
 
 /* MAIN NAV STYLING */
+
 .main-nav-container{
   width: 100vw;
   text-align: right;
@@ -21,7 +22,7 @@
   flex-direction: column;
 }
 
-/* NAV BAR */
+/* GAME-NAV BAR */
 
 ul {
   list-style-type: none;
@@ -47,7 +48,8 @@ ul {
   color: #0BD7EC;
 }
 
-/* Timer  */
+/* TIMER STYLING */
+
 .stopwatch-time{
   width: 60px;
   height:auto;
@@ -62,7 +64,7 @@ ul {
   font-weight: 500;
 }
 
-/* Global Styles */
+/* GLOBAL STYLES */
 
 .grey-background {
   /* background-color: #2E2D2B; */
@@ -193,9 +195,6 @@ ul {
   margin: 0 auto;
 }
 
-
-
-
 /* START GAME FORM STYLING */
 
 #start-game-form-container {
@@ -284,11 +283,7 @@ input{
   margin-top: 30px;
 }
 
-/* p {
-  margin-bottom: 15%;
-} */
-
-/* Elevator Styles */
+/* ELEVATOR STYLES */
 
 .elevator-shaft{
   background-color: black;
@@ -353,7 +348,7 @@ input{
 }
 
 
-/* Basement */
+/* BASEMENT */
 
 .swipecard {
   max-width: 75px;
@@ -362,7 +357,7 @@ input{
 }
 
 
-/* Lights Off MiniGame */
+/* LIGHTS OFF MINI GAME */
 
 .Cell-on {
   width: 25px;
@@ -385,7 +380,7 @@ input{
   background-color: rgb(55, 55, 55);
 }
 
-/* About page */
+/* ABOUT PAGE */
 
 .creator-container {
   width: 70vw;
