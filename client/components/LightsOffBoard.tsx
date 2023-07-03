@@ -2,6 +2,8 @@ import Cell from './LightsOffCell'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import GameOver from './GameOver'
+import { useSound } from 'use-sound'
+import switchUrl from '/sounds/light-off.wav'
 
 function Board() {
   const size = 3
@@ -9,13 +11,14 @@ function Board() {
   const [count, setCount] = useState(0)
   const { userId, id } = useParams()
 
+  const [playSwitch] = useSound(switchUrl, { volume: 0.5 })
+
   const lightsGrid = Array(size)
     .fill(0)
-    .map(
-      (row) =>
-        (row = Array(size)
-          .fill(0)
-          .map((cell) => (cell = randomLight())))
+    .map(() =>
+      Array(size)
+        .fill(0)
+        .map(() => randomLight())
     )
   lightsGrid[1][1] = true
 
@@ -57,6 +60,7 @@ function Board() {
   }
 
   function hasWon() {
+    playSwitch()
     return board.grid.every((row) => row.every((cell) => !cell))
   }
 
@@ -82,26 +86,40 @@ function Board() {
             toggleLight={toggleAllLights}
           />
         ))}
-        {count}
       </div>
     )
   })
 
   return (
-    <div className="Board">
-      {hasWon() ? (
-        <div className="Board-hasWon">
-          <Link to={`/game/${userId}/scene/${id}/level/1`}>
-            <button className="blue-button">Exit</button>
-          </Link>
+    <>
+      <div className="screen" id="yellow-screen">
+        <p className="lightoff-header">Turn Off the Lights</p>
+        <div className="lightoff-attempts">
+          <p>Attempts left: {15 - count} </p>
         </div>
-      ) : youDied() ? (
-        <GameOver />
-      ) : (
-        gridDisplay
-      )}
-    </div>
+      </div>
+      <div className="board">
+        {hasWon() ? (
+          <div className="board-haswon">
+            <Link to={`/game/${userId}/scene/${id}/level/2`}>
+              <button className="blue-button">Escape</button>
+            </Link>
+          </div>
+        ) : youDied() ? (
+          <GameOver />
+        ) : (
+          gridDisplay
+        )}
+      </div>
+    </>
   )
 }
 
 export default Board
+
+/* HINT */
+/* Starting with the second row, click on every cell that has a light on in the row above it. This will turn off all the lights in that row. Continue with each successive row until the only remaining lights are in the final row. */
+/* In the top row, select the inverse of the bottom row of cells with lights on.
+/* FOR EXAMPLE */
+/* Bottom row: -*- Top row: *-*, Bottom row: *-- Top row: --* */
+/* Repeat */

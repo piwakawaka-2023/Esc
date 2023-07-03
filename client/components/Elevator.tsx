@@ -23,7 +23,7 @@ export default function Elevator() {
   const [questionPassed, setQuestionPassed] = useState(false)
   const [codeCracked, setCodeCracked] = useState(false)
 
-  const [playing, setPlaying] = useState(false)
+  const [playing, setPlaying] = useState(false) //can be deleted I think
   const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
   const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
@@ -176,7 +176,10 @@ export default function Elevator() {
 
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
-              <ElevatorCode codeCracked={codeCracked} setCodeCracked={setCodeCracked}/>
+              <ElevatorCode
+                codeCracked={codeCracked}
+                setCodeCracked={setCodeCracked}
+              />
               {viewOpen && codeCracked && (
                 <button className="blue-button" onClick={handleClick}>
                   Open Doors
