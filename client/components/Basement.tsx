@@ -1,10 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
-import slackUrl from '/sounds/wow.mp3'
+import slackUrl from '/sounds/knock-brush.mp3'
 import { useSound } from 'use-sound'
 import basement from '/images/basement.png'
 import keycard from '/images/keycard.png'
 import { useEffect, useState } from 'react'
-
 
 export default function Basement() {
   // Sound
