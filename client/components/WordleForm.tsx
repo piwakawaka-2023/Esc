@@ -1,5 +1,4 @@
 import { FormEvent, useState, ChangeEvent } from 'react'
-import App from './App'
 import { useNavigate } from 'react-router-dom'
 
 export function wordleForm() {
@@ -9,9 +8,6 @@ export function wordleForm() {
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
-
-    console.log(input, 'input')
-    console.log(passcode, 'passcode')
     if (input !== passcode) {
       return window.alert('try again')
     }
