@@ -2,6 +2,8 @@ import { useAppSelector, useAppDispatch } from '../hooks/hooks'
 import { UserHighscore } from '../../models/users'
 import { useEffect } from 'react'
 import * as userActions from '../actions/user'
+import { Link } from 'react-router-dom'
+import logo from '/images/static-esc-logo.png'
 
 export default function Leaderboard() {
   const dispatch = useAppDispatch()
@@ -19,6 +21,13 @@ export default function Leaderboard() {
 
   return (
     <>
+      <Link to="/">
+        <img
+          src={logo}
+          alt="static grey escape logo"
+          className="in-game-logo"
+        />
+      </Link>
       <div className="grey-background">
         <div className="screen">
           <h2 className="screen-message typewriter">HIGHSCORES</h2>
