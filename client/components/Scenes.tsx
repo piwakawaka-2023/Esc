@@ -8,18 +8,33 @@ import logo from '/images/slack-icon.png'
 import pfp from '/images/bossman.png'
 import slackbot from '/images/slackbot.png'
 import SceneNextButton from './SceneNextButton'
+import slackUrl from '/sounds/wow.mp3'
+import { useSound } from 'use-sound'
 
 export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
 
-  const [text, setText] = useState('')
+  // slack notification sound
+  const [play] = useSound(slackUrl, { volume: 0.5 })
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setText('this will be the slackbot auto message')
-    }, 3000)
-  }, [])
+  const handlePlayFx = () => {
+    play()
+  }
+
+  // setting slackBot text to appear + next button
+  const [audioPlay, setAudioPlay] = useState(false)
+  const [showContent, setShowContent] = useState(false)
+
+  const handleClick = () => {
+  setShowContent(true)
+  if (!audioPlay) {
+    setAudioPlay(true)
+    handlePlayFx()
+  }
+  }
+  
+  // Finding correct scene by ID
 
   const scene = useAppSelector((state) => state.scene) as Scene[]
   const curScene = scene[0]
@@ -30,40 +45,36 @@ export function getScenes() {
 
   return (
     <>
-      <div className="grey-background">
+      <div className="grey-background" onClick={handleClick}>
         <div className="screen">
           <div className="slack-card">
             <div className="slack-sidecard">
-              <img src={logo} className="logo" alt="slack-icon"></img>
+              <img src={logo} className="logo" alt="slack-icon" />
               <div className="slack-text">
                 <strong>#2023_Piwakawaka</strong>
-                <br></br>
+                <br />
                 <strong>#code-help-desk</strong>
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 <strong> ⬇ Direct Messag..</strong>
-                <br></br>
+                <br />
                 📨
               </div>
             </div>
             <div className="slack-messagecard">
-              <img src={pfp} className="pfp" alt="icon"></img>
+              <img src={pfp} className="pfp" alt="icon" />
               <p>{curScene?.text}</p>
-              {text && (
+              {showContent && (
                 <>
-                  <img
-                    src={slackbot}
-                    className="slackbot"
-                    alt="slackbot-icon"
-                  />
-                  <br></br>
-                  {text}
+                  <img src={slackbot} className="slackbot" alt="slackbot-icon" />
+                  <br />
+                  {'this will be the slackbot message'}
+                  <div className="scene-card"></div>
                 </>
               )}
             </div>
-            <div className="scene-card"></div>
+           <SceneNextButton curScene={curScene} />
           </div>
-          <SceneNextButton curScene={curScene} />
         </div>
       </div>
     </>
