@@ -6,14 +6,9 @@ import * as actions from '../actions/user'
 interface Props {
   vapeCatch: number
   pipeCatch: number
-  missed: number
 }
 
-export default function BalonyStatsScreen({
-  vapeCatch,
-  pipeCatch,
-  missed,
-}: Props) {
+export default function BalonyStatsScreen({ vapeCatch, pipeCatch }: Props) {
   const user = useAppSelector((state) => state.user) as User
 
   const dispatch = useAppDispatch()
@@ -34,7 +29,7 @@ export default function BalonyStatsScreen({
         <p>
           <strong>Missed:</strong>
         </p>
-          <p id="missed-score"></p>
+        <p id="missed-score"></p>
       </div>
     </>
   )
