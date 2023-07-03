@@ -5,6 +5,7 @@ import {
   REQUEST_USER,
   SET_USER_TIME,
   SET_USER,
+  SET_USER_STATUS,
 } from '../actions/user'
 
 import { User } from '../../models/users'
@@ -15,6 +16,8 @@ export default function userReducer(state = initialState, action: UserAction) {
   const { type, payload } = action
   switch (type) {
     case SET_USER:
+      return payload
+    case SET_USER_STATUS:
       return payload
     case FINISH_GAME:
       return payload

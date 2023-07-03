@@ -4,9 +4,9 @@ function MainNav() {
   return (
     <>
       <div id="btn-container">
-        <Link to="/leaderboard">
+        <a href="/leaderboard">
           <button className="blue-button blue-button-sml">Leaderboard</button>
-        </Link>
+        </a>
         <Link to="/about">
           <button className="blue-button blue-button-sml">About</button>
         </Link>

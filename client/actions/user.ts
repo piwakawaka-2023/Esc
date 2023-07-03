@@ -11,6 +11,7 @@ export const SET_USER = 'SET_USER'
 export const FINISH_GAME = 'FINISH_GAME'
 export const SHOW_ERROR = 'SHOW_ERROR'
 export const SET_USER_TIME = 'SET_USER_TIME'
+export const SET_USER_STATUS = 'SET_USER_STATUS'
 export const TOGGLE_TIMER = 'TOGGLE_TIMER'
 
 export type UserAction =
@@ -18,6 +19,7 @@ export type UserAction =
   | { type: typeof REQUEST_USER; payload: User }
   | { type: typeof RECEIVE_USER; payload: User }
   | { type: typeof SET_USER; payload: User[] }
+  | { type: typeof SET_USER_STATUS; payload: User[] }
   | { type: typeof FINISH_GAME; payload: number }
   | { type: typeof SHOW_ERROR; payload: string }
   | { type: typeof SET_USER_TIME; payload: UserTime }
@@ -31,9 +33,15 @@ export function showError(errorMessage: string): UserAction {
 }
 
 export function setUsers(users: User[]): UserAction {
-  console.log('users', users)
   return {
     type: SET_USER,
+    payload: users,
+  }
+}
+
+export function setUsersStatus(users: User[]): UserAction {
+  return {
+    type: SET_USER_STATUS,
     payload: users,
   }
 }
@@ -84,6 +92,17 @@ export function getUsersThunk(): ThunkAction {
   }
 }
 
+export function setUserStatusThunk(users: User[]): ThunkAction {
+  return async (dispatch) => {
+    try {
+      await api.getUsersStatus()
+      dispatch(setUsersStatus(users))
+    } catch (err) {
+      dispatch(showError(String(err)))
+    }
+  }
+}
+
 export function finishGameThunk(id: number): ThunkAction {
   return async (dispatch) => {
     try {
@@ -127,13 +146,3 @@ export function setUserPlayingTimeThunk(id: number, time: number): ThunkAction {
     }
   }
 }
-
-// export function triggerTimerThunk(): ThunkAction {
-//   return async (dispatch) => {
-//     try {
-//       dispatch(triggerTimer())
-//     } catch (err) {
-//       dispatch(showError(String(err)))
-//     }
-//   }
-// }

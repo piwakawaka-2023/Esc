@@ -23,5 +23,12 @@ export function completeGame(id: number) {
 }
 
 export function getAllUsers() {
-  return db('users').select()
+  return db('users').select().where('complete', true)
+}
+
+export function updateStatus() {
+  return db('users')
+    .select('*')
+    .where('active_player', true)
+    .update({ active_player: false })
 }

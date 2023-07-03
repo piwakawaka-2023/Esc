@@ -38,6 +38,16 @@ router.get('/allusers', async (req, res, next) => {
   }
 })
 
+router.patch('/', async (req, res) => {
+  try {
+    await db.updateStatus()
+    res.sendStatus(204)
+  } catch (e) {
+    console.log('Update user status: ', e)
+    res.sendStatus(500)
+  }
+})
+
 router.patch('/:id', async (req, res) => {
   const id = Number(req.params.id)
   try {

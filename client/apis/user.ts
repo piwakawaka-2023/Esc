@@ -23,3 +23,7 @@ export async function getUsers() {
   const res = await request.get('/api/v1/users/allusers')
   return res.body
 }
+
+export async function getUsersStatus() {
+  return request.patch('/api/v1/users')
+}
