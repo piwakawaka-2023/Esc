@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import WordleForm from '../components/WordleForm'
 // import { useParams, Link } from 'react-router-dom'
 
 export function Wordle() {
@@ -40,7 +41,7 @@ export function Wordle() {
       <div id="container">
         <div id="game">
           <header>
-            <h1 className="title">ENTER PASSCODE</h1>
+            <h1 className="title">PASSCODE</h1>
           </header>
           <div className="board-container">
             <div id="board"></div>
@@ -89,6 +90,7 @@ export function Wordle() {
           </div>
         </div>
       </div>
+      <WordleForm />
     </>
   )
 }
