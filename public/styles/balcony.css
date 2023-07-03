@@ -4,7 +4,7 @@
 }
 
 body{
-  background-image: url('/images/balcony.png');
+  /* background-image: url('/images/balcony.png'); */
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -12,10 +12,9 @@ body{
   background-color: #0BD7EC;
 }
 
-/* .balcony-game-board{
-  width: 90%;
-  height:100%;
-} */
+.balcony-game-board{
+ position: relative;
+}
 
 #game-stats{
   display: flex;
@@ -28,16 +27,16 @@ body{
   width:100%;
 }
 
-.bus{
+#bus{
   height: 50px;
   width: auto;
-  position: fixed;
+  position: absolute;
   bottom: 0;
+  left: calc(50% - 25px);
 }
 
-.vape{
-    height: 70px;
+#vape{
+  height: 70px;
   width: auto;
-  position: fixed;
-  bottom: 1;
+  position: absolute;
 }
