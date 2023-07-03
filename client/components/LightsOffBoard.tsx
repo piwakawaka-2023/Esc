@@ -1,6 +1,7 @@
 import Cell from './LightsOffCell'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import GameOver from './GameOver'
 
 function Board() {
   const size = 3
@@ -66,12 +67,7 @@ function Board() {
   function youDied() {
     if (count >= 15) {
       console.log('death')
-      return (
-        <>
-          <h1>You DIED</h1>
-          <p>Implement a LINK to new route path</p>
-        </>
-      )
+      return <GameOver />
     }
   }
 
@@ -100,10 +96,7 @@ function Board() {
           </Link>
         </div>
       ) : youDied() ? (
-        <>
-          <h1>You DIED</h1>
-          <p>Implement a LINK to new route path</p>
-        </>
+        <GameOver />
       ) : (
         gridDisplay
       )}
