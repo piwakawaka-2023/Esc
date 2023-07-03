@@ -19,7 +19,7 @@ exports.seed = async function (knex) {
       id: 2,
       question: 'Where would you be if you were standing on the Spanish Steps?',
       answer1: 'Milan',
-      answer2: 'Rome',
+      answer2: 'Spain',
       answer3: 'Italy',
       answer4: 'Rome',
       correct: 'Rome',
