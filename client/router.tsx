@@ -16,6 +16,7 @@ import Leaderboard from './components/Leaderboard'
 import Balcony from './components/Balcony'
 import Wordle from './components/Wordle'
 import LightsOff from './components/LightsOff'
+import About from './components/About'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
         <Route path=":userId/scene/:id/level/4" element={<Balcony />}></Route>
         <Route path=":userId/scene/:id/level/3" element={<Wordle />}></Route>
       </Route>
+      <Route path="/about" element={<About />}></Route>
       <Route path="/leaderboard" element={<Leaderboard />}></Route>
       <Route path="/complete" element={<Complete />}></Route>
       {/* <Route path="path/:params" element={<Component />}></Route> */}

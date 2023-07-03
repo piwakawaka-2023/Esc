@@ -343,3 +343,23 @@ input{
   margin: 20px;
   background-color: rgb(55, 55, 55);
 }
+
+/* About page */
+
+.creator-container {
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.creator-card {
+  width: 33%;
+}
+
+.creator-image{
+  border: 2px solid #0BD7EC;
+  border-radius: 50%;
+  max-width: 200px;
+}
