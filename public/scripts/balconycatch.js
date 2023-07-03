@@ -4,19 +4,28 @@ let busLeft = parseInt(window.getComputedStyle(bus).getPropertyValue('left')) //
 let busBottom = parseInt(
   window.getComputedStyle(bus).getPropertyValue('bottom')
 ) // get bus right property
-let missed = 3
+let missed = 0
+let vapeCount = 0
+
 function updatedMissed(missed) {
   const missedScore = document.getElementById('missed-score')
   missedScore.innerHTML = `${missed}`
 }
+function updateVapeCount(vapeCount) {
+  const missedScore = document.getElementById('vape-count')
+  missedScore.innerHTML = `${vapeCount}`
+}
+
+updatedMissed(0)
+updateVapeCount(0)
 
 function moveBusRight() {
-  busLeft += 15
+  busLeft += 20
   bus.style.left = busLeft + 'px'
 } // move bus left and limit to screen edge
 
 function moveBusLeft() {
-  busLeft -= 15
+  busLeft -= 20
   bus.style.left = busLeft + 'px'
 } //move bus right and limit to screen edge
 
@@ -26,18 +35,27 @@ function control(e) {
 } //control bus with keys
 
 function createVapes() {
-  let vapeBottom = 470
-  let vapeLeft = Math.floor(Math.random() * 620)
+  let vapeBottom = 600
+  let vapeLeft = Math.floor(Math.random() * 1000)
   let vapes = document.createElement('img')
   vapes.setAttribute('id', 'vape')
   vapes.setAttribute('src', '/images/vape-purple.png')
   vape.appendChild(vapes)
   function vapeFall() {
+    if (
+      vapeBottom < busBottom + 100 &&
+      vapeBottom > busBottom &&
+      vapeLeft > busLeft - 50 &&
+      vapeLeft < busLeft + 150
+    ) {
+      vape.removeChild(vapes)
+      vapeCount++
+      updateVapeCount(vapeCount)
+    }
     if (vapeBottom == busBottom) {
       missed++
       updatedMissed(missed)
     }
-    console.log(missed)
     vapeBottom -= 5
     vapes.style.bottom = vapeBottom + 'px'
     vapes.style.left = vapeLeft + 'px'

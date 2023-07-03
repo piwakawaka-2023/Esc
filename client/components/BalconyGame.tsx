@@ -7,18 +7,15 @@ export default function BalconyGame() {
   const [nextButton, setnextButton] = useState(true)
   const { userId } = useParams()
 
-  const vapeCatch = 0
-  const pipeCatch = 0
-
   return (
     <>
-      <BalonyStatsScreen vapeCatch={vapeCatch} pipeCatch={pipeCatch} />
+      <BalonyStatsScreen />
       <div className="balony-game-board">
         <div className="vape"> </div>
         <div className="pipes"> </div>
         <img src={bus} alt="yellow bus" id="bus" />
       </div>
-      {nextButton && (
+      {/* {nextButton && (
         <Link to={`/game/${userId}/scene/4`}>
           <button
             style={{ position: 'fixed', bottom: '0' }}
@@ -27,7 +24,7 @@ export default function BalconyGame() {
             Exit
           </button>
         </Link>
-      )}
+      )} */}
     </>
   )
 }
