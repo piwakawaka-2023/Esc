@@ -5,6 +5,7 @@ import basement from '/images/basement.png'
 import keycard from '/images/keycard.png'
 import { useEffect, useState } from 'react'
 
+
 export default function Basement() {
   // Sound
   const { userId } = useParams()
