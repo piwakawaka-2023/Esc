@@ -48,18 +48,37 @@ ul {
 }
 
 /* Timer  */
-.stopwatch-time{
-  width: 60px;
-  height:auto;
+#stopwatch-time{
   position: fixed;
-  right:50px;
+  right:0;
   top:40px;
   z-index: 300;
-  margin: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
   color: #0BD7EC;
-  font-family: 'B612 Mono', monospace;
+  font-family: 'Space Mono', monospace;
   text-transform: capitalize;
   font-weight: 500;
+  background-image: url('/images/screen-texture.png');
+  background-size: cover;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #0BD7EC;
+  padding: 5px;
+}
+
+.blinking {
+  
+  border-bottom: 10px solid #0BD7EC;
+  animation-name: blinking;
+  animation-duration: 1s;
+  animation-iteration-count: 100;
+}
+@keyframes blinking {
+  50% {
+    border-color: #114A67;
+  }
 }
 
 /* Global Styles */

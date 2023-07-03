@@ -35,8 +35,7 @@ export default function Timer() {
   // const milliseconds = time % 100
 
   return (
-    <p className="stopwatch-time">
-      Timer:
+    <p id="stopwatch-time" className="blinking">
       {minutes.toString().padStart(2, '0')}:
       {seconds.toString().padStart(2, '0')}
       {/* {milliseconds.toString().padStart(2, '0')} */}
