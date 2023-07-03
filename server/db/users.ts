@@ -21,3 +21,7 @@ export function completeGame(id: number) {
     active_player: false,
   })
 }
+
+export function getAllUsers() {
+  return db('users').select()
+}

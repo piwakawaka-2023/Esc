@@ -4,6 +4,7 @@ import {
   ADD_USER,
   REQUEST_USER,
   SET_USER_TIME,
+  SET_USER,
 } from '../actions/user'
 
 import { User } from '../../models/users'
@@ -13,6 +14,8 @@ const initialState = [] as User[]
 export default function userReducer(state = initialState, action: UserAction) {
   const { type, payload } = action
   switch (type) {
+    case SET_USER:
+      return payload
     case FINISH_GAME:
       return payload
     case ADD_USER:
