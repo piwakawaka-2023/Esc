@@ -28,6 +28,25 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/allusers', async (req, res, next) => {
+  try {
+    const users = await db.getAllUsers()
+    res.json(users)
+  } catch (e) {
+    next(e)
+  }
+})
+
+router.patch('/', async (req, res) => {
+  try {
+    await db.updateStatus()
+    res.sendStatus(204)
+  } catch (e) {
+    console.log('Update user status: ', e)
+    res.sendStatus(500)
+  }
+})
+
 router.patch('/:id', async (req, res) => {
   const id = Number(req.params.id)
   try {
@@ -39,9 +58,9 @@ router.patch('/:id', async (req, res) => {
   }
 })
 
-router.patch('/updateTime/:id', async (req, res, next) => {
-  const id = +req.params.id //could be user.id ?
-  const time = req.body
+router.patch('/updatetime/:id', async (req, res, next) => {
+  const id = +req.params.id
+  const time = req.body.time
   try {
     await db.updatePlayingTime(id, time)
     res.sendStatus(204)

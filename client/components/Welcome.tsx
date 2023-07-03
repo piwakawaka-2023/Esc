@@ -3,7 +3,7 @@ import { User } from '../../models/users'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { Link } from 'react-router-dom'
 import * as actions from '../actions/user'
-import slackUrl from '/sounds/wow.mp3'
+import slackUrl from '/sounds/knock-brush.mp3'
 import ambienceUrl from '/sounds/ambience.wav'
 import { useSound } from 'use-sound'
 

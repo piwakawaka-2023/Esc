@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router-dom'
-import slackUrl from '/sounds/wow.mp3'
+import slackUrl from '/sounds/knock-brush.mp3'
 import { useSound } from 'use-sound'
-import basement from '/images/basement.png'
 import keycard from '/images/keycard.png'
 import body from '/images/body.png'
 import head from '/images/head.png'
@@ -10,8 +9,7 @@ import unicorn from '/images/unicorn.png'
 import { useEffect, useState } from 'react'
 
 export default function Basement() {
-
-  // Sound 
+  // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
 
@@ -79,9 +77,11 @@ export default function Basement() {
       setPositions(generatedPositions)
     }, [])
 
-    // Show Next button after swipecard clicked
 
-    const [nextButton, setnextButton] = useState(false)
+  // Show Next button after swipecard clicked
+
+  const [nextButton, setnextButton] = useState(false)
+
 
     const handleSwipeCardClick = () => {
       setnextButton(true)
@@ -91,12 +91,14 @@ export default function Basement() {
       console.log('Angwey >:-(')
     //   // if clicked, play monster audio
     }
+  
 
 
 
     return (
       <>
       <div>
+
         {images.map((image) => (
           <img
             key={image.id}
@@ -127,5 +129,3 @@ export default function Basement() {
      )
     }
 
-
-    // why isnt this working? 

@@ -12,7 +12,7 @@ export function getPlayingUser() {
 }
 
 export function updatePlayingTime(id: number, time: number) {
-  return db('users').select().where({ id }).update({ time: time })
+  return db('users').select().where({ id }).update('time', time)
 }
 
 export function completeGame(id: number) {
@@ -20,4 +20,15 @@ export function completeGame(id: number) {
     complete: true,
     active_player: false,
   })
+}
+
+export function getAllUsers() {
+  return db('users').select().where('complete', true)
+}
+
+export function updateStatus() {
+  return db('users')
+    .select('*')
+    .where('active_player', true)
+    .update({ active_player: false })
 }

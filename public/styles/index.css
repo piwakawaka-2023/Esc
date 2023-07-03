@@ -8,6 +8,11 @@
 /* MAIN NAV STYLING */
 .main-nav-container{
   width: 100vw;
+
+  text-align: right;
+  position: fixed;
+  top: 0;
+  right:0;
 }
 
 #btn-container {
@@ -44,18 +49,58 @@ ul {
 }
 
 /* Timer  */
-.stopwatch-time{
-  width: 60px;
-  height:auto;
+
+#stopwatch-time{
   position: fixed;
-  right:50px;
+  right:0;
   top:40px;
   z-index: 300;
-  margin: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
   color: #0BD7EC;
-  font-family: 'B612 Mono', monospace;
+  font-family: 'Space Mono', monospace;
   text-transform: capitalize;
   font-weight: 500;
+  background-image: url('/images/screen-texture.png');
+  background-size: cover;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #0BD7EC;
+  padding: 5px;
+}
+
+#red-time{
+  position: fixed;
+  right:0;
+  top:40px;
+  z-index: 300;
+  margin-top: 10px;
+  margin-right: 5px;
+  color: #EC0B0B;
+  font-family: 'Space Mono', monospace;
+  text-transform: capitalize;
+  font-weight: 500;
+  background-color: #671111;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #EC0B0B;
+  padding: 5px;
+}
+
+.blinking {
+  
+  border-bottom: 10px solid #0BD7EC;
+  animation-name: blinking;
+  animation-duration: 1s;
+  animation-iteration-count: 100;
+}
+@keyframes blinking {
+  50% {
+    border-color: black;
+  }
+
 }
 
 /* Global Styles */
@@ -101,6 +146,20 @@ ul {
   text-transform: uppercase;
 }
 
+
+#red-btn{
+  background-color: #671111;
+  color: #EC0B0B;
+  border-color: #EC0B0B;
+}
+
+#red-btn:hover{
+  background-color: #EC0B0B;
+  color: #4D0C0C;
+  border-color: #671111;
+  cursor: pointer;
+}
+
 .blue-button:hover {
   background-color: #0BD7EC;
   color:#09364B;
@@ -118,8 +177,8 @@ ul {
 
 .blue-button-lge {
   width: 15vw;
-}
 
+}
 .screen {
   background-image: url('/images/screen-texture.png');
   background-size: cover;
@@ -134,7 +193,16 @@ ul {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 50px;
+  padding: 50px;  
+}
+
+#red-screen{
+  border-color: #EC0B0B;
+  background-color: #4D0C0C;
+  color: #EC0B0B;
+  background-image: url(#);
+
+
 }
 
 .screen-sml {
@@ -256,10 +324,6 @@ input{
   margin-top: 30px;
 }
 
-p {
-  margin-bottom: 15%;
-}
-
 /* Elevator Styles */
 
 .elevator-shaft{
@@ -295,6 +359,18 @@ p {
     blink-caret .75s step-end infinite;
 }
 
+.type-red{
+  border-right: 0.15em solid #EC0B0B ; /* The typwriter cursor */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret-red .75s step-end infinite;
+}
+
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
@@ -306,6 +382,12 @@ p {
   from, to { border-color: transparent }
   50% { border-color: #0BD7EC }
 }
+
+@keyframes blink-caret-red {
+  from, to { border-color: transparent }
+  50% { border-color: #EC0B0B }
+}
+
 
 /* Basement */
 
@@ -321,8 +403,46 @@ p {
   z-index: -90;
 }
 
-.dress-the-clown-body {
-  max-width: 250px;
-  max-height: 250px;
-  z-index: -90;
+/* Lights Off MiniGame */
+
+.Cell-on {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgb(201, 119, 25);
+  border: none;
+  margin: 20px;
+  box-shadow: 
+  0 0 22px rgb(201, 119, 25),
+  0 0 42px rgb(201, 119, 25)
+}
+
+.Cell-off {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  margin: 20px;
+  background-color: rgb(55, 55, 55);
+}
+
+/* About page */
+
+.creator-container {
+  width: 70vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.creator-card {
+  width: 33%;
+}
+
+.creator-image{
+  border: 2px solid #0BD7EC;
+  border-radius: 50%;
+  max-width: 200px;
+
 }

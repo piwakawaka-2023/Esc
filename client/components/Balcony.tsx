@@ -1,0 +1,44 @@
+import { Link, useParams } from 'react-router-dom'
+import { useEffect } from 'react'
+import BalconyGame from './BalconyGame'
+
+export default function Balcony() {
+  const { userId } = useParams()
+
+  useEffect(() => {
+    // Run JavaScript script on this comp
+    const script = document.createElement('script')
+    script.src = '/scripts/balconycatch.js'
+    script.async = true
+    document.body.appendChild(script)
+
+    // Attach CSS to this comp
+    const link = document.createElement('link')
+    link.href = '/styles/balcony.css'
+    link.rel = 'stylesheet'
+    link.type = 'text/css'
+    document.head.appendChild(link)
+
+    // Clean upon component unmount
+    return () => {
+      document.body.removeChild(script)
+      document.head.removeChild(link)
+    }
+  }, [])
+
+  return (
+    <>
+      <BalconyGame />
+      <div>
+        <Link to={`/game/${userId}/scene/5`} id="balcony-exit">
+          {/* <button
+              style={{ position: 'fixed', bottom: '0' }}
+              className="blue-button"
+            >
+              Exit
+            </button> */}
+        </Link>
+      </div>
+    </>
+  )
+}

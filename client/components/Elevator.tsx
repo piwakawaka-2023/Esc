@@ -10,8 +10,9 @@ import eye from '/images/eye.png'
 import { useSound } from 'use-sound'
 import liftBellUrl from '/sounds/bell.wav'
 import liftDoorUrl from '/sounds/elevator-door.wav'
-import slackUrl from '/sounds/wow.mp3'
+import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorQuestions from './ElevatorQuestions'
+import ElevatorCode from './ElevatorCode'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -20,6 +21,7 @@ export default function Elevator() {
   const [levelNum, setLevelNum] = useState(1)
 
   const [questionPassed, setQuestionPassed] = useState(false)
+  const [codeCracked, setCodeCracked] = useState(false)
 
   const [playing, setPlaying] = useState(false)
   const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
@@ -107,9 +109,11 @@ export default function Elevator() {
           </ParallaxLayer>
 
           {/* BUTTON LAYERS */}
+
           <ParallaxLayer offset={0.6} speed={0.5}>
             <div>
               <ElevatorQuestions
+                key="level-1"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}
@@ -125,6 +129,7 @@ export default function Elevator() {
           <ParallaxLayer offset={1.6} speed={0.1}>
             <div>
               <ElevatorQuestions
+                key="level-2"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}
@@ -140,6 +145,7 @@ export default function Elevator() {
           <ParallaxLayer offset={2.6} speed={1}>
             <div>
               <ElevatorQuestions
+                key="level-3"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}
@@ -155,6 +161,7 @@ export default function Elevator() {
           <ParallaxLayer offset={3.6} speed={1}>
             <div>
               <ElevatorQuestions
+                key="level-4"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}
@@ -169,7 +176,8 @@ export default function Elevator() {
 
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
-              {viewOpen && (
+              <ElevatorCode codeCracked={codeCracked} setCodeCracked={setCodeCracked}/>
+              {viewOpen && codeCracked && (
                 <button className="blue-button" onClick={handleClick}>
                   Open Doors
                 </button>
