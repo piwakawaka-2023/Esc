@@ -105,6 +105,19 @@ ul {
   text-transform: uppercase;
 }
 
+#red-btn{
+  background-color: #671111;
+  color: #EC0B0B;
+  border-color: #EC0B0B;
+}
+
+#red-btn:hover{
+  background-color: #EC0B0B;
+  color: #4D0C0C;
+  border-color: #671111;
+  cursor: pointer;
+}
+
 .blue-button:hover {
   background-color: #0BD7EC;
   color:#09364B;
@@ -125,6 +138,7 @@ ul {
   padding: 0.5em;
 }
 
+
 .screen {
   background-image: url('/images/screen-texture.png');
   background-size: cover;
@@ -140,6 +154,15 @@ ul {
   justify-content: center;
   text-align: center;
   padding: 50px;
+  
+}
+
+#red-screen{
+  border-color: #EC0B0B;
+  background-color: #4D0C0C;
+  color: #EC0B0B;
+  background-image: url(#);
+
 }
 
 .screen-sml {
@@ -300,6 +323,18 @@ input{
     blink-caret .75s step-end infinite;
 }
 
+.type-red{
+  border-right: 0.15em solid #EC0B0B ; /* The typwriter cursor */
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret-red .75s step-end infinite;
+}
+
 /* The typing effect */
 @keyframes typing {
   from { width: 0 }
@@ -311,6 +346,12 @@ input{
   from, to { border-color: transparent }
   50% { border-color: #0BD7EC }
 }
+
+@keyframes blink-caret-red {
+  from, to { border-color: transparent }
+  50% { border-color: #EC0B0B }
+}
+
 
 /* Basement */
 
