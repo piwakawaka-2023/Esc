@@ -30,7 +30,7 @@ export default function Balcony() {
     <>
       <BalconyGame />
       <div>
-        <Link to={`/game/${userId}/scene/3`} id="balcony-exit">
+        <Link to={`/game/${userId}/scene/5`} id="balcony-exit">
           {/* <button
               style={{ position: 'fixed', bottom: '0' }}
               className="blue-button"
