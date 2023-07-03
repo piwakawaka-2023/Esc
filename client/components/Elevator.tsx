@@ -12,6 +12,7 @@ import liftBellUrl from '/sounds/bell.wav'
 import liftDoorUrl from '/sounds/elevator-door.wav'
 import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorQuestions from './ElevatorQuestions'
+import ElevatorCode from './ElevatorCode'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -20,6 +21,7 @@ export default function Elevator() {
   const [levelNum, setLevelNum] = useState(1)
 
   const [questionPassed, setQuestionPassed] = useState(false)
+  const [codeCracked, setCodeCracked] = useState(false)
 
   const [playing, setPlaying] = useState(false)
   const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
@@ -174,7 +176,8 @@ export default function Elevator() {
 
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
-              {viewOpen && (
+              <ElevatorCode codeCracked={codeCracked} setCodeCracked={setCodeCracked}/>
+              {viewOpen && codeCracked && (
                 <button className="blue-button" onClick={handleClick}>
                   Open Doors
                 </button>
