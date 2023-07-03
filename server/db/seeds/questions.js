@@ -21,8 +21,8 @@ exports.seed = async function (knex) {
       answer1: 'Milan',
       answer2: 'Rome',
       answer3: 'Italy',
-      answer4: 'Spain',
-      correct: 'Spain',
+      answer4: 'Rome',
+      correct: 'Rome',
     },
     {
       id: 3,
