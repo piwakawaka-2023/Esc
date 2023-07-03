@@ -18,3 +18,8 @@ export async function updateUserTime(id: number, time: number) {
 export async function completeGame(id: number) {
   return request.patch(`/api/v1/users/${id}`)
 }
+
+export async function getUsers() {
+  const res = await request.get('/api/v1/users/allusers')
+  return res.body
+}

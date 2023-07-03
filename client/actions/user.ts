@@ -17,7 +17,7 @@ export type UserAction =
   | { type: typeof ADD_USER; payload: User }
   | { type: typeof REQUEST_USER; payload: User }
   | { type: typeof RECEIVE_USER; payload: User }
-  | { type: typeof SET_USER; payload: User }
+  | { type: typeof SET_USER; payload: User[] }
   | { type: typeof FINISH_GAME; payload: number }
   | { type: typeof SHOW_ERROR; payload: string }
   | { type: typeof SET_USER_TIME; payload: UserTime }
@@ -27,6 +27,14 @@ export function showError(errorMessage: string): UserAction {
   return {
     type: SHOW_ERROR,
     payload: errorMessage,
+  }
+}
+
+export function setUsers(users: User[]): UserAction {
+  console.log('users', users)
+  return {
+    type: SET_USER,
+    payload: users,
   }
 }
 
@@ -62,6 +70,17 @@ export function toggleTimer(isOn: boolean): UserAction {
   return {
     type: TOGGLE_TIMER,
     payload: isOn,
+  }
+}
+
+export function getUsersThunk(): ThunkAction {
+  return async (dispatch) => {
+    try {
+      const userArray = await api.getUsers()
+      dispatch(setUsers(userArray))
+    } catch (err) {
+      dispatch(showError(String(err)))
+    }
   }
 }
 

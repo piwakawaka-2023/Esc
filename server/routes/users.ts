@@ -29,6 +29,15 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+router.get('/allusers', async (req, res, next) => {
+  try {
+    const users = await db.getAllUsers()
+    res.json(users)
+  } catch (e) {
+    next(e)
+  }
+})
+
 router.patch('/:id', async (req, res) => {
   const id = Number(req.params.id)
   try {
