@@ -18,3 +18,5 @@ function GameNav() {
 }
 
 export default GameNav
+
+//may have to change logo to be an a href
