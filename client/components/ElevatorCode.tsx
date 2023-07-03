@@ -37,7 +37,6 @@ function ElevatorCode(props: Props) {
       <div className="screen screen-sml">
         <h2>Enter the pincode</h2>
         <form onSubmit={handleSubmit}>
-          {/* <label htmlFor="pincode"></label> */}
           <input
             className="input-field"
             type="number"

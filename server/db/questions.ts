@@ -1,4 +1,3 @@
-import { Question } from '../../models/questions'
 import connection from './connection'
 
 const db = connection

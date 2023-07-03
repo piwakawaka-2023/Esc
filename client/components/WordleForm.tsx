@@ -5,7 +5,7 @@ interface Props {
   userId: string
 }
 
-export function wordleForm({ userId }: Props) {
+export function WordleForm({ userId }: Props) {
   const [input, setInput] = useState('')
   const navigate = useNavigate()
   const passcode = 'proxy'
@@ -37,4 +37,4 @@ export function wordleForm({ userId }: Props) {
   )
 }
 
-export default wordleForm
+export default WordleForm

@@ -6,7 +6,7 @@ export interface SceneData {
 }
 
 export interface Scene extends SceneData {
-  levelId: any
+  levelId: number | string
   id: number
   final: boolean
 }
