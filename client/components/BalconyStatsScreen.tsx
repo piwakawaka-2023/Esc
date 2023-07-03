@@ -3,12 +3,7 @@ import { useEffect } from 'react'
 import { User } from '../../models/users'
 import * as actions from '../actions/user'
 
-interface Props {
-  vapeCatch: number
-  pipeCatch: number
-}
-
-export default function BalonyStatsScreen({ vapeCatch, pipeCatch }: Props) {
+export default function BalonyStatsScreen() {
   const user = useAppSelector((state) => state.user) as User
 
   const dispatch = useAppDispatch()
@@ -22,10 +17,11 @@ export default function BalonyStatsScreen({ vapeCatch, pipeCatch }: Props) {
       <div className="screen" id="game-stats">
         <p>{user.username}</p>
         <p>
-          <strong>Vapes:</strong>{' '}
-        </p>{' '}
-        <strong>Pipes:</strong> {pipeCatch}
-        <p></p>
+          <strong>Vapes:</strong>
+        </p>
+          <p id="vape-count"></p>
+        {/* <strong>Pipes:</strong>
+        <p id="pipe-count"></p>{' '} */}
         <p>
           <strong>Missed:</strong>
         </p>
