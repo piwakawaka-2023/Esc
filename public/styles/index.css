@@ -68,6 +68,25 @@ ul {
   padding: 5px;
 }
 
+#red-time{
+  position: fixed;
+  right:0;
+  top:40px;
+  z-index: 300;
+  margin-top: 10px;
+  margin-right: 5px;
+  color: #EC0B0B;
+  font-family: 'Space Mono', monospace;
+  text-transform: capitalize;
+  font-weight: 500;
+  background-color: #671111;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #EC0B0B;
+  padding: 5px;
+}
+
 .blinking {
   
   border-bottom: 10px solid #0BD7EC;
@@ -77,7 +96,7 @@ ul {
 }
 @keyframes blinking {
   50% {
-    border-color: #114A67;
+    border-color: black;
   }
 }
 

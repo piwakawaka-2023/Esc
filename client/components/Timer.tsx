@@ -4,11 +4,16 @@ import { setUserPlayingTimeThunk } from '../actions/user'
 import { useParams } from 'react-router-dom'
 
 export default function Timer() {
+  const [overTimeRed, setOverTimeRed] = useState('stopwatch-time')
   const [time, setTime] = useState(0)
   const [intervalId, setIntervalId] = useState(0)
   const { userId } = useParams()
   const dispatch = useAppDispatch()
   const toggleTimer = useAppSelector((state) => state.timer) as boolean
+
+  const seconds = Math.floor(time % 60)
+  const minutes = Math.floor((time % 3600) / 60)
+  // const milliseconds = time % 100
 
   useEffect(() => {
     if (toggleTimer) {
@@ -22,6 +27,11 @@ export default function Timer() {
   function runTimer() {
     const newIntervalId = setInterval(() => {
       setTime((time) => time + 1)
+      if (minutes > 4) {
+        setOverTimeRed('red-time')
+      } else {
+        setOverTimeRed('stopwatch-time')
+      }
     }, 1000)
     setIntervalId(newIntervalId)
   }
@@ -30,12 +40,8 @@ export default function Timer() {
     clearInterval(intervalId)
   }
 
-  const seconds = Math.floor(time % 60)
-  const minutes = Math.floor((time % 3600) / 60)
-  // const milliseconds = time % 100
-
   return (
-    <p id="stopwatch-time" className="blinking">
+    <p id={overTimeRed} className="blinking">
       {minutes.toString().padStart(2, '0')}:
       {seconds.toString().padStart(2, '0')}
       {/* {milliseconds.toString().padStart(2, '0')} */}
