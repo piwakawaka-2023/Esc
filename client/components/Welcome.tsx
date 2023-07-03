@@ -17,6 +17,7 @@ export default function Welcome() {
 
   const handlePlayFx = () => {
     play()
+    timer()
   }
 
   const handlePlay = () => {
@@ -24,6 +25,10 @@ export default function Welcome() {
       playAmbience()
       setPlaying(true)
     }
+  }
+
+  function timer() {
+    dispatch(actions.toggleTimer(true))
   }
 
   useEffect(() => {

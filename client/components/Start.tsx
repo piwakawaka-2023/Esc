@@ -20,7 +20,6 @@ function Start() {
   }
 
   const handleStop = () => {
-    console.log('stop')
     if (playing) {
       stop()
       setPlaying(false)
@@ -39,23 +38,22 @@ function Start() {
               <ESCLogo />
             </div>
           </div>
-          <div className='screen'> 
-              {viewForm && (
-                <StartGameForm
-                  viewForm={viewForm}
-                  setViewForm={setViewForm}
-                  viewStart={viewStart}
-                  setViewStart={setViewStart}
-                />
-              )}
-              {viewStart && (
-                <Link to="/welcome">
-                  <button className="blue-button" onClick={() => handleStop()}>
-                    Start
-                  </button>
-
-                </Link>
-              )}
+          <div className="screen">
+            {viewForm && (
+              <StartGameForm
+                viewForm={viewForm}
+                setViewForm={setViewForm}
+                viewStart={viewStart}
+                setViewStart={setViewStart}
+              />
+            )}
+            {viewStart && (
+              <Link to="/game/welcome">
+                <button className="blue-button" onClick={() => handleStop()}>
+                  Start
+                </button>
+              </Link>
+            )}
           </div>
         </div>
       </div>
