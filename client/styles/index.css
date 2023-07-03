@@ -314,3 +314,27 @@ p {
   max-height: 75px;
   z-index: -100;
 }
+
+
+/* Lights Off MiniGame */
+
+.Cell-on {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: rgb(201, 119, 25);
+  border: none;
+  margin: 20px;
+  box-shadow: 
+  0 0 22px rgb(201, 119, 25),
+  0 0 42px rgb(201, 119, 25)
+}
+
+.Cell-off {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: none;
+  margin: 20px;
+  background-color: rgb(55, 55, 55);
+}
