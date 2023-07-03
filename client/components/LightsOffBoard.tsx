@@ -2,16 +2,12 @@ import Cell from './LightsOffCell'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import GameOver from './GameOver'
-import { useSound } from 'use-sound'
-import switchUrl from '/sounds/light-off.wav'
 
 function Board() {
   const size = 3
   const chanceLightStartsOn = 0.25
   const [count, setCount] = useState(0)
   const { userId, id } = useParams()
-
-  const [playSwitch] = useSound(switchUrl, { volume: 0.5 })
 
   const lightsGrid = Array(size)
     .fill(0)
@@ -60,7 +56,6 @@ function Board() {
   }
 
   function hasWon() {
-    playSwitch()
     return board.grid.every((row) => row.every((cell) => !cell))
   }
 

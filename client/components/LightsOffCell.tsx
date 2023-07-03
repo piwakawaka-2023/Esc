@@ -1,4 +1,4 @@
-import clickUrl from '/sounds/click.mp3'
+import clickUrl from '/sounds/lights-off.wav'
 import { useSound } from 'use-sound'
 
 interface Props {
