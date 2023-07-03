@@ -8,6 +8,10 @@
 /* MAIN NAV STYLING */
 .main-nav-container{
   width: 100vw;
+  text-align: right;
+  position: fixed;
+  top: 0;
+  right:0;
 }
 
 #btn-container {
@@ -118,6 +122,7 @@ ul {
 
 .blue-button-lge {
   width: 15vw;
+  padding: 0.5em;
 }
 
 .screen {

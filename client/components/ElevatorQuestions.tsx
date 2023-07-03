@@ -49,25 +49,25 @@ function ElevatorQuestions(props: Props) {
           onClick={() => checkAnswer(question?.answer1)}
           className="blue-button blue-button-lge"
         >
-          1.{question?.answer1}
+          {question?.answer1}
         </button>
         <button
           onClick={() => checkAnswer(question?.answer2)}
           className="blue-button blue-button-lge"
         >
-          2.{question?.answer2}
+          {question?.answer2}
         </button>
         <button
           onClick={() => checkAnswer(question?.answer3)}
           className="blue-button blue-button-lge"
         >
-          3.{question?.answer3}
+          {question?.answer3}
         </button>
         <button
           onClick={() => checkAnswer(question?.answer4)}
           className="blue-button blue-button-lge"
         >
-          4.{question?.answer4}
+          {question?.answer4}
         </button>
       </div>
     </div>
