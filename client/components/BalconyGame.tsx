@@ -15,8 +15,8 @@ export default function BalconyGame() {
         <div className="pipes"> </div>
         <img src={bus} alt="yellow bus" id="bus" />
       </div>
-      {/* {nextButton && (
-        <Link to={`/game/${userId}/scene/4`}>
+      {nextButton && (
+        <Link to={`/game/${userId}/scene/5`}>
           <button
             style={{ position: 'fixed', bottom: '0' }}
             className="blue-button"
@@ -24,7 +24,7 @@ export default function BalconyGame() {
             Exit
           </button>
         </Link>
-      )} */}
+      )}
     </>
   )
 }

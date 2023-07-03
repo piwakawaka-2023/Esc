@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import WordleForm from '../components/WordleForm'
-// import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export function Wordle() {
-  // const { userId } = useParams()
+  const { userId } = useParams()
 
   //Run JS on this comp
   useEffect(() => {
@@ -90,7 +90,7 @@ export function Wordle() {
           </div>
         </div>
       </div>
-      <WordleForm />
+      <WordleForm userId={userId} />
     </>
   )
 }

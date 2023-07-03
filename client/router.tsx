@@ -24,11 +24,11 @@ const router = createBrowserRouter(
       <Route path="game" element={<Game />}>
         <Route path="welcome" element={<Welcome />}></Route>
         <Route path=":userId/scene/:id" element={<Scenes />}></Route>
-        <Route path=":userId/scene/:id/level/5" element={<LightsOff />}></Route>
-        <Route path=":userId/scene/:id/level/1" element={<Elevator />}></Route>
-        <Route path=":userId/scene/:id/level/2" element={<Basement />}></Route>
-        <Route path=":userId/scene/:id/level/4" element={<Balcony />}></Route>
-        <Route path=":userId/scene/:id/level/3" element={<Wordle />}></Route>
+        <Route path=":userId/scene/:id/level/1" element={<LightsOff />}></Route>
+        <Route path=":userId/scene/:id/level/2" element={<Elevator />}></Route>
+        <Route path=":userId/scene/:id/level/3" element={<Basement />}></Route>
+        <Route path=":userId/scene/:id/level/4" element={<Wordle />}></Route>
+        <Route path=":userId/scene/:id/level/5" element={<Balcony />}></Route>
       </Route>
       <Route path="/leaderboard" element={<Leaderboard />}></Route>
       <Route path="/complete" element={<Complete />}></Route>
