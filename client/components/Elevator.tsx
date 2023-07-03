@@ -10,7 +10,7 @@ import eye from '/images/eye.png'
 import { useSound } from 'use-sound'
 import liftBellUrl from '/sounds/bell.wav'
 import liftDoorUrl from '/sounds/elevator-door.wav'
-import slackUrl from '/sounds/wow.mp3'
+import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorQuestions from './ElevatorQuestions'
 
 export default function Elevator() {
