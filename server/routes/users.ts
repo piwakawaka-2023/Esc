@@ -1,6 +1,5 @@
 import express from 'express'
 import * as db from '../db/users'
-import { idText } from 'typescript'
 
 const router = express.Router()
 
@@ -60,7 +59,7 @@ router.patch('/:id', async (req, res) => {
 })
 
 router.patch('/updatetime/:id', async (req, res, next) => {
-  const id = +req.params.id //could be user.id ?
+  const id = +req.params.id
   const time = req.body.time
   try {
     await db.updatePlayingTime(id, time)
