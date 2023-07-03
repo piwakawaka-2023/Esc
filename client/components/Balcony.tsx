@@ -1,10 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import BalconyGame from './BalconyGame'
 
 export default function Balcony() {
   const { userId } = useParams()
-  const [exit, setExit] = useState(false)
 
   useEffect(() => {
     // Run JavaScript script on this comp
@@ -27,24 +26,18 @@ export default function Balcony() {
     }
   }, [])
 
-  const ifWon = () => {
-    setExit(true)
-  }
-
   return (
     <>
       <BalconyGame />
       <div>
-        {exit && (
-          <Link to={`/game/${userId}/scene/3`}>
-            <button
+        <Link to={`/game/${userId}/scene/3`} id="balcony-exit">
+          {/* <button
               style={{ position: 'fixed', bottom: '0' }}
               className="blue-button"
             >
               Exit
-            </button>
-          </Link>
-        )}
+            </button> */}
+        </Link>
       </div>
     </>
   )

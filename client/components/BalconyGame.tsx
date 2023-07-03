@@ -1,12 +1,9 @@
 import { useState } from 'react'
 import BalonyStatsScreen from './BalconyStatsScreen'
 import bus from '/images/bus.png'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 export default function BalconyGame() {
-  const [nextButton, setnextButton] = useState(true)
-  const { userId } = useParams()
-
   return (
     <>
       <BalonyStatsScreen />
@@ -15,16 +12,6 @@ export default function BalconyGame() {
         <div className="pipes"> </div>
         <img src={bus} alt="yellow bus" id="bus" />
       </div>
-      {nextButton && (
-        <Link to={`/game/${userId}/scene/5`}>
-          <button
-            style={{ position: 'fixed', bottom: '0' }}
-            className="blue-button"
-          >
-            Exit
-          </button>
-        </Link>
-      )}
     </>
   )
 }
