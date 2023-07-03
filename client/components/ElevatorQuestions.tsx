@@ -36,7 +36,7 @@ function ElevatorQuestions(props: Props) {
   }
 
   return (
-    <div className="screen screen-sml">
+    <div className="screen screen-sml" style={{ animation: 'none' }}>
       <h2>{question?.question}</h2>
       <div
         style={{
