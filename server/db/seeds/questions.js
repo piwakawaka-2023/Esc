@@ -8,12 +8,12 @@ exports.seed = async function (knex) {
   await knex('questions').insert([
     {
       id: 1,
-      question: 'Where are you from?',
-      answer1: 'answer1',
-      answer2: 'answer2',
-      answer3: 'answer3',
-      answer4: 'answer4',
-      correct: 'answer2',
+      question: 'The abbreviation OS Computer usually means ?',
+      answer1: 'Order of Significance',
+      answer2: 'Operating System',
+      answer3: 'Open Software',
+      answer4: 'Optical Sensor',
+      correct: 'Operating System',
     },
     {
       id: 2,
