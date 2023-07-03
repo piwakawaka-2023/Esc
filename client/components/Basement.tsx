@@ -6,8 +6,7 @@ import keycard from '/images/keycard.png'
 import { useEffect, useState } from 'react'
 
 export default function Basement() {
-
-  // Sound 
+  // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
 
@@ -36,32 +35,31 @@ export default function Basement() {
     }
   }, [])
 
-    // Random Swipecard Position 
+  // Random Swipecard Position
 
   const [position, setPosition] = useState({ x: 0, y: 0 })
-  
-  useEffect(() => {
-    const maxWidth = window.innerWidth - 200; 
-    const maxHeight = window.innerHeight - 200; 
 
-      const randomX = Math.floor(Math.random() * maxWidth)
-      const randomY = Math.floor(Math.random() * maxHeight)
-  
-      setPosition({ x: randomX, y: randomY })
+  useEffect(() => {
+    const maxWidth = window.innerWidth - 200
+    const maxHeight = window.innerHeight - 200
+
+    const randomX = Math.floor(Math.random() * maxWidth)
+    const randomY = Math.floor(Math.random() * maxHeight)
+
+    setPosition({ x: randomX, y: randomY })
   }, [])
 
-    // Show Next button after swipecard clicked
+  // Show Next button after swipecard clicked
 
-    const [nextButton, setnextButton] = useState(false)
+  const [nextButton, setnextButton] = useState(false)
 
-    const handleClick = () => {
-      setnextButton(true)
-    }
+  const handleClick = () => {
+    setnextButton(true)
+  }
 
   return (
     <>
-      
-        {/* // style
+      {/* // style
         //   backgroundImage: `url(${basement})`,
         //   textAlign: 'center',
         //   width: '100%',
@@ -71,29 +69,30 @@ export default function Basement() {
         // */}
 
       <div>
-      <img
-        src={keycard}
-        alt="swipecard"
-        className="swipecard"
-        onClick={handleClick}
-        style={{
-          position: 'absolute',
-          top: `${position.y}px`,
-          left: `${position.x}px`,
-        }}
-       />
+        <img
+          src={keycard}
+          alt="swipecard"
+          className="swipecard"
+          onClick={handleClick}
+          style={{
+            position: 'absolute',
+            top: `${position.y}px`,
+            left: `${position.x}px`,
+          }}
+        />
 
-      {nextButton && 
-        <Link to={`/game/${userId}/scene/3`}>
-          <button
-            style={{ position: 'fixed', bottom: '0' }}
-            className="blue-button"
-            onClick={() => handlePlayFx()}
+        {nextButton && (
+          <Link to={`/game/${userId}/scene/3`}>
+            <button
+              style={{ position: 'fixed', bottom: '0' }}
+              className="blue-button"
+              onClick={() => handlePlayFx()}
             >
-            Exit
-          </button>
-        </Link>
-        }
+              Exit
+            </button>
+          </Link>
+        )}
       </div>
-  </>
-)}
+    </>
+  )
+}
