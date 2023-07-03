@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom'
 function MainNav() {
   return (
     <>
-      <div id="main-nav-bar">
         <div id="btn-container">
-          <Link to="/leaderboard" id="nav-link">
-            Leaderboard
+          <Link to="/leaderboard">
+            <button className="blue-button blue-button-sml">Leaderboard</button>
+          </Link>
+          <Link to="/about">
+            <button className="blue-button blue-button-sml">About</button>
           </Link>
         </div>
-      </div>
     </>
   )
 }

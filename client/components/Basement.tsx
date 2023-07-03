@@ -1,10 +1,12 @@
 import { Link, useParams } from 'react-router-dom'
-import slackUrl from '/sounds/wow.mp3'
+import slackUrl from '/sounds/knock-brush.mp3'
 import { useSound } from 'use-sound'
 import basement from '/images/basement.png'
-import { useEffect } from 'react'
+import keycard from '/images/keycard.png'
+import { useEffect, useState } from 'react'
 
 export default function Basement() {
+  // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
 
@@ -33,28 +35,63 @@ export default function Basement() {
     }
   }, [])
 
+  // Random Swipecard Position
+
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+
+  useEffect(() => {
+    const maxWidth = window.innerWidth - 200
+    const maxHeight = window.innerHeight - 200
+
+    const randomX = Math.floor(Math.random() * maxWidth)
+    const randomY = Math.floor(Math.random() * maxHeight)
+
+    setPosition({ x: randomX, y: randomY })
+  }, [])
+
+  // Show Next button after swipecard clicked
+
+  const [nextButton, setnextButton] = useState(false)
+
+  const handleClick = () => {
+    setnextButton(true)
+  }
+
   return (
     <>
-      <div
-        // style={{
+      {/* // style
         //   backgroundImage: `url(${basement})`,
         //   textAlign: 'center',
         //   width: '100%',
         //   height: '100VH',
         //   backgroundSize: 'cover',
         //   margin: '-20px',
-        // }}
-      >
+        // */}
 
-        <Link to={`/game/${userId}/scene/3`}>
-          <button
-            style={{ position: 'fixed', bottom: '0' }}
-            className="blue-button"
-            onClick={() => handlePlayFx()}
-          >
-            Exit
-          </button>
-        </Link>
+      <div>
+        <img
+          src={keycard}
+          alt="swipecard"
+          className="swipecard"
+          onClick={handleClick}
+          style={{
+            position: 'absolute',
+            top: `${position.y}px`,
+            left: `${position.x}px`,
+          }}
+        />
+
+        {nextButton && (
+          <Link to={`/game/${userId}/scene/3`}>
+            <button
+              style={{ position: 'fixed', bottom: '0' }}
+              className="blue-button"
+              onClick={() => handlePlayFx()}
+            >
+              Exit
+            </button>
+          </Link>
+        )}
       </div>
     </>
   )

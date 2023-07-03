@@ -4,10 +4,9 @@ import { Scene } from '../../models/scenes'
 import * as actions from '../actions/scene'
 import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import logo from '../../public/images/slack-icon.png'
-import pfp from '../../public/images/bossman.png'
-import slackbot from '../../public/images/slackbot.png'
+import logo from '/images/slack-icon.png'
+import pfp from '/images/bossman.png'
+import slackbot from '/images/slackbot.png'
 import SceneNextButton from './SceneNextButton'
 
 export function getScenes() {
@@ -64,7 +63,6 @@ export function getScenes() {
             </div>
             <div className="scene-card"></div>
           </div>
-
           <SceneNextButton curScene={curScene} />
         </div>
       </div>
