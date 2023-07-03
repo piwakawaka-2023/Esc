@@ -5,6 +5,7 @@ import { finishGameThunk } from '../actions/user'
 import { useParams, Link } from 'react-router-dom'
 import { useSound } from 'use-sound'
 import audioUrl from '/sounds/short-music.mp3'
+import MainNav from './MainNav'
 
 export default function Complete() {
   const [playing, setPlaying] = useState(false)
@@ -35,6 +36,9 @@ export default function Complete() {
 
   return (
     <>
+      <div className="main-nav-container">
+        <MainNav />
+      </div>
       <div className="grey-background" onClick={() => handlePlay()}>
         <div className="screen">
           <h2 className="screen-message typewriter">

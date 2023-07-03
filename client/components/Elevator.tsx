@@ -107,9 +107,11 @@ export default function Elevator() {
           </ParallaxLayer>
 
           {/* BUTTON LAYERS */}
+
           <ParallaxLayer offset={0.6} speed={0.5}>
             <div>
               <ElevatorQuestions
+                key="level-1"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}
@@ -125,6 +127,7 @@ export default function Elevator() {
           <ParallaxLayer offset={1.6} speed={0.1}>
             <div>
               <ElevatorQuestions
+                key="level-2"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}
@@ -140,6 +143,7 @@ export default function Elevator() {
           <ParallaxLayer offset={2.6} speed={1}>
             <div>
               <ElevatorQuestions
+                key="level-3"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}
@@ -155,6 +159,7 @@ export default function Elevator() {
           <ParallaxLayer offset={3.6} speed={1}>
             <div>
               <ElevatorQuestions
+                key="level-4"
                 data={levelNum}
                 questionPassed={questionPassed}
                 setQuestionPassed={setQuestionPassed}

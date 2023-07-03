@@ -42,6 +42,15 @@ exports.seed = async function (knex) {
       answer4: 'answer4',
       correct: 'answer1',
     },
+    {
+      id: 5,
+      question: 'What was the question again?',
+      answer1: '?',
+      answer2: '?',
+      answer3: '?',
+      answer4: '?',
+      correct: '?',
+    },
   ])
 }
 
