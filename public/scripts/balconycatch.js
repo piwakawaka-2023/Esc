@@ -1,5 +1,6 @@
 const bus = document.getElementById('bus') //get item by class bus
 const vape = document.querySelector('.vape')
+const exitLink = document.getElementById('balcony-exit')
 let busLeft = parseInt(window.getComputedStyle(bus).getPropertyValue('left')) //get bus left property
 let busBottom = parseInt(
   window.getComputedStyle(bus).getPropertyValue('bottom')
@@ -51,6 +52,7 @@ function createVapes() {
       vape.removeChild(vapes)
       vapeCount++
       updateVapeCount(vapeCount)
+      checkWin()
     }
     if (vapeBottom == busBottom) {
       missed++
@@ -62,6 +64,18 @@ function createVapes() {
   }
   setInterval(vapeFall, 20)
   setTimeout(createVapes, 2000)
+}
+
+function checkWin() {
+  if (vapeCount == 20) {
+    let exitButton = document.createElement('button')
+    exitButton.setAttribute('class', 'blue-button')
+    exitButton.innerHTML = 'ESCAPE'
+    exitButton.style.position = 'fixed'
+    exitButton.style.bottom = 0
+    exitButton.style.right = '10px'
+    exitLink.appendChild(exitButton)
+  }
 }
 
 createVapes()
