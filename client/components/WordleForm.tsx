@@ -1,7 +1,11 @@
 import { FormEvent, useState, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export function wordleForm() {
+interface Props {
+  userId: string
+}
+
+export function wordleForm({ userId }: Props) {
   const [input, setInput] = useState('')
   const navigate = useNavigate()
   const passcode = 'proxy'
@@ -11,7 +15,7 @@ export function wordleForm() {
     if (input !== passcode) {
       return window.alert('try again')
     }
-    return navigate('/complete')
+    return navigate(`/game/${userId}/scene/4`)
   }
 
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
