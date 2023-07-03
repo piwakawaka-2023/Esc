@@ -15,6 +15,8 @@ export default function Leaderboard() {
   //   .map((player) => [player.id, player.username, player.time])
   //   .sort((a, b) =>
 
+  const sortPlayers = players.sort((a, b) => a.time - b.time)
+
   return (
     <>
       <div className="grey-background">
@@ -28,10 +30,18 @@ export default function Leaderboard() {
               </tr>
             </thead>
             <tbody>
-              {players.map((player) => (
+              {sortPlayers.map((player) => (
                 <tr key={player.id}>
                   <td>{player.username}</td>
-                  <td>{player.time}</td>
+                  <td>
+                    {Math.floor((player.time % 3600) / 60)
+                      .toString()
+                      .padStart(2, '0')}
+                    :
+                    {Math.floor(player.time % 60)
+                      .toString()
+                      .padStart(2, '0')}
+                  </td>
                 </tr>
               ))}
             </tbody>
