@@ -39,13 +39,10 @@ export function Wordle() {
 
   return (
     <>
-      <div id="container">
-        <div id="game">
-          <header>
-            <h1 className="title">PASSCODE</h1>
-          </header>
-          <div className="board-container">
-            <div id="board"></div>
+      {/* <div id="container"> */}
+      <div id="game">
+        <div className="board-container">
+          <div id="board"></div>
 
             <div id="keyboard-container">
               <div className="keyboard-row">
