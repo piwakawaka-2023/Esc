@@ -33,33 +33,49 @@ export function WordleForm() {
 
   return (
     <div className="grey-background" id="wordle-background">
-      <img
-        id="wordle-phone"
-        src="/images/cellphone.png"
-        alt="cellphone"
-        onClick={() => setDisplayGame(!displayGame)}
-      />
-      {displayGame ? (
-        <Wordle />
-      ) : (
-        <div>
+      <div id="wordle-container">
+        <div className="screen" id="wordle-screen">
           <div>
-            <h2>PASSCODE</h2>
+            <p>PASSCODE</p>
           </div>
           <div>
             <form onSubmit={handleSubmit}>
-              <label htmlFor="my-input">Passcode</label>
-              <input
-                id="my-input"
-                type="password"
-                onChange={handleChange}
-              ></input>
-              <button>Enter</button>
+              {/* <label htmlFor="my-input"></label> */}
+              <div>
+                <input
+                  className="input-field"
+                  id="wordle-input"
+                  type="password"
+                  onChange={handleChange}
+                ></input>
+              </div>
+              <button className="blue-button" id="enter-button">
+                Enter
+              </button>
             </form>
           </div>
-          <p>Attempts remaining: {2 - count}</p>
+          <p id="wordle-text">Attempts remaining: {2 - count}</p>
         </div>
-      )}
+
+        {displayGame ? (
+          <div id="wordle-game">
+            <div id="wordle-border">
+              <Wordle />
+            </div>
+          </div>
+        ) : (
+          <>
+            <img
+              id="wordle-phone"
+              src="/images/cellphone.png"
+              alt="cellphone"
+              onClick={() => setDisplayGame(!displayGame)}
+            />
+            <img id="wordle-postit" src="/images/postit.png" alt="postit" />
+            <img id="wordle-note" src="/images/note.png" alt="note" />
+          </>
+        )}
+      </div>
     </div>
   )
 }

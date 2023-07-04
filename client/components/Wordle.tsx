@@ -40,9 +40,6 @@ export function Wordle() {
     <>
       {/* <div id="container"> */}
       <div id="game">
-        <header>
-          <h1 className="title">PASSCODE</h1>
-        </header>
         <div className="board-container">
           <div id="board"></div>
 
