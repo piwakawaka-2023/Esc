@@ -50,13 +50,30 @@ export default function Elevator() {
             textAlign: 'center',
           }}
         >
+          <ParallaxLayer
+            sticky={{ start: 0.1, end: 6.9 }}
+            style={{
+              textAlign: 'left',
+              width: '25%',
+              height: '90VH',
+              marginRight: '70px',
+            }}
+          >
+            <div id="lift">
+              <img src={lift} id="lift-pic" alt="lift" />
+              <div id="lift-number">
+                <p style={{ textAlign: 'center' }}>{levelNum}</p> <p>↓</p>
+              </div>
+            </div>
+          </ParallaxLayer>
           <Background />
-          <Lift levelNum={levelNum} lift={lift} />
           <ElevatorLevel
             refProp={ref}
             levelNum={levelNum}
             setLevelNum={setLevelNum}
           />
+
+          {/* <Lift levelNum={levelNum} lift={lift} /> */}
 
           {/* PIN CODE LAYERS */}
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
