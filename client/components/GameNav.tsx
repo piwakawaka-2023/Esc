@@ -5,14 +5,16 @@ import Timer from '../components/Timer'
 function GameNav() {
   return (
     <>
-      <Timer />
-      <Link to="/">
-        <img
-          src={logo}
-          alt="static grey escape logo"
-          className="in-game-logo"
-        />
-      </Link>
+     
+        <Timer />
+        <Link to="/">
+          <img
+            src={logo}
+            alt="static grey escape logo"
+            className="in-game-logo"
+          />
+        </Link>
+  
     </>
   )
 }

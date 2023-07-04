@@ -31,6 +31,10 @@ ul {
   padding: 0;
 }
 
+#game-nav{
+  padding: 20px;
+}
+
 .in-game-logo{
   width: 60px;
   height:auto;
@@ -38,7 +42,7 @@ ul {
   right:0;
   top:0;
   z-index: 300;
-  margin: 5px;
+  margin: 10px;
 
 }
 
@@ -54,10 +58,10 @@ ul {
 #stopwatch-time{
   position: fixed;
   right:0;
-  top:40px;
+  top:42px;
   z-index: 300;
   margin-top: 10px;
-  margin-right: 5px;
+  margin-right: 10px;
   color: #0BD7EC;
   font-family: 'Space Mono', monospace;
   text-transform: capitalize;
