@@ -59,11 +59,9 @@ export default function Basement() {
     setPosition({ x: randomX, y: randomY })
   }, [])
 
-
   // Show Next button after swipecard clicked
 
   const [nextButton, setnextButton] = useState(false)
-
 
   const handleClick = () => {
     setnextButton(true)
@@ -119,7 +117,6 @@ export default function Basement() {
           onMouseEnter={handleMouseEnter}
         />
 
-
         {nextButton && (
           <Link to={`/game/${userId}/scene/3`}>
             <button
@@ -133,12 +130,11 @@ export default function Basement() {
         )}
       </div>
 
-      <Hintss level_id={2} />
+      <Hintss level_id={3} />
       <div>
         <p>Hint</p>
         <p>Look for the swipecard.</p>
       </div>
-
     </>
   )
 }
