@@ -33,7 +33,7 @@ export default function ElevatorAnswers({
           key={index}
           onClick={() => handleAnswerClick(answer)}
           id={selectedAnswer === answer ? buttonColour : ''}
-          className="blue-button blue-button-lge"
+          className="blue-button blue-button-lge number"
         >
           {questionPassed ? index + 1 : answer}
         </button>

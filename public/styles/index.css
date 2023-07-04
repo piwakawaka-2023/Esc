@@ -683,3 +683,7 @@ input:focus{
 .green-btn-hint {
   width: 50px;
 }
+
+.number{
+  font-family: 'Space Mono', monospace;
+}

@@ -46,7 +46,7 @@ function ElevatorCode(props: Props) {
         <h2>Enter the pincode</h2>
         <form onSubmit={handleSubmit}>
           <input
-            className="input-field"
+            className="input-field number"
             type="number"
             min={1000}
             max={9999}
@@ -54,7 +54,7 @@ function ElevatorCode(props: Props) {
           />
           <button className="blue-button">Guess</button>
         </form>
-        <p>Attempts remaining: {3 - count}</p>
+        <p className="number">Attempts remaining: {3 - count}</p>
       </div>
     </>
   )

@@ -87,7 +87,7 @@ function Board() {
       <div className="screen" id="yellow-screen">
         <p className="lightoff-header">Turn Off the Lights</p>
         <div className="lightoff-attempts">
-          <p>Attempts left: {25 - count} </p>
+          <p className='number'>Attempts left: {25 - count} </p>
         </div>
       </div>
       <div className="board">
