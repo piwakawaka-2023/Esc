@@ -51,6 +51,7 @@ function ElevatorCode(props: Props) {
             min={1000}
             max={9999}
             onChange={handleChange}
+            placeholder="✱✱✱✱"
           />
           <button className="blue-button">Guess</button>
         </form>
