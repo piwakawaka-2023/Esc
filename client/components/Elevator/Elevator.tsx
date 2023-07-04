@@ -19,12 +19,8 @@ export default function Elevator() {
 
   const [codeCracked, setCodeCracked] = useState(false)
 
-<<<<<<< HEAD:client/components/Elevator.tsx
   const [playing, setPlaying] = useState(false) //can be deleted I think
-  const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
-=======
-  const [playing, setPlaying] = useState(false)
->>>>>>> dev:client/components/Elevator/Elevator.tsx
+  // const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
   const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
 
