@@ -31,10 +31,15 @@ export default function ElevatorLevel({
 
   const levelArr = ['2', '1', 'G', 'B', '∞']
 
-  const incrLevel = (level: number) => {
+  const incrLevel = (level: number, answer: string) => {
     setLevelNum(levelArr[-1 + level])
     liftBellFx()
-    refProp.current.scrollTo(level + 0.2)
+    if (answer == 'Africa') {
+      refProp.current.scrollTo(level + 1.2)
+      console.log('question4')
+    } else {
+      refProp.current.scrollTo(level + 0.2)
+    }
     setQuestionPassed(false)
   }
 
@@ -64,7 +69,10 @@ export default function ElevatorLevel({
               setQuestionPassed={setQuestionPassed}
             />
             {questionPassed && (
-              <button onClick={() => incrLevel(qu.id)} className="blue-button">
+              <button
+                onClick={() => incrLevel(qu.id, qu.correct)}
+                className="blue-button"
+              >
                 Go Down
               </button>
             )}
