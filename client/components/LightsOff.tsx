@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom'
 
 export default function LightsOff() {
   const { userId } = useParams()
+
   const [nextButton, setnextButton] = useState(true)
   const [hintsButton, setHintsButton] = useState(false)
 
@@ -14,19 +15,23 @@ export default function LightsOff() {
 
   return (
     <>
-      <div className="App">
-        <Board />
+      <div className="lightoff-background">
+        <div className="lightoff-img-overlay">
+          <Board />
+        </div>
       </div>
-      {nextButton && (
+      {/* {nextButton && (
         <Link to={`/game/${userId}/scene/1/level/2`}>
           <button
             style={{ position: 'fixed', bottom: '0' }}
             className="blue-button"
           >
-            Exit
+            Escape
           </button>
+
+        )} }
         </Link>
-      )}
+      )} */}
       <div>
         <p onClick={handleClick}>Hint</p>
         {hintsButton && (

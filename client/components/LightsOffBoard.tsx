@@ -11,11 +11,10 @@ function Board() {
 
   const lightsGrid = Array(size)
     .fill(0)
-    .map(
-      (row) =>
-        (row = Array(size)
-          .fill(0)
-          .map((cell) => (cell = randomLight())))
+    .map(() =>
+      Array(size)
+        .fill(0)
+        .map(() => randomLight())
     )
   lightsGrid[1][1] = true
 
@@ -82,26 +81,40 @@ function Board() {
             toggleLight={toggleAllLights}
           />
         ))}
-        {count}
       </div>
     )
   })
 
   return (
-    <div className="Board">
-      {hasWon() ? (
-        <div className="Board-hasWon">
-          <Link to={`/game/${userId}/scene/${id}/level/1`}>
-            <button className="blue-button">Exit</button>
-          </Link>
+    <>
+      <div className="screen" id="yellow-screen">
+        <p className="lightoff-header">Turn Off the Lights</p>
+        <div className="lightoff-attempts">
+          <p>Attempts left: {15 - count} </p>
         </div>
-      ) : youDied() ? (
-        <GameOver />
-      ) : (
-        gridDisplay
-      )}
-    </div>
+      </div>
+      <div className="board">
+        {hasWon() ? (
+          <div className="board-haswon">
+            <Link to={`/game/${userId}/scene/${id}/level/2`}>
+              <button className="blue-button">Escape</button>
+            </Link>
+          </div>
+        ) : youDied() ? (
+          <GameOver />
+        ) : (
+          gridDisplay
+        )}
+      </div>
+    </>
   )
 }
 
 export default Board
+
+/* HINT */
+/* Starting with the second row, click on every cell that has a light on in the row above it. This will turn off all the lights in that row. Continue with each successive row until the only remaining lights are in the final row. */
+/* In the top row, select the inverse of the bottom row of cells with lights on.
+/* FOR EXAMPLE */
+/* Bottom row: -*- Top row: *-*, Bottom row: *-- Top row: --* */
+/* Repeat */
