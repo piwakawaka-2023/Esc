@@ -64,6 +64,7 @@ export function getScenes() {
             <div className="slack-messagecard">
               <img src={pfp} className="pfp" alt="icon" />
               <p>{curScene?.text}</p>
+              <br />
               {showContent && (
                 <>
                   <img
