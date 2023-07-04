@@ -12,8 +12,8 @@ export default function Basement() {
   // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
-  const [monster] = useSound(JsCarnival,{ volume: 0.8} )
-  const [key] = useSound(correct, {volume: 0.3} )
+  const [monster] = useSound(JsCarnival, { volume: 0.8 })
+  const [key] = useSound(correct, { volume: 0.3 })
 
   const handlePlayFx = () => {
     play()
@@ -40,93 +40,96 @@ export default function Basement() {
     }
   }, [])
 
-    // Random Swipecard/JS Carnival Position 
+  // Random Swipecard/JS Carnival Position
 
-  
-    const images = [
-      { id: 1, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
-      { id: 2, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
-      { id: 3, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
-      { id: 4, src: mole, alt: 'JS-carnival-mole', keycard: false},
-      { id: 5, src: mole, alt: 'JS-carnival-mole', keycard: false},
-      { id: 6, src: keycard, alt: 'keycard', keycard: true },
-    ]
+  const images = [
+    { id: 1, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
+    { id: 2, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
+    { id: 3, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
+    { id: 4, src: mole, alt: 'JS-carnival-mole', keycard: false },
+    { id: 5, src: mole, alt: 'JS-carnival-mole', keycard: false },
+    { id: 6, src: keycard, alt: 'keycard', keycard: true },
+  ]
 
-    const getRandomPosition = () => {
-      const min = 0
-      const max = 800
-      const x = Math.floor(Math.random() * (max - min + 1) + min)
-      const y = Math.floor(Math.random() * (max - min + 1) + min)
-      return { x, y }
-    };
-  
-    const getSpecialPosition = () => {
-      const min = 0
-      const max = 500
-      const x = Math.floor(Math.random() * (max - min + 1) + min)
-      const y = Math.floor(Math.random() * (max - min * 1) + min)
-      return { x, y }
-    }
+  const getRandomPosition = () => {
+    const min = 0
+    const max = 800
+    const x = Math.floor(Math.random() * (max - min + 1) + min)
+    const y = Math.floor(Math.random() * (max - min + 1) + min)
+    return { x, y }
+  }
 
-    const [positions, setPositions] = useState([])
+  const getSpecialPosition = () => {
+    const min = 0
+    const max = 500
+    const x = Math.floor(Math.random() * (max - min + 1) + min)
+    const y = Math.floor(Math.random() * (max - min * 1) + min)
+    return { x, y }
+  }
 
-    useEffect(() => {
-      const generatedPositions = images.map((image) => {
-        if (image.keycard) {
-          return { id: image.id, ...getSpecialPosition() }
-        }
-        return { id: image.id, ...getRandomPosition() }
-      })
-      setPositions(generatedPositions)
-    }, [])
+  const [positions, setPositions] = useState([])
 
-
+  useEffect(() => {
+    const generatedPositions = images.map((image) => {
+      if (image.keycard) {
+        return { id: image.id, ...getSpecialPosition() }
+      }
+      return { id: image.id, ...getRandomPosition() }
+    })
+    setPositions(generatedPositions)
+  }, [])
   // Show Next button after swipecard clicked
 
   const [nextButton, setnextButton] = useState(false)
 
+  const handleSwipeCardClick = () => {
+    setnextButton(true)
+  }
 
-    const handleSwipeCardClick = () => {
-      setnextButton(true)
-      key()
-    }
+  const handleJSClick = () => {
+    monster()
+  }
 
-    const handleJSClick = () => {
-     monster()
-    }
-
-
-    return (
-      <>
+  return (
+    <>
       <div>
-
         {images.map((image) => (
           <img
             key={image.id}
             src={image.src}
             alt={image.alt}
-            className={`image-component ${image.keycard ? 'swipecard' : 'js-carnival'}`}
+            className={`image-component ${
+              image.keycard ? 'swipecard' : 'js-carnival'
+            }`}
             style={{
               position: 'absolute',
               left: positions.find((pos) => pos.id === image.id)?.x,
               top: positions.find((pos) => pos.id === image.id)?.y,
             }}
-            onClick={image.keycard ? handleSwipeCardClick : () => handleJSClick(image.id)}
+            onClick={
+              image.keycard
+                ? handleSwipeCardClick
+                : () => handleJSClick(image.id)
+            }
           />
         ))}
 
-      {nextButton && 
-        <Link to={`/game/${userId}/scene/3`}>
-          <button
-            style={{ position: 'fixed', bottom: '0' }}
-            className="blue-button"
-            onClick={() => handlePlayFx()}
-          >Exit
-          </button>
-        </Link>
-        }
-    </div>
+        {nextButton && (
+          <Link to={`/game/${userId}/scene/3`}>
+            <button
+              style={{ position: 'fixed', bottom: '0' }}
+              className="blue-button"
+              onClick={() => handlePlayFx()}
+            >
+              Exit
+            </button>
+          </Link>
+        )}
+      </div>
+      <div>
+        <p>Hint</p>
+        <p>Look for the swipecard.</p>
+      </div>
     </>
-     )
-    }
-
+  )
+}
