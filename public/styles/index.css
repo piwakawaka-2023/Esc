@@ -634,6 +634,7 @@ input:focus{
   font-weight: 400;
   display: flex;
   flex-direction: row;
+  z-index: 3;
 }
 
 #slackbot-container {

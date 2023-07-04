@@ -92,7 +92,7 @@ export function Wordle() {
         </div>
       </div>
       <div>
-        <Hintss level_id={3} />
+        <Hintss level_id={4} />
       </div>
       <WordleForm userId={userId} />
     </>
