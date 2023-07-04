@@ -12,7 +12,7 @@ export default function Timer() {
   const toggleTimer = useAppSelector((state) => state.timer) as boolean
 
   const seconds = Math.floor(time % 60)
-  const minutes = Math.floor((time % 3600) / 60)
+  const minutes = Math.floor((time / 60) % 60)
   // const milliseconds = time % 100
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Timer() {
   function runTimer() {
     const newIntervalId = setInterval(() => {
       setTime((time) => time + 1)
-      if (minutes > 4) {
+      if (minutes > 1) {
         setOverTimeRed('red-time')
       } else {
         setOverTimeRed('stopwatch-time')

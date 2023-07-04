@@ -149,6 +149,12 @@ ul {
   border-color: #EC0B0B;
 }
 
+#green-btn{
+  background-color: #2D6711;
+  color: #6EEC0B;
+  border-color: #6EEC0B;
+}
+
 #red-btn:hover{
   background-color: #EC0B0B;
   color: #4D0C0C;

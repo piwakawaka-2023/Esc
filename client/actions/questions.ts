@@ -1,6 +1,5 @@
 import type { ThunkAction } from '../store'
 import * as api from '../apis/questions'
-
 import { Question } from '../../models/questions'
 
 export const GET_QUESTIONS = 'GET_QUESTIONS'
@@ -17,7 +16,7 @@ export function showError(errorMessage: string): QuestionAction {
   }
 }
 
-export function setQuestions(question: Question): QuestionAction {
+export function setQuestions(question: Question[]): QuestionAction {
   return {
     type: GET_QUESTIONS,
     payload: question,
@@ -26,10 +25,10 @@ export function setQuestions(question: Question): QuestionAction {
 
 //THUNK ACTIONS
 
-export function getSingleQuestionThunk(id: number): ThunkAction {
+export function getQuestionsThunk(): ThunkAction {
   return async (dispatch) => {
     try {
-      const question = await api.getSingleQuestion(id)
+      const question = await api.getSingleQuestion()
       dispatch(setQuestions(question))
     } catch (err) {
       dispatch(showError(String(err)))
