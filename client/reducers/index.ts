@@ -6,6 +6,7 @@ import scene from './scene'
 import user from './user'
 import timer from './timer'
 import question from './questions'
+import hints from './hints'
 
 export default combineReducers({
   // stuff
@@ -13,4 +14,5 @@ export default combineReducers({
   user,
   timer,
   question,
+  hints,
 })
