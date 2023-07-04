@@ -12,7 +12,7 @@ function About() {
   return (
     <>
       <div className="grey-background">
-        <div className="screen">
+        <div className="screen" style={{ animation: 'none' }}>
           <h1>The Escape Creators</h1>
           <div className="creator-container">
             {people.map((person) => {

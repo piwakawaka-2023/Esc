@@ -3,16 +3,13 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { Link, useParams } from 'react-router-dom'
 import { useRef, useState } from 'react'
 //IMAGES//
-import codeBg from '/images/code-bg.png'
-import codeBg2 from '/images/code-bg2.png'
 import eye from '/images/eye.png'
 
 import { useSound } from 'use-sound'
-import liftBellUrl from '/sounds/bell.wav'
 import liftDoorUrl from '/sounds/elevator-door.wav'
 import slackUrl from '/sounds/knock-brush.mp3'
-import ElevatorQuestions from './ElevatorQuestions'
 import ElevatorCode from './ElevatorCode'
+import ElevatorLevel from './ElevatorLevel'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -20,11 +17,7 @@ export default function Elevator() {
   const [viewOpen, setViewOpen] = useState(true)
   const [levelNum, setLevelNum] = useState(1)
 
-  const [questionPassed, setQuestionPassed] = useState(false)
   const [codeCracked, setCodeCracked] = useState(false)
-
-  const [playing, setPlaying] = useState(false)
-  const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
   const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
 
@@ -36,21 +29,6 @@ export default function Elevator() {
     setViewExit(true)
     setViewOpen(false)
     liftDoorFx()
-  }
-
-  const hasQuestionPassed = (response: boolean) => {
-    setQuestionPassed(response)
-  }
-
-  const incrLevel = (level: number) => {
-    setLevelNum(levelNum + 1)
-    ref.current.scrollTo(level)
-    setQuestionPassed(false)
-    liftBellFx()
-  }
-
-  const liftBellFx = () => {
-    playLiftBell()
   }
 
   const liftDoorFx = () => {
@@ -108,72 +86,15 @@ export default function Elevator() {
             <img style={{ width: '100%' }} src={lift} alt="lift" />
           </ParallaxLayer>
 
-          {/* BUTTON LAYERS */}
+          {/* QUESTIONS LAYERS */}
 
-          <ParallaxLayer offset={0.6} speed={0.5}>
-            <div>
-              <ElevatorQuestions
-                key="level-1"
-                data={levelNum}
-                questionPassed={questionPassed}
-                setQuestionPassed={setQuestionPassed}
-              />
-              {questionPassed && (
-                <button onClick={() => incrLevel(1)} className="blue-button">
-                  Go Down
-                </button>
-              )}
-            </div>
-          </ParallaxLayer>
+          <ElevatorLevel
+            refProp={ref}
+            levelNum={levelNum}
+            setLevelNum={setLevelNum}
+          />
 
-          <ParallaxLayer offset={1.6} speed={0.1}>
-            <div>
-              <ElevatorQuestions
-                key="level-2"
-                data={levelNum}
-                questionPassed={questionPassed}
-                setQuestionPassed={setQuestionPassed}
-              />
-              {questionPassed && (
-                <button onClick={() => incrLevel(2)} className="blue-button">
-                  Go Down Again
-                </button>
-              )}
-            </div>
-          </ParallaxLayer>
-
-          <ParallaxLayer offset={2.6} speed={1}>
-            <div>
-              <ElevatorQuestions
-                key="level-3"
-                data={levelNum}
-                questionPassed={questionPassed}
-                setQuestionPassed={setQuestionPassed}
-              />
-              {questionPassed && (
-                <button onClick={() => incrLevel(3)} className="blue-button">
-                  Annnd Again
-                </button>
-              )}
-            </div>
-          </ParallaxLayer>
-
-          <ParallaxLayer offset={3.6} speed={1}>
-            <div>
-              <ElevatorQuestions
-                key="level-4"
-                data={levelNum}
-                questionPassed={questionPassed}
-                setQuestionPassed={setQuestionPassed}
-              />
-              {questionPassed && (
-                <button onClick={() => incrLevel(5)} className="blue-button">
-                  One more
-                </button>
-              )}
-            </div>
-          </ParallaxLayer>
-
+          {/* PIN CODE LAYERS */}
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
               <ElevatorCode

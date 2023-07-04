@@ -6,7 +6,7 @@ import {
 
 import App from './components/App'
 import Start from './components/Start'
-import Elevator from './components/Elevator'
+import Elevator from './components/Elevator/Elevator'
 import Scenes from './components/Scenes'
 import Complete from './components/Complete'
 import Welcome from './components/Welcome'
@@ -17,6 +17,7 @@ import Balcony from './components/Balcony'
 import Wordle from './components/Wordle'
 import LightsOff from './components/LightsOff'
 import About from './components/About'
+import GameOver from './components/GameOver'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,7 @@ const router = createBrowserRouter(
       <Route path="/about" element={<About />}></Route>
       <Route path="/leaderboard" element={<Leaderboard />}></Route>
       <Route path="/complete" element={<Complete />}></Route>
+      <Route path="/gameover" element={<GameOver />}></Route>
       {/* <Route path="path/:params" element={<Component />}></Route> */}
     </Route>
   )

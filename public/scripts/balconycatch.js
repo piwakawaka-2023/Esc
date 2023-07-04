@@ -2,6 +2,7 @@ const bus = document.getElementById('bus') //get item by class bus
 const vape = document.querySelector('.vape')
 const exitLink = document.getElementById('balcony-exit')
 let busLeft = parseInt(window.getComputedStyle(bus).getPropertyValue('left')) //get bus left property
+console.log(busLeft)
 let busBottom = parseInt(
   window.getComputedStyle(bus).getPropertyValue('bottom')
 ) // get bus right property
@@ -42,6 +43,7 @@ function createVapes() {
   vapes.setAttribute('id', 'vape')
   vapes.setAttribute('src', '/images/vape-purple.png')
   vape.appendChild(vapes)
+
   function vapeFall() {
     if (
       vapeBottom < busBottom + 100 &&
@@ -54,7 +56,8 @@ function createVapes() {
       updateVapeCount(vapeCount)
       checkWin()
     }
-    if (vapeBottom == busBottom) {
+    if (vapeBottom === busBottom) {
+      vape.removeChild(vapes)
       missed++
       updatedMissed(missed)
     }

@@ -9,9 +9,12 @@ export default function LightsOff() {
 
   return (
     <>
-      <div className="App">
-        <Board />
+      <div className="lightoff-background">
+        <div className="lightoff-img-overlay">
+          <Board />
+        </div>
       </div>
+
       {nextButton && (
         <Link to={`/game/${userId}/scene/1/level/2`}>
           <button

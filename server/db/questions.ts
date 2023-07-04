@@ -2,6 +2,6 @@ import connection from './connection'
 
 const db = connection
 
-export function getSingleQuestion(id: number) {
-  return db('questions').where({ id })
+export function getQuestions() {
+  return db('questions').select()
 }

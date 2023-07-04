@@ -1,21 +1,20 @@
 import Cell from './LightsOffCell'
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import GameOver from './GameOver'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 
 function Board() {
   const size = 3
   const chanceLightStartsOn = 0.25
   const [count, setCount] = useState(0)
   const { userId, id } = useParams()
+  const navigate = useNavigate()
 
   const lightsGrid = Array(size)
     .fill(0)
-    .map(
-      (row) =>
-        (row = Array(size)
-          .fill(0)
-          .map((cell) => (cell = randomLight())))
+    .map(() =>
+      Array(size)
+        .fill(0)
+        .map(() => randomLight())
     )
   lightsGrid[1][1] = true
 
@@ -64,44 +63,53 @@ function Board() {
     setCount(count + 1)
   }
 
-  function youDied() {
-    if (count >= 15) {
-      console.log('death')
-      return <GameOver />
-    }
-  }
-
   const gridDisplay = board.grid.map(function (row, rowIndex) {
-    return (
-      <div className="Board-row" key={rowIndex}>
-        {row.map((col, colIndex) => (
-          <Cell
-            key={[rowIndex, colIndex].join('')}
-            cellIndex={[rowIndex, colIndex].join('')}
-            isOn={board.grid[rowIndex][colIndex]}
-            toggleLight={toggleAllLights}
-          />
-        ))}
-        {count}
-      </div>
-    )
+    if (count === 25) {
+      navigate('/gameover')
+    } else {
+      return (
+        <div className="Board-row" key={rowIndex}>
+          {row.map((col, colIndex) => (
+            <Cell
+              key={[rowIndex, colIndex].join('')}
+              cellIndex={[rowIndex, colIndex].join('')}
+              isOn={board.grid[rowIndex][colIndex]}
+              toggleLight={toggleAllLights}
+            />
+          ))}
+        </div>
+      )
+    }
   })
 
   return (
-    <div className="Board">
-      {hasWon() ? (
-        <div className="Board-hasWon">
-          <Link to={`/game/${userId}/scene/${id}/level/1`}>
-            <button className="blue-button">Exit</button>
-          </Link>
+    <>
+      <div className="screen" id="yellow-screen">
+        <p className="lightoff-header">Turn Off the Lights</p>
+        <div className="lightoff-attempts">
+          <p>Attempts left: {25 - count} </p>
         </div>
-      ) : youDied() ? (
-        <GameOver />
-      ) : (
-        gridDisplay
-      )}
-    </div>
+      </div>
+      <div className="board">
+        {hasWon() ? (
+          <div className="board-haswon">
+            <Link to={`/game/${userId}/scene/${id}/level/2`}>
+              <button className="blue-button">Escape</button>
+            </Link>
+          </div>
+        ) : (
+          gridDisplay
+        )}
+      </div>
+    </>
   )
 }
 
 export default Board
+
+/* HINT */
+/* Starting with the second row, click on every cell that has a light on in the row above it. This will turn off all the lights in that row. Continue with each successive row until the only remaining lights are in the final row. */
+/* In the top row, select the inverse of the bottom row of cells with lights on.
+/* FOR EXAMPLE */
+/* Bottom row: -*- Top row: *-*, Bottom row: *-- Top row: --* */
+/* Repeat */
