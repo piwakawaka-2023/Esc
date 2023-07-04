@@ -1,15 +1,18 @@
 import { FormEvent, useState, ChangeEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import Wordle from './Wordle'
 
-interface Props {
-  userId: string
-}
+// interface Props {
+//   userId: string
+// }
 
-export function WordleForm({ userId }: Props) {
+export function WordleForm() {
   const [input, setInput] = useState('')
   const [count, setCount] = useState(0)
+  const [displayGame, setDisplayGame] = useState(false)
   const navigate = useNavigate()
   const passcode = 'proxy'
+  const { userId } = useParams()
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
@@ -27,21 +30,41 @@ export function WordleForm({ userId }: Props) {
   const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
     setInput(evt.target.value)
   }
+
   return (
-    <>
-      <div>
-        <h2>ENTER PASSCODE</h2>
-      </div>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="my-input">Passcode</label>
-          <input id="my-input" type="password" onChange={handleChange}></input>
-          <button>Enter</button>
-        </form>
-      </div>
-      <p>Attempts remaining: {2 - count}</p>
-    </>
+    <div className="grey-background" id="wordle-background">
+      <img
+        id="wordle-phone"
+        src="/images/cellphone.png"
+        alt="cellphone"
+        onClick={() => setDisplayGame(!displayGame)}
+      />
+      {displayGame ? (
+        <Wordle />
+      ) : (
+        <div>
+          <div>
+            <h2>PASSCODE</h2>
+          </div>
+          <div>
+            <form onSubmit={handleSubmit}>
+              <label htmlFor="my-input">Passcode</label>
+              <input
+                id="my-input"
+                type="password"
+                onChange={handleChange}
+              ></input>
+              <button>Enter</button>
+            </form>
+          </div>
+          <p>Attempts remaining: {2 - count}</p>
+        </div>
+      )}
+    </div>
   )
 }
 
 export default WordleForm
+
+/* if phone clicked more than once worlde wont load again */
+/* maybe wordle doesn't change back until its solved??? */

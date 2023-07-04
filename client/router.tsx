@@ -14,7 +14,7 @@ import Game from './components/Game'
 import Basement from './components/Basement'
 import Leaderboard from './components/Leaderboard'
 import Balcony from './components/Balcony'
-import Wordle from './components/Wordle'
+import WordleForm from './components/WordleForm'
 import LightsOff from './components/LightsOff'
 import About from './components/About'
 import GameOver from './components/GameOver'
@@ -29,7 +29,10 @@ const router = createBrowserRouter(
         <Route path=":userId/scene/:id/level/1" element={<LightsOff />}></Route>
         <Route path=":userId/scene/:id/level/2" element={<Elevator />}></Route>
         <Route path=":userId/scene/:id/level/3" element={<Basement />}></Route>
-        <Route path=":userId/scene/:id/level/4" element={<Wordle />}></Route>
+        <Route
+          path=":userId/scene/:id/level/4"
+          element={<WordleForm />}
+        ></Route>
         <Route path=":userId/scene/:id/level/5" element={<Balcony />}></Route>
       </Route>
       <Route path="/about" element={<About />}></Route>
