@@ -1,6 +1,9 @@
 import { FormEvent, useState, ChangeEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Wordle from './Wordle'
+import incorrectBuzzerUrl from '/sounds/wrong-buzzer.mp3'
+import correctBuzzerUrl from '/sounds/correct-buzzer.mp3'
+import useSound from 'use-sound'
 
 // interface Props {
 //   userId: string
@@ -13,6 +16,8 @@ export function WordleForm() {
   const navigate = useNavigate()
   const passcode = 'proxy'
   const { userId } = useParams()
+  const [playIncorrectBuzzer] = useSound(incorrectBuzzerUrl, { volume: 0.05 })
+  const [playCorrectBuzzer] = useSound(correctBuzzerUrl, { volume: 0.2 })
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
@@ -21,9 +26,11 @@ export function WordleForm() {
       if (count >= 1) {
         return navigate('/gameover')
       } else {
+        playIncorrectBuzzer()
         return window.alert('Try again')
       }
     }
+    playCorrectBuzzer()
     return navigate(`/game/${userId}/scene/4`)
   }
 
