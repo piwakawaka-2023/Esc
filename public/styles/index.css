@@ -143,6 +143,7 @@ ul {
   padding-bottom: .3em;
   margin: 20px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 
@@ -181,7 +182,8 @@ ul {
 }
 
 .blue-button-lge {
-  width: 15vw;
+  width: 16vw;
+  font-size: 1.1em;
 
 }
 .screen {

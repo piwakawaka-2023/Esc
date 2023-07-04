@@ -1,16 +1,17 @@
-import { Dispatch, SetStateAction } from 'react'
 import { useState } from 'react'
 
 interface Props {
   checkAnswer: (answer: string | undefined) => void
   answers: string[]
   buttonColour: string
+  questionPassed: boolean
 }
 
 export default function ElevatorAnswers({
   buttonColour,
   checkAnswer,
   answers,
+  questionPassed,
 }: Props) {
   const [selectedAnswer, setSelectedAnswer] = useState('')
 
@@ -34,7 +35,7 @@ export default function ElevatorAnswers({
           id={selectedAnswer === answer ? buttonColour : ''}
           className="blue-button blue-button-lge"
         >
-          {answer}
+          {questionPassed ? index + 1 : answer}
         </button>
       ))}
     </div>
