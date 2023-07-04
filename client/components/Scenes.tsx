@@ -22,18 +22,18 @@ export function getScenes() {
     play()
   }
 
-  // setting slackBot text to appear + next button
+  // setting slackBot text to appear
   const [audioPlay, setAudioPlay] = useState(false)
   const [showContent, setShowContent] = useState(false)
 
   const handleClick = () => {
-  setShowContent(true)
-  if (!audioPlay) {
-    setAudioPlay(true)
-    handlePlayFx()
+    setShowContent(true)
+    if (!audioPlay) {
+      setAudioPlay(true)
+      handlePlayFx()
+    }
   }
-  }
-  
+
   // Finding correct scene by ID
 
   const scene = useAppSelector((state) => state.scene) as Scene[]
@@ -46,7 +46,7 @@ export function getScenes() {
   return (
     <>
       <div className="grey-background" onClick={handleClick}>
-        <div className="screen">
+        <div className="screen" style={{ animation: 'none' }}>
           <div className="slack-card">
             <div className="slack-sidecard">
               <img src={logo} className="logo" alt="slack-icon" />
@@ -66,14 +66,18 @@ export function getScenes() {
               <p>{curScene?.text}</p>
               {showContent && (
                 <>
-                  <img src={slackbot} className="slackbot" alt="slackbot-icon" />
+                  <img
+                    src={slackbot}
+                    className="slackbot"
+                    alt="slackbot-icon"
+                  />
                   <br />
                   {'this will be the slackbot message'}
                   <div className="scene-card"></div>
                 </>
               )}
             </div>
-           <SceneNextButton curScene={curScene} />
+            <SceneNextButton curScene={curScene} />
           </div>
         </div>
       </div>

@@ -6,7 +6,7 @@ import {
 
 import App from './components/App'
 import Start from './components/Start'
-import Elevator from './components/Elevator'
+import Elevator from './components/Elevator/Elevator'
 import Scenes from './components/Scenes'
 import Complete from './components/Complete'
 import Welcome from './components/Welcome'

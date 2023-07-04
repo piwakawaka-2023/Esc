@@ -48,18 +48,58 @@ ul {
 }
 
 /* Timer  */
-.stopwatch-time{
-  width: 60px;
-  height:auto;
+
+#stopwatch-time{
   position: fixed;
-  right:50px;
+  right:0;
   top:40px;
   z-index: 300;
-  margin: 20px;
+  margin-top: 10px;
+  margin-right: 5px;
   color: #0BD7EC;
-  font-family: 'B612 Mono', monospace;
+  font-family: 'Space Mono', monospace;
   text-transform: capitalize;
   font-weight: 500;
+  background-image: url('/images/screen-texture.png');
+  background-size: cover;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #0BD7EC;
+  padding: 5px;
+}
+
+#red-time{
+  position: fixed;
+  right:0;
+  top:40px;
+  z-index: 300;
+  margin-top: 10px;
+  margin-right: 5px;
+  color: #EC0B0B;
+  font-family: 'Space Mono', monospace;
+  text-transform: capitalize;
+  font-weight: 500;
+  background-color: #671111;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 10px;
+  border-color: #EC0B0B;
+  padding: 5px;
+}
+
+.blinking {
+  
+  border-bottom: 10px solid #0BD7EC;
+  animation-name: blinking;
+  animation-duration: 1s;
+  animation-iteration-count: 100;
+}
+@keyframes blinking {
+  50% {
+    border-color: black;
+  }
+
 }
 
 /* Global Styles */
@@ -105,10 +145,17 @@ ul {
   text-transform: uppercase;
 }
 
+
 #red-btn{
   background-color: #671111;
   color: #EC0B0B;
   border-color: #EC0B0B;
+}
+
+#green-btn{
+  background-color: #2D6711;
+  color: #6EEC0B;
+  border-color: #6EEC0B;
 }
 
 #red-btn:hover{
@@ -135,10 +182,8 @@ ul {
 
 .blue-button-lge {
   width: 15vw;
-  padding: 0.5em;
+
 }
-
-
 .screen {
   background-image: url('/images/screen-texture.png');
   background-size: cover;
@@ -153,8 +198,8 @@ ul {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 50px;
-  
+  padding: 50px;  
+  animation: zoom-in 2s ease;
 }
 
 #red-screen{
@@ -162,6 +207,7 @@ ul {
   background-color: #4D0C0C;
   color: #EC0B0B;
   background-image: url(#);
+
 
 }
 
@@ -294,10 +340,6 @@ input{
   margin-top: 30px;
 }
 
-/* p {
-  margin-bottom: 15%;
-} */
-
 /* Elevator Styles */
 
 .elevator-shaft{
@@ -362,15 +404,32 @@ input{
   50% { border-color: #EC0B0B }
 }
 
+@keyframes zoom-in {
+  0% {
+    transform: scale(0,0)
+  } 
+  /* 25% {
+    transform: scale(0.5,0.5)
+  } 75% {
+    transform: scale(0.75,0.75) */
+  100% {
+    transform: scale(1,1)
+  }
+}
 
 /* Basement */
 
 .swipecard {
   max-width: 75px;
   max-height: 75px;
-  z-index: -100;
+  z-index: -80;
 }
 
+.js-carnival {
+  max-width: 100x;
+  max-height: 100px;
+  z-index: -90;
+}
 
 /* Lights Off MiniGame */
 
@@ -478,6 +537,7 @@ input{
   border: 2px solid #0BD7EC;
   border-radius: 50%;
   max-width: 200px;
+
 }
 
 
