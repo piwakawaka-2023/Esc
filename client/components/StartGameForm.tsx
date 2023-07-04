@@ -38,8 +38,8 @@ function StartGameForm(props: Props) {
     <>
       <form onSubmit={handleSubmit}>
         <div id="enter-name">
-          <label htmlFor="username" className="form-label ">
-            ...enter name
+          <label htmlFor="username" className="form-label">
+            ENTER NAME
           </label>
           <input
             autoComplete="off"
