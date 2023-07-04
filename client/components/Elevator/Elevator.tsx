@@ -15,7 +15,7 @@ export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
   const [viewExit, setViewExit] = useState(false)
   const [viewOpen, setViewOpen] = useState(true)
-  const [levelNum, setLevelNum] = useState(1)
+  const [levelNum, setLevelNum] = useState('3')
   const [codeCracked, setCodeCracked] = useState(false)
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
   const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
@@ -48,6 +48,7 @@ export default function Elevator() {
             backgroundColor: 'black',
             color: 'white',
             textAlign: 'center',
+            padding: '40px',
           }}
         >
           <ParallaxLayer
@@ -93,7 +94,7 @@ export default function Elevator() {
                     className="blue-button"
                     onClick={() => handlePlayFx()}
                   >
-                    Exit
+                    Escape
                   </button>
                 </Link>
               )}
