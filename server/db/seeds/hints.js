@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
     {
       id: 4,
       level_id: 4,
-      text: 'the authority to represent someone else, especially in voting',
+      text: 'The password is on the phone. "the authority to represent someone else, especially in voting"',
     },
     { id: 5, level_id: 5, text: 'Move that BUS' },
   ])
