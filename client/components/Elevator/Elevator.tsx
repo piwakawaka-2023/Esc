@@ -6,9 +6,7 @@ import liftDoorUrl from '/sounds/elevator-door.wav'
 import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorCode from './ElevatorCode'
 import ElevatorLevel from './ElevatorLevel'
-import Lift from './Lift'
-import Background from './Background'
-import FlyingElements from './FlyingElements'
+import Hintss from '../GetAHint'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -83,6 +81,7 @@ export default function Elevator() {
           </ParallaxLayer>
           <FlyingElements />
         </Parallax>
+        <Hintss level_id={2} />
       </div>
     </>
   )

@@ -4,12 +4,15 @@ import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import * as actions from '../actions/hints'
 import { Hints } from '../../models/hints'
 
-export function Hintss() {
-  const { userId } = useParams()
+interface Props {
+  level_id: number
+}
+
+export function Hintss(props: Props) {
+  const id = props.level_id
+
   const [hintsButton, setHintsButton] = useState(false)
   const dispatch = useAppDispatch()
-
-  const id = 1
 
   useEffect(() => {
     dispatch(actions.getSingleHintThunk(id))
