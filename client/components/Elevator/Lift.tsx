@@ -13,7 +13,7 @@ export default function Lift({ lift, levelNum }: Props) {
     >
       <div id="lift">
         <div id="lift-number">
-          <p style={{ textAlign: 'center' }}> LEVEL {levelNum}</p>
+          <p style={{ textAlign: 'center' }}>{levelNum}</p> <p>↓</p>
         </div>
       </div>
       <img style={{ width: '100%' }} src={lift} alt="lift" />

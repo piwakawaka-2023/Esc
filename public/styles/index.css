@@ -368,11 +368,16 @@ input{
 }
 
 #lift-number{
-   
-    text-align: center;
- font-family: 'B612 Mono', monospace;
-    color: #0BD7EC;
+  border: 2px solid;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  background-color: #675911; 
+  border-color: #ECBA0B;
+  color: #ECBA0B;
+  padding: 10px;
+  border-radius: 30px;
 }
+
 
 /* ANIMATIONS */
 
