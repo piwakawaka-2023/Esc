@@ -60,15 +60,6 @@ export default function Basement() {
   }, [])
 
 
-  useEffect(() => {
-    const generatedPositions = images.map((image) => {
-      if (image.keycard) {
-        return { id: image.id, ...getSpecialPosition() }
-      }
-      return { id: image.id, ...getRandomPosition() }
-    })
-    setPositions(generatedPositions)
-  }, [])
   // Show Next button after swipecard clicked
 
   const [nextButton, setnextButton] = useState(false)
