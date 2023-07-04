@@ -144,6 +144,7 @@ ul {
   margin: 20px;
   text-transform: uppercase;
   text-align: center;
+  box-shadow: 0 0 10px #0BD7EC;
 }
 
 
@@ -151,12 +152,14 @@ ul {
   background-color: #671111;
   color: #EC0B0B;
   border-color: #EC0B0B;
+  box-shadow: 0 0 10px #EC0B0B;
 }
 
 #green-btn{
   background-color: #2D6711;
   color: #6EEC0B;
   border-color: #6EEC0B;
+  box-shadow: 0 0 10px #6EEC0B;
 }
 
 #red-btn:hover{
@@ -201,6 +204,8 @@ ul {
   justify-content: center;
   text-align: center;
   padding: 50px;  
+  box-shadow: 0 0 10px #0BD7EC;
+
   animation: zoom-in 2s ease;
 }
 
@@ -209,6 +214,8 @@ ul {
   background-color: #4D0C0C;
   color: #EC0B0B;
   background-image: url(#);
+  box-shadow: 0 0 10px #EC0B0B;
+
 
 
 }
@@ -221,6 +228,8 @@ ul {
   min-width: 40vw;
   height: 20vh;
   padding: 10px;
+  box-shadow: 0 0 10px #ECBA0B;
+
 }
 
 .screen-sml {
@@ -362,9 +371,21 @@ input{
 #lift{
   text-align: center;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: row;
   align-items: center;
-  /* margin-left: 60px; */
+  margin-left: 30px;
+  margin-top: 40px;
+  padding-top: 40px;
+  
+
+}
+
+#lift-pic{
+  /* border: 5px solid; */
+  border-color: #ECBA0B;
+  box-shadow: 0 0 10px #ECBA0B;
+  width: 100%;
+
 
 }
 
@@ -378,6 +399,8 @@ input{
   padding: 10px;
   border-radius: 30px;
   margin-left: 10px ;
+  box-shadow: 0 0 20px #ECBA0B;
+
 }
 
 
