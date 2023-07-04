@@ -13,6 +13,7 @@ export default function LightsOff() {
         <div className="lightoff-img-overlay">
           <Board />
         </div>
+        <Hintss />
       </div>
 
       {nextButton && (
@@ -25,7 +26,6 @@ export default function LightsOff() {
           </button>
         </Link>
       )}
-      <Hintss />
     </>
   )
 }
