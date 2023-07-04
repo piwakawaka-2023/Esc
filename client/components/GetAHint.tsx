@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/hooks'
 import * as actions from '../actions/hints'
 import { Hints } from '../../models/hints'
 
-export function Hintss() {
+export function getAHint() {
   const { userId } = useParams()
   const [hintsButton, setHintsButton] = useState(false)
   const dispatch = useAppDispatch()
@@ -31,4 +31,4 @@ export function Hintss() {
   )
 }
 
-export default Hintss
+export default getAHint

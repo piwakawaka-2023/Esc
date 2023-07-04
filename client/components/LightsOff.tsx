@@ -1,6 +1,7 @@
 import Board from './LightsOffBoard'
 import { useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import Hintss from './GetAHint'
 
 export default function LightsOff() {
   const { userId } = useParams()
@@ -21,6 +22,7 @@ export default function LightsOff() {
           </button>
         </Link>
       )}
+      <Hintss />
     </>
   )
 }
