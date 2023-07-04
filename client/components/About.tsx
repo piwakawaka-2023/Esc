@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom'
 
 function About() {
   const people = [
-    { name: 'Gemma', image: '/images/vape-pink.webp' },
-    { name: 'Jesse', image: '/images/vape-pink.webp' },
-    { name: 'Gaby', image: '/images/vape-pink.webp' },
-    { name: 'Lauren', image: '/images/vape-pink.webp' },
-    { name: 'Tayla', image: '/images/vape-pink.webp' },
+    { name: 'Gemma', image: '/images/Gemma.png' },
+    { name: 'Jesse', image: '/images/Jesse.png' },
+    { name: 'Gaby', image: '/images/Gaby.png' },
+    { name: 'Lauren', image: '/images/Lauren.png' },
+    { name: 'Tayla', image: '/images/Tayla.png' },
   ]
 
   return (

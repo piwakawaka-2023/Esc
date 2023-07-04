@@ -16,3 +16,6 @@ coverage/*
 
 # Dotenv env settings
 .env
+
+#DS STORE
+.DS_Store

@@ -8,7 +8,7 @@ exports.seed = async function (knex) {
   await knex('questions').insert([
     {
       id: 1,
-      question: 'The abbreviation OS Computer usually means ?',
+      question: 'What does "OS" in "OS Computer" usually mean?',
       answer1: 'Order of Significance',
       answer2: 'Operating System',
       answer3: 'Open Software',

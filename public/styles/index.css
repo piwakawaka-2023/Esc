@@ -7,11 +7,13 @@
 
 /* MAIN NAV STYLING */
 .main-nav-container{
-  width: 100vw;
+  /* width: 100vw; */
   text-align: right;
   position: fixed;
   top: 0;
   right:0;
+  z-index: 3;
+  margin: 10px;
 }
 
 #btn-container {
@@ -29,6 +31,10 @@ ul {
   padding: 0;
 }
 
+#game-nav{
+  padding: 20px;
+}
+
 .in-game-logo{
   width: 60px;
   height:auto;
@@ -36,7 +42,7 @@ ul {
   right:0;
   top:0;
   z-index: 300;
-  margin: 5px;
+  margin: 10px;
 
 }
 
@@ -52,10 +58,10 @@ ul {
 #stopwatch-time{
   position: fixed;
   right:0;
-  top:40px;
+  top:42px;
   z-index: 300;
   margin-top: 10px;
-  margin-right: 5px;
+  margin-right: 10px;
   color: #0BD7EC;
   font-family: 'Space Mono', monospace;
   text-transform: capitalize;
@@ -93,7 +99,7 @@ ul {
   border-bottom: 10px solid #0BD7EC;
   animation-name: blinking;
   animation-duration: 1s;
-  animation-iteration-count: 100;
+  animation-iteration-count: 5000;
 }
 @keyframes blinking {
   50% {
@@ -144,6 +150,7 @@ ul {
   margin: 20px;
   text-transform: uppercase;
   text-align: center;
+  box-shadow: 0 0 10px #0BD7EC;
 }
 
 
@@ -151,12 +158,14 @@ ul {
   background-color: #671111;
   color: #EC0B0B;
   border-color: #EC0B0B;
+  box-shadow: 0 0 10px #EC0B0B;
 }
 
 #green-btn{
   background-color: #2D6711;
   color: #6EEC0B;
   border-color: #6EEC0B;
+  box-shadow: 0 0 10px #6EEC0B;
 }
 
 #red-btn:hover{
@@ -200,7 +209,8 @@ ul {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  /* padding: 50px; */
+  padding: 50px;  
+  box-shadow: 0 0 10px #0BD7EC;
   animation: zoom-in 2s ease;
 }
 
@@ -209,6 +219,8 @@ ul {
   background-color: #4D0C0C;
   color: #EC0B0B;
   background-image: url(#);
+  box-shadow: 0 0 10px #EC0B0B;
+
 
 
 }
@@ -221,6 +233,8 @@ ul {
   min-width: 40vw;
   height: 20vh;
   padding: 10px;
+  box-shadow: 0 0 10px #ECBA0B;
+
 }
 
 .screen-sml {
@@ -232,7 +246,7 @@ ul {
 
 .screen-message {
   font-size: 1.4em;
-  padding:2em;
+  margin:2em;
   font-weight: 400;
 }
 
@@ -256,16 +270,22 @@ ul {
 
 /* START GAME FORM STYLING */
 
-#start-game-form-container {
+.form-screen{
+  margin-bottom: 50px;
   padding: 20px;
+}
+
+#start-game-form-container {
+  padding: 5px;
   display: flex;
-  flex-direction: row;
+  flex-direction:column;
   justify-content: center;
+  
 }
 
 .form-label {
   padding: 10px 20px 10px 20px;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -277,14 +297,27 @@ input{
   border: 3px solid #0BD7EC;
 }
 
+input::placeholder {
+  color: #09364B;
+}
+
+input:focus{
+  box-shadow: 0 0 10px #0BD7EC;
+
+}
+
 .input-field {
  
   border-radius: 20px;
   color: #0BD7EC;
   margin: 0 auto;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   padding: 10px 20px 10px 20px;
   font-family: 'B612 Mono', monospace;
+}
+
+#enter-name{
+  margin: 20px;
 }
 
 /* SCENE CARD STYLING */
@@ -325,14 +358,14 @@ input{
 
 
 .pfp {
-  max-width: 18%;
-  max-height: 18%;
+  max-width: 15%;
+  max-height: 15%;
   margin-top: 60px;
 }
 
 .slackbot {
-  max-width: 15%;
-  max-height: 15%;
+  max-width: 12%;
+  max-height: 12%;
   /* margin-top: -10% */
 }
 
@@ -340,17 +373,17 @@ input{
   font-family: sans-serif;
   color: white;
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-p {
+/* p {
   margin-top: 15px;
   margin-bottom: 15px;
   margin-left: 25px;
   margin-right: 25px;
-  font-size: 26px;
+  font-size: 18px;
   
-}
+} */
 
 /* Elevator Styles */
 
@@ -362,17 +395,38 @@ p {
 #lift{
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  margin-top: 60px;
+  margin-left: 30px;
+  margin-top: 40px;
+  padding-top: 40px;
+  
+
+}
+
+#lift-pic{
+  /* border: 5px solid; */
+  border-color: #ECBA0B;
+  box-shadow: 0 0 10px #ECBA0B;
+  width: 100%;
+
+
 }
 
 #lift-number{
-   
-    text-align: center;
- font-family: 'B612 Mono', monospace;
-    color: #0BD7EC;
+  border: 2px solid;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  background-color: #675911; 
+  border-color: #ECBA0B;
+  color: #ECBA0B;
+  padding: 10px;
+  border-radius: 30px;
+  margin-left: 10px ;
+  box-shadow: 0 0 20px #ECBA0B;
+
 }
+
 
 /* ANIMATIONS */
 
@@ -380,7 +434,8 @@ p {
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  /* margin: 0 auto; */
+   /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   animation: 
     typing 3.5s steps(40, end),
@@ -390,7 +445,7 @@ p {
 .type-red{
   border-right: 0.15em solid #EC0B0B ; /* The typwriter cursor */
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
+  border-right: 0.1em solid #0BD7EC ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
@@ -434,13 +489,44 @@ p {
 .swipecard {
   max-width: 75px;
   max-height: 75px;
-  z-index: -80;
+  z-index: -60;
 }
 
-.js-carnival {
-  max-width: 100x;
-  max-height: 100px;
+.head {
+  max-width: 400px;
+  max-height: 400px;
   z-index: -90;
+  position: absolute;
+  top: 400px;
+  left: 900px;
+}
+
+.body {
+  max-width: 400x;
+  max-height: 400px;
+  z-index: -90;
+  position: absolute;
+  top: 400px;
+  left: 900px;
+}
+
+.unicorn {
+  max-width: 120x;
+  max-height: 120px;
+  z-index: -90;
+  position: absolute;
+  top: 350px;
+  left: 1550px;
+  rotate: 45deg;
+}
+
+.mole {
+  max-width: 135x;
+  max-height: 135px;
+  z-index: -90;
+  position: absolute;
+  top: 570px;
+  left: 620px;
 }
 
 /* Lights Off MiniGame */
@@ -644,4 +730,45 @@ p {
 }
 
 
+/* HINT STYLING */
 
+#hint-container-btn {
+  top: 0;
+  left: 0;
+  /* z-index: 100; */
+  position: fixed;
+}
+
+#hint-container{
+  background-color: rgb(208, 208, 208);
+  border: 1px solid white;
+  border-radius: 5px;
+  /* width: 45vw; */
+  font-size: .8rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+}
+
+#slackbot-container {
+  width: 5vw;
+  top: 50%;
+}
+
+#slackbot-hint{
+  width: 30vw;
+  margin-left: 10px;
+  margin-right: 10px;
+  flex-direction: column;
+}
+
+#sml-slackbot {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.green-btn-hint {
+  width: 50px;
+}

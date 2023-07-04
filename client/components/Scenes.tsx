@@ -15,6 +15,13 @@ export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
 
+  const today = new Date()
+  const hours = today.getHours()
+  const minutes = today.getMinutes()
+  const amPm = hours >= 12 ? 'pm' : 'am'
+  const time = hours + ':' + minutes + amPm
+  console.log(time)
+
   // slack notification sound
   const [play] = useSound(slackUrl, { volume: 0.5 })
 
@@ -63,7 +70,12 @@ export function getScenes() {
             </div>
             <div className="slack-messagecard">
               <img src={pfp} className="pfp" alt="icon" />
-              <p>{curScene?.text}</p>
+
+              <p>
+                <b>Facilitator-Piwakawaka-23 </b>
+                {time}
+              </p>
+              <p className="message-txt">{curScene?.text} </p>
               <br />
               {showContent && (
                 <>
@@ -72,14 +84,15 @@ export function getScenes() {
                     className="slackbot"
                     alt="slackbot-icon"
                   />
+
                   <br />
-                  {scene.slack}
+                  <p className="message-txt">{curScene?.slack} </p>
                   <div className="scene-card"></div>
                 </>
               )}
             </div>
           </div>
-            <SceneNextButton curScene={curScene} />
+          <SceneNextButton curScene={curScene} />
         </div>
       </div>
     </>
