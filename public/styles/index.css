@@ -583,4 +583,33 @@ input{
 }
 
 
+/* HINT STYLING */
 
+#hint-container{
+  background-color: rgb(208, 208, 208);
+  border: 1px solid white;
+  border-radius: 5px;
+  width: 45vw;
+  font-size: .8rem;
+  font-family: sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+}
+
+#slackbot-container {
+  width: 5vw;
+  top: 50%;
+}
+
+#slackbot-hint{
+  width: 30vw;
+  margin-left: 10px;
+  margin-right: 10px;
+  flex-direction: column;
+}
+
+#sml-slackbot {
+  width: 100%;
+  border-radius: 5px;
+}

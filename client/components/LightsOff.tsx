@@ -12,10 +12,9 @@ export default function LightsOff() {
       <div className="lightoff-background">
         <div className="lightoff-img-overlay">
           <Board />
+          <Hintss level_id={1} />
         </div>
-        <Hintss level_id={3} />
       </div>
-
       {nextButton && (
         <Link to={`/game/${userId}/scene/1/level/2`}>
           <button
