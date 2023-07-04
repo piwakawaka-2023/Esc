@@ -2,9 +2,13 @@ import { useState } from 'react'
 import { useSound } from 'use-sound'
 import audioUrl from '/sounds/short-music.mp3'
 import MainNav from './MainNav'
+import React from 'react'
+import Confetti from 'react-confetti'
+import useWindowSize from 'react-use/lib/useWindowSize'
 
 export default function Complete() {
   const [playing, setPlaying] = useState(false)
+  const { width, height } = useWindowSize()
 
   const [play, { stop }] = useSound(audioUrl, { volume: 0.5, loop: true })
 
@@ -24,10 +28,11 @@ export default function Complete() {
 
   return (
     <>
-      <div className="main-nav-container">
-        <MainNav />
-      </div>
+      <Confetti />
       <div className="grey-background" onClick={() => handlePlay()}>
+        <div className="main-nav-container">
+          <MainNav />
+        </div>
         <div className="screen">
           <h2 className="screen-message typewriter">
             ...congratulations on escaping
