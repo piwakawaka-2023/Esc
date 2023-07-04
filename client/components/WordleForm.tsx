@@ -53,6 +53,7 @@ export function WordleForm() {
                   className="input-field"
                   id="wordle-input"
                   type="password"
+                  placeholder="✱✱✱✱✱"
                   onChange={handleChange}
                 ></input>
               </div>
