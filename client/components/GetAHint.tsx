@@ -16,7 +16,10 @@ export function Hintss(props: Props) {
   const dispatch = useAppDispatch()
 
   const today = new Date()
-  const time = today.getHours() + ':' + today.getMinutes()
+  const hours = today.getHours()
+  const minutes = today.getMinutes()
+  const amPm = hours >= 12 ? 'pm' : 'am'
+  const time = hours + ':' + minutes + amPm
 
   useEffect(() => {
     dispatch(actions.getSingleHintThunk(id))
