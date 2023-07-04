@@ -64,6 +64,7 @@ export function getScenes() {
             <div className="slack-messagecard">
               <img src={pfp} className="pfp" alt="icon" />
               <p>{curScene?.text}</p>
+              <br />
               {showContent && (
                 <>
                   <img
@@ -72,13 +73,13 @@ export function getScenes() {
                     alt="slackbot-icon"
                   />
                   <br />
-                  {'this will be the slackbot message'}
+                  {scene.slack}
                   <div className="scene-card"></div>
                 </>
               )}
             </div>
-            <SceneNextButton curScene={curScene} />
           </div>
+            <SceneNextButton curScene={curScene} />
         </div>
       </div>
     </>
