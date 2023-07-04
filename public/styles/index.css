@@ -489,31 +489,44 @@ input:focus{
 .swipecard {
   max-width: 75px;
   max-height: 75px;
-  z-index: -70;
+  z-index: -60;
 }
 
 .head {
-  max-width: 400x;
+  max-width: 400px;
   max-height: 400px;
   z-index: -90;
+  position: absolute;
+  top: 400px;
+  left: 900px;
 }
 
 .body {
   max-width: 400x;
   max-height: 400px;
   z-index: -90;
+  position: absolute;
+  top: 400px;
+  left: 900px;
 }
 
 .unicorn {
-  max-width: 100x;
-  max-height: 100px;
+  max-width: 120x;
+  max-height: 120px;
   z-index: -90;
+  position: absolute;
+  top: 350px;
+  left: 1550px;
+  rotate: 45deg;
 }
 
 .mole {
-  max-width: 115x;
-  max-height: 115px;
+  max-width: 135x;
+  max-height: 135px;
   z-index: -90;
+  position: absolute;
+  top: 570px;
+  left: 620px;
 }
 
 /* Lights Off MiniGame */
