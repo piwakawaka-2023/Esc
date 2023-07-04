@@ -2,13 +2,10 @@ import { useState } from 'react'
 import { useSound } from 'use-sound'
 import audioUrl from '/sounds/short-music.mp3'
 import MainNav from './MainNav'
-import React from 'react'
 import Confetti from 'react-confetti'
-import useWindowSize from 'react-use/lib/useWindowSize'
 
 export default function Complete() {
   const [playing, setPlaying] = useState(false)
-  const { width, height } = useWindowSize()
 
   const [play, { stop }] = useSound(audioUrl, { volume: 0.5, loop: true })
 
