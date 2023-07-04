@@ -3,10 +3,9 @@ import * as db from '../db/questions'
 
 const router = express.Router()
 
-router.get('/:id', async (req, res, next) => {
-  const id = +req.params.id
+router.get('/', async (req, res, next) => {
   try {
-    const question = await db.getSingleQuestion(id)
+    const question = await db.getQuestions()
     res.json(question)
   } catch (e) {
     next(e)
