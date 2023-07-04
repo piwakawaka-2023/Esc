@@ -30,7 +30,7 @@ export default function Leaderboard() {
       </Link>
       <div className="grey-background">
         <div className="screen" style={{ animation: 'none' }}>
-          <h2 className="screen-message typewriter">HIGHSCORES</h2>
+          <h2 className="screen-message">HIGHSCORES</h2>
           <table>
             <thead>
               <tr>

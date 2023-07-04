@@ -247,7 +247,7 @@ ul {
 
 .screen-message {
   font-size: 1.4em;
-  padding:2em;
+  margin:2em;
   font-weight: 400;
 }
 
@@ -435,7 +435,8 @@ input:focus{
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  /* margin: 0 auto; */
+   /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   animation: 
     typing 3.5s steps(40, end),
@@ -445,7 +446,7 @@ input:focus{
 .type-red{
   border-right: 0.15em solid #EC0B0B ; /* The typwriter cursor */
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
+  border-right: 0.1em solid #0BD7EC ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
