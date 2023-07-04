@@ -296,10 +296,18 @@ ul {
 input{
   background-color: #114A67;
   border: 3px solid #0BD7EC;
+  justify-content: center;
+  align-items: center;
+
 }
 
 input::placeholder {
   color: #09364B;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1em;
+  letter-spacing: 0.2em;
 }
 
 input:focus{
@@ -315,6 +323,12 @@ input:focus{
   font-size: 1.7rem;
   padding: 10px 20px 10px 20px;
   font-family: 'B612 Mono', monospace;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 #enter-name{
