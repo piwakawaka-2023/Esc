@@ -176,7 +176,10 @@ export default function Elevator() {
 
           <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
             <div>
-              <ElevatorCode codeCracked={codeCracked} setCodeCracked={setCodeCracked}/>
+              <ElevatorCode
+                codeCracked={codeCracked}
+                setCodeCracked={setCodeCracked}
+              />
               {viewOpen && codeCracked && (
                 <button className="blue-button" onClick={handleClick}>
                   Open Doors

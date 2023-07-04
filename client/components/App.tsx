@@ -1,9 +1,11 @@
 import { Outlet } from 'react-router-dom'
+import Hints from '../components/Hints'
 
 function App() {
   return (
     <>
-      <Outlet />
+      {/* <Outlet /> */}
+      <Hints />
     </>
   )
 }
