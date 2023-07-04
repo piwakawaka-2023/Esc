@@ -197,9 +197,9 @@ ul {
 }
 .screen {
   background-image: url('/images/screen-texture.png');
-  /* background-size: cover; */
+  background-size: cover; 
   min-width: 60%;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   text-align: center;
   /* background-color: #09364B; */
   border: 3px solid;
@@ -209,7 +209,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 50px;  
+  padding: 50px;
   box-shadow: 0 0 10px #0BD7EC;
   animation: zoom-in 2s ease;
 }
