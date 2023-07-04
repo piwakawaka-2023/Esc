@@ -3,6 +3,7 @@ export interface SceneData {
   id: number
   level_id: number
   text: string
+  slack: string
 }
 
 export interface Scene extends SceneData {
