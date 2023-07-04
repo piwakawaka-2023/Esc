@@ -1,28 +1,24 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { Link, useParams } from 'react-router-dom'
 import { useRef, useState } from 'react'
-//import { Hintss } from '../GetAHint'
-//IMAGES//
-import eye from '/images/eye.png'
-
 import { useSound } from 'use-sound'
 import liftDoorUrl from '/sounds/elevator-door.wav'
 import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorCode from './ElevatorCode'
 import ElevatorLevel from './ElevatorLevel'
 import Hintss from '../GetAHint'
+import Background from './Background'
+import FlyingElements from './FlyingElements'
+import Lift from './Lift'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
   const [viewExit, setViewExit] = useState(false)
   const [viewOpen, setViewOpen] = useState(true)
   const [levelNum, setLevelNum] = useState(1)
-
   const [codeCracked, setCodeCracked] = useState(false)
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
   const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
-
   const ref = useRef()
   const { userId } = useParams()
 
@@ -54,42 +50,8 @@ export default function Elevator() {
             textAlign: 'center',
           }}
         >
-          {/* BACKGROUND LAYERS */}
-          <ParallaxLayer
-            offset={0}
-            speed={1}
-            // style={{
-            //   backgroundImage: `url(${})`,
-            //   backgroundSize: 'fit',
-            // }}
-            factor={5}
-          ></ParallaxLayer>
-          <ParallaxLayer
-            offset={3}
-            speed={1}
-            // style={{
-            //   backgroundImage: `url(${})`,
-            //   backgroundSize: 'cover',
-            // }}
-            factor={5}
-          ></ParallaxLayer>
-
-          {/* LIFT LAYERS */}
-
-          <ParallaxLayer
-            sticky={{ start: 0.1, end: 6.9 }}
-            style={{ textAlign: 'left', margin: '50px', width: '20%' }}
-          >
-            <div id="lift">
-              <div id="lift-number">
-                <p style={{ textAlign: 'center' }}> LEVEL {levelNum}</p>
-              </div>
-            </div>
-            <img style={{ width: '100%' }} src={lift} alt="lift" />
-          </ParallaxLayer>
-
-          {/* QUESTIONS LAYERS */}
-
+          <Background />
+          <Lift levelNum={levelNum} lift={lift} />
           <ElevatorLevel
             refProp={ref}
             levelNum={levelNum}
@@ -120,19 +82,7 @@ export default function Elevator() {
               )}
             </div>
           </ParallaxLayer>
-
-          {/* //FLYING ELEMENTS// */}
-
-          <ParallaxLayer
-            sticky={{ start: 2.5, end: 2.6 }}
-            style={{ textAlign: 'left', width: '10%' }}
-          >
-            <img
-              style={{ width: '100%', textAlign: 'right' }}
-              src={eye}
-              alt="eye"
-            />
-          </ParallaxLayer>
+          <FlyingElements />
         </Parallax>
         <Hintss level_id={2} />
       </div>
