@@ -42,7 +42,7 @@ export default function Leaderboard() {
               {sortPlayers.map((player) => (
                 <tr key={player.id}>
                   <td>{player.username}</td>
-                  <td>
+                  <td className="number">
                     {Math.floor((player.time % 3600) / 60)
                       .toString()
                       .padStart(2, '0')}
