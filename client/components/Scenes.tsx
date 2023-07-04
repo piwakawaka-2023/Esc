@@ -73,7 +73,7 @@ export function getScenes() {
                     alt="slackbot-icon"
                   />
                   <br />
-                  {scene.slack}
+                  <p>{curScene?.slack}</p>
                   <div className="scene-card"></div>
                 </>
               )}

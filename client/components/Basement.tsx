@@ -1,9 +1,9 @@
 import { Link, useParams } from 'react-router-dom'
 import slackUrl from '/sounds/knock-brush.mp3'
+import JsCarnival from '/sounds/jscarnivalsound.wav'
+import correct from '/sounds/correct-buzzer.mp3'
 import { useSound } from 'use-sound'
 import keycard from '/images/keycard.png'
-import body from '/images/body.png'
-import head from '/images/head.png'
 import mole from '/images/mole.png'
 import unicorn from '/images/unicorn.png'
 import { useEffect, useState } from 'react'
@@ -12,6 +12,8 @@ export default function Basement() {
   // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
+  const [monster] = useSound(JsCarnival,{ volume: 0.8} )
+  const [key] = useSound(correct, {volume: 0.3} )
 
   const handlePlayFx = () => {
     play()
@@ -46,22 +48,23 @@ export default function Basement() {
       { id: 2, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
       { id: 3, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
       { id: 4, src: mole, alt: 'JS-carnival-mole', keycard: false},
-      { id: 5, src: keycard, alt: 'keycard', keycard: true },
+      { id: 5, src: mole, alt: 'JS-carnival-mole', keycard: false},
+      { id: 6, src: keycard, alt: 'keycard', keycard: true },
     ]
 
     const getRandomPosition = () => {
-      const min = 10
-      const max = 600
+      const min = 0
+      const max = 800
       const x = Math.floor(Math.random() * (max - min + 1) + min)
       const y = Math.floor(Math.random() * (max - min + 1) + min)
-      return { x, y };
+      return { x, y }
     };
   
     const getSpecialPosition = () => {
       const min = 0
       const max = 500
       const x = Math.floor(Math.random() * (max - min + 1) + min)
-      const y = Math.floor(Math.random() * (max - min + 1) + min)
+      const y = Math.floor(Math.random() * (max - min * 1) + min)
       return { x, y }
     }
 
@@ -69,7 +72,7 @@ export default function Basement() {
 
     useEffect(() => {
       const generatedPositions = images.map((image) => {
-        if (image.special) {
+        if (image.keycard) {
           return { id: image.id, ...getSpecialPosition() }
         }
         return { id: image.id, ...getRandomPosition() }
@@ -85,14 +88,12 @@ export default function Basement() {
 
     const handleSwipeCardClick = () => {
       setnextButton(true)
+      key()
     }
 
     const handleJSClick = () => {
-      console.log('Angwey >:-(')
-    //   // if clicked, play monster audio
+     monster()
     }
-  
-
 
 
     return (
