@@ -30,27 +30,29 @@ export function Hintss(props: Props) {
   }
   return (
     <>
-      <button
-        className="blue-button blue-button-sml"
-        id="red-btn"
-        onClick={handleClick}
-      >
-        Hint
-      </button>
-      {hintsButton && (
-        <div id="hint-container">
-          <div id="slackbot-container">
-            <img id="sml-slackbot" src={slackbot} alt="slackbot emoji" />
+      <div id="hint-container-btn">
+        <button
+          className="blue-button blue-button-sml green-btn-hint"
+          id="green-btn"
+          onClick={handleClick}
+        >
+          ?
+        </button>
+        {hintsButton && (
+          <div id="hint-container" style={{ textAlign: 'left' }}>
+            <div id="slackbot-container">
+              <img id="sml-slackbot" src={slackbot} alt="slackbot emoji" />
+            </div>
+            <div id="slackbot-hint">
+              <p>
+                <b>Slackbot-Piwakawaka-23 </b>
+                {time}
+              </p>
+              <p>{hint[0].text}</p>
+            </div>
           </div>
-          <div id="slackbot-hint">
-            <p>
-              <b>Slackbot-Piwakawaka-23 </b>
-              {time}
-            </p>
-            <p>{hint[0].text}</p>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </>
   )
 }

@@ -11,8 +11,8 @@ export default function LightsOff() {
     <>
       <div className="lightoff-background">
         <div className="lightoff-img-overlay">
+          <Hintss level_id={1}/>
           <Board />
-          <Hintss level_id={1} />
         </div>
       </div>
       {nextButton && (
