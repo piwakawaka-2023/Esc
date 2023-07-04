@@ -12,6 +12,7 @@ import Background from './Background'
 import eye from '/images/eye.png'
 import chair from '/images/chair.png'
 import tenticle from '/images/tenticle.png'
+import bg1 from '/images/bg1.png'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -53,6 +54,24 @@ export default function Elevator() {
             padding: '40px',
           }}
         >
+          <ParallaxLayer
+            offset={0}
+            speed={1}
+            style={{
+              backgroundImage: `url(${bg1})`,
+              backgroundSize: 'cover',
+            }}
+            factor={4}
+          ></ParallaxLayer>
+          <ParallaxLayer
+            offset={3}
+            speed={1}
+            // style={{
+            //   backgroundImage: `url(${})`,
+            //   backgroundSize: 'cover',
+            // }}
+            factor={5}
+          ></ParallaxLayer>
           <ParallaxLayer
             sticky={{ start: 0.1, end: 6.9 }}
             style={{
