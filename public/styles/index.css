@@ -642,17 +642,24 @@ input:focus{
 
 /* HINT STYLING */
 
+#hint-container-btn {
+  top: 0;
+  left: 0;
+  /* z-index: 100; */
+  position: fixed;
+}
+
 #hint-container{
   background-color: rgb(208, 208, 208);
   border: 1px solid white;
   border-radius: 5px;
-  width: 45vw;
+  /* width: 45vw; */
   font-size: .8rem;
   font-family: sans-serif;
   font-weight: 400;
   display: flex;
   flex-direction: row;
-  z-index: 3;
+  position: fixed;
 }
 
 #slackbot-container {
@@ -670,4 +677,8 @@ input:focus{
 #sml-slackbot {
   width: 100%;
   border-radius: 5px;
+}
+
+.green-btn-hint {
+  width: 50px;
 }
