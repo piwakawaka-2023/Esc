@@ -1,13 +1,13 @@
 import Cell from './LightsOffCell'
 import { useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import GameOver from './GameOver'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 
 function Board() {
   const size = 3
   const chanceLightStartsOn = 0.25
   const [count, setCount] = useState(0)
   const { userId, id } = useParams()
+  const navigate = useNavigate()
 
   const lightsGrid = Array(size)
     .fill(0)
@@ -63,26 +63,23 @@ function Board() {
     setCount(count + 1)
   }
 
-  function youDied() {
-    if (count >= 15) {
-      console.log('death')
-      return <GameOver />
-    }
-  }
-
   const gridDisplay = board.grid.map(function (row, rowIndex) {
-    return (
-      <div className="Board-row" key={rowIndex}>
-        {row.map((col, colIndex) => (
-          <Cell
-            key={[rowIndex, colIndex].join('')}
-            cellIndex={[rowIndex, colIndex].join('')}
-            isOn={board.grid[rowIndex][colIndex]}
-            toggleLight={toggleAllLights}
-          />
-        ))}
-      </div>
-    )
+    if (count === 25) {
+      navigate('/gameover')
+    } else {
+      return (
+        <div className="Board-row" key={rowIndex}>
+          {row.map((col, colIndex) => (
+            <Cell
+              key={[rowIndex, colIndex].join('')}
+              cellIndex={[rowIndex, colIndex].join('')}
+              isOn={board.grid[rowIndex][colIndex]}
+              toggleLight={toggleAllLights}
+            />
+          ))}
+        </div>
+      )
+    }
   })
 
   return (
@@ -90,7 +87,7 @@ function Board() {
       <div className="screen" id="yellow-screen">
         <p className="lightoff-header">Turn Off the Lights</p>
         <div className="lightoff-attempts">
-          <p>Attempts left: {15 - count} </p>
+          <p>Attempts left: {25 - count} </p>
         </div>
       </div>
       <div className="board">
@@ -100,8 +97,6 @@ function Board() {
               <button className="blue-button">Escape</button>
             </Link>
           </div>
-        ) : youDied() ? (
-          <GameOver />
         ) : (
           gridDisplay
         )}

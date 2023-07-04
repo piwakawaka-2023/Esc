@@ -7,13 +7,19 @@ interface Props {
 
 export function WordleForm({ userId }: Props) {
   const [input, setInput] = useState('')
+  const [count, setCount] = useState(0)
   const navigate = useNavigate()
   const passcode = 'proxy'
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
     if (input !== passcode) {
-      return window.alert('try again')
+      setCount(count + 1)
+      if (count >= 1) {
+        return navigate('/gameover')
+      } else {
+        return window.alert('Try again')
+      }
     }
     return navigate(`/game/${userId}/scene/4`)
   }
@@ -33,6 +39,7 @@ export function WordleForm({ userId }: Props) {
           <button>Enter</button>
         </form>
       </div>
+      <p>Attempts remaining: {2 - count}</p>
     </>
   )
 }
