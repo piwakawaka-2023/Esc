@@ -7,11 +7,13 @@
 
 /* MAIN NAV STYLING */
 .main-nav-container{
-  width: 100vw;
+  /* width: 100vw; */
   text-align: right;
   position: fixed;
   top: 0;
   right:0;
+  z-index: 3;
+  margin: 10px;
 }
 
 #btn-container {
@@ -265,16 +267,22 @@ ul {
 
 /* START GAME FORM STYLING */
 
-#start-game-form-container {
+.form-screen{
+  margin-bottom: 50px;
   padding: 20px;
+}
+
+#start-game-form-container {
+  padding: 5px;
   display: flex;
-  flex-direction: row;
+  flex-direction:column;
   justify-content: center;
+  
 }
 
 .form-label {
   padding: 10px 20px 10px 20px;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -286,14 +294,27 @@ input{
   border: 3px solid #0BD7EC;
 }
 
+input::placeholder {
+  color: #09364B;
+}
+
+input:focus{
+  box-shadow: 0 0 10px #0BD7EC;
+
+}
+
 .input-field {
  
   border-radius: 20px;
   color: #0BD7EC;
   margin: 0 auto;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   padding: 10px 20px 10px 20px;
   font-family: 'B612 Mono', monospace;
+}
+
+#enter-name{
+  margin: 20px;
 }
 
 /* SCENE CARD STYLING */

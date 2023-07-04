@@ -42,17 +42,17 @@ function Start() {
 
   return (
     <>
-      <div>
-        <div className="grey-background" onClick={() => handlePlay()}>
           <div className="main-nav-container">
             <MainNav />
           </div>
+      <div>
+        <div className="grey-background" onClick={() => handlePlay()}>
           <div id="esc-logo-container">
             <div id="esc-logo">
               <ESCLogo />
             </div>
           </div>
-          <div className="screen">
+          <div className="screen form-screen">
             {viewForm && (
               <StartGameForm
                 viewForm={viewForm}
@@ -64,7 +64,7 @@ function Start() {
             {viewStart && (
               <Link to="/game/welcome">
                 <button className="blue-button" onClick={() => handleStop()}>
-                  Start
+                  Set
                 </button>
               </Link>
             )}
