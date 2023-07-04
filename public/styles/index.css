@@ -362,9 +362,10 @@ input{
 #lift{
   text-align: center;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
-  margin-top: 60px;
+  /* margin-left: 60px; */
+
 }
 
 #lift-number{
@@ -376,6 +377,7 @@ input{
   color: #ECBA0B;
   padding: 10px;
   border-radius: 30px;
+  margin-left: 10px ;
 }
 
 
