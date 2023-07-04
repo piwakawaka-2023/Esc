@@ -2,6 +2,7 @@
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { Link, useParams } from 'react-router-dom'
 import { useRef, useState } from 'react'
+//import { Hintss } from '../GetAHint'
 //IMAGES//
 import eye from '/images/eye.png'
 
@@ -10,6 +11,7 @@ import liftDoorUrl from '/sounds/elevator-door.wav'
 import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorCode from './ElevatorCode'
 import ElevatorLevel from './ElevatorLevel'
+import Hintss from '../GetAHint'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -132,6 +134,7 @@ export default function Elevator() {
             />
           </ParallaxLayer>
         </Parallax>
+        <Hintss level_id={2} />
       </div>
     </>
   )

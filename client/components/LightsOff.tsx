@@ -13,7 +13,7 @@ export default function LightsOff() {
         <div className="lightoff-img-overlay">
           <Board />
         </div>
-        <Hintss />
+        <Hintss level_id={3} />
       </div>
 
       {nextButton && (

@@ -7,6 +7,7 @@ import keycard from '/images/keycard.png'
 import mole from '/images/mole.png'
 import unicorn from '/images/unicorn.png'
 import { useEffect, useState } from 'react'
+import Hintss from './GetAHint'
 
 export default function Basement() {
   // Sound
@@ -126,6 +127,7 @@ export default function Basement() {
           </Link>
         )}
       </div>
+      <Hintss level_id={2} />
       <div>
         <p>Hint</p>
         <p>Look for the swipecard.</p>
