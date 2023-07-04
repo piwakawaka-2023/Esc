@@ -45,7 +45,12 @@ export default function ElevatorLevel({
   return (
     <>
       {question.map((qu, i) => (
-        <ParallaxLayer key={`level-${i}`} offset={i + 0.3} speed={0.5}>
+        <ParallaxLayer
+          key={`level-${i}`}
+          offset={i + 0.3}
+          speed={0.5}
+          style={{ zIndex: '300' }}
+        >
           <div>
             <ElevatorQuestions
               question={qu.question}
