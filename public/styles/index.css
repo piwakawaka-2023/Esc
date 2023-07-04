@@ -630,6 +630,7 @@ input:focus{
 
 .creator-card {
   width: 33%;
+  border-radius: 50%;
 }
 
 .creator-image{
