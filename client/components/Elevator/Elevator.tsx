@@ -1,29 +1,26 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import { Link, useParams } from 'react-router-dom'
 import { useRef, useState } from 'react'
-//IMAGES//
-import eye from '/images/eye.png'
-
 import { useSound } from 'use-sound'
 import liftDoorUrl from '/sounds/elevator-door.wav'
 import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorCode from './ElevatorCode'
 import ElevatorLevel from './ElevatorLevel'
+import Hintss from '../GetAHint'
+import Background from './Background'
+
+import eye from '/images/eye.png'
+import chair from '/images/chair.png'
+import tenticle from '/images/tenticle.png'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
   const [viewExit, setViewExit] = useState(false)
   const [viewOpen, setViewOpen] = useState(true)
-  const [levelNum, setLevelNum] = useState(1)
-
+  const [levelNum, setLevelNum] = useState('3')
   const [codeCracked, setCodeCracked] = useState(false)
-
-  const [playing, setPlaying] = useState(false) //can be deleted I think
-  // const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
   const [playLiftDoor] = useSound(liftDoorUrl, { volume: 0.2 })
   const [playSlackUrl] = useSound(slackUrl, { volume: 0.5 })
-
   const ref = useRef()
   const { userId } = useParams()
 
@@ -53,52 +50,39 @@ export default function Elevator() {
             backgroundColor: 'black',
             color: 'white',
             textAlign: 'center',
+            padding: '40px',
           }}
         >
-          {/* BACKGROUND LAYERS */}
-          <ParallaxLayer
-            offset={0}
-            speed={1}
-            // style={{
-            //   backgroundImage: `url(${})`,
-            //   backgroundSize: 'fit',
-            // }}
-            factor={5}
-          ></ParallaxLayer>
-          <ParallaxLayer
-            offset={3}
-            speed={1}
-            // style={{
-            //   backgroundImage: `url(${})`,
-            //   backgroundSize: 'cover',
-            // }}
-            factor={5}
-          ></ParallaxLayer>
-
-          {/* LIFT LAYERS */}
-
           <ParallaxLayer
             sticky={{ start: 0.1, end: 6.9 }}
-            style={{ textAlign: 'left', margin: '50px', width: '20%' }}
+            style={{
+              textAlign: 'left',
+              width: '25%',
+              height: '90VH',
+              marginRight: '70px',
+            }}
           >
             <div id="lift">
+              <img src={lift} id="lift-pic" alt="lift" />
               <div id="lift-number">
-                <p style={{ textAlign: 'center' }}> LEVEL {levelNum}</p>
+                <p style={{ textAlign: 'center' }}>{levelNum}</p> <p>↓</p>
               </div>
             </div>
-            <img style={{ width: '100%' }} src={lift} alt="lift" />
           </ParallaxLayer>
-
-          {/* QUESTIONS LAYERS */}
-
+          <Background />
           <ElevatorLevel
             refProp={ref}
             levelNum={levelNum}
             setLevelNum={setLevelNum}
           />
 
+          {/* <Lift levelNum={levelNum} lift={lift} /> */}
+
           {/* PIN CODE LAYERS */}
-          <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
+          <ParallaxLayer
+            offset={5.2}
+            style={{ textAlign: 'center', zIndex: '3' }}
+          >
             <div>
               <ElevatorCode
                 codeCracked={codeCracked}
@@ -115,15 +99,23 @@ export default function Elevator() {
                     className="blue-button"
                     onClick={() => handlePlayFx()}
                   >
-                    Exit
+                    Escape
                   </button>
                 </Link>
               )}
             </div>
           </ParallaxLayer>
-
-          {/* //FLYING ELEMENTS// */}
-
+          <ParallaxLayer
+            offset={5.5}
+            style={{ textAlign: 'right' }}
+            speed={0.5}
+          >
+            <img
+              // style={{ width: '30%', textAlign: 'right' }}
+              src={tenticle}
+              alt="tenticle"
+            />
+          </ParallaxLayer>
           <ParallaxLayer
             sticky={{ start: 2.5, end: 2.6 }}
             style={{ textAlign: 'left', width: '10%' }}
@@ -134,7 +126,19 @@ export default function Elevator() {
               alt="eye"
             />
           </ParallaxLayer>
+          {/* 
+          <ParallaxLayer
+            sticky={{ start: 3.5, end: 5.6 }}
+            style={{ textAlign: 'left', width: '100%' }}
+          >
+            <img
+              style={{ width: '30%', textAlign: 'right' }}
+              src={chair}
+              alt="chair"
+            />
+          </ParallaxLayer> */}
         </Parallax>
+        <Hintss level_id={2} />
       </div>
     </>
   )

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import WordleForm from '../components/WordleForm'
 import { useParams } from 'react-router-dom'
+import Hintss from './GetAHint'
 
 export function Wordle() {
   const { userId } = useParams()
@@ -89,6 +90,9 @@ export function Wordle() {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <Hintss level_id={3} />
       </div>
       <WordleForm userId={userId} />
     </>

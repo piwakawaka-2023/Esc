@@ -9,8 +9,8 @@ import { Question } from '../../../models/questions'
 import liftBellUrl from '/sounds/bell.wav'
 
 interface Props {
-  setLevelNum: Dispatch<SetStateAction<number>>
-  levelNum: number
+  setLevelNum: Dispatch<SetStateAction<string>>
+  levelNum: string
   refProp: React.MutableRefObject<any>
 }
 
@@ -25,16 +25,16 @@ export default function ElevatorLevel({
 
   const [questionPassed, setQuestionPassed] = useState(false)
 
-
   const liftBellFx = () => {
     playLiftBell()
   }
 
+  const levelArr = ['2', '1', 'G', 'B', '∞']
+
   const incrLevel = (level: number) => {
-    setLevelNum((prevLevel) => prevLevel + level)
+    setLevelNum(levelArr[-1 + level])
     liftBellFx()
-    console.log(typeof level)
-    refProp.current.scrollTo(level + 0.6)
+    refProp.current.scrollTo(level + 0.2)
     setQuestionPassed(false)
   }
 
@@ -45,7 +45,12 @@ export default function ElevatorLevel({
   return (
     <>
       {question.map((qu, i) => (
-        <ParallaxLayer key={`level-${i}`} offset={i + 0.6} speed={0.5}>
+        <ParallaxLayer
+          key={`level-${i}`}
+          offset={i + 0.3}
+          speed={0.5}
+          style={{ zIndex: '300' }}
+        >
           <div>
             <ElevatorQuestions
               question={qu.question}

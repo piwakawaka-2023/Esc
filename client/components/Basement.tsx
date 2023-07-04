@@ -9,12 +9,15 @@ import unicorn from '/images/unicorn.png'
 import head from '/images/head.png'
 import body from '/images/body.png'
 import { useEffect, useState } from 'react'
+import Hintss from './GetAHint'
 
 export default function Basement() {
   // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
+
   const [monster] = useSound(JsCarnival, { volume: 0.9 })
+
   const [key] = useSound(correct, { volume: 0.3 })
 
   const handlePlayFx = () => {
@@ -56,9 +59,20 @@ export default function Basement() {
     setPosition({ x: randomX, y: randomY })
   }, [])
 
+
+  useEffect(() => {
+    const generatedPositions = images.map((image) => {
+      if (image.keycard) {
+        return { id: image.id, ...getSpecialPosition() }
+      }
+      return { id: image.id, ...getRandomPosition() }
+    })
+    setPositions(generatedPositions)
+  }, [])
   // Show Next button after swipecard clicked
 
   const [nextButton, setnextButton] = useState(false)
+
 
   const handleClick = () => {
     setnextButton(true)
@@ -114,6 +128,7 @@ export default function Basement() {
           onMouseEnter={handleMouseEnter}
         />
 
+
         {nextButton && (
           <Link to={`/game/${userId}/scene/3`}>
             <button
@@ -126,6 +141,13 @@ export default function Basement() {
           </Link>
         )}
       </div>
+
+      <Hintss level_id={2} />
+      <div>
+        <p>Hint</p>
+        <p>Look for the swipecard.</p>
+      </div>
+
     </>
   )
 }
