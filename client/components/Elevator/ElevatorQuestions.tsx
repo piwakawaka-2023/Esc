@@ -37,6 +37,7 @@ function ElevatorQuestions(props: Props) {
     <div className="screen screen-sml">
       <h2>{props.question}</h2>
       <ElevatorAnswers
+        questionPassed={props.questionPassed}
         buttonColour={buttonColour}
         checkAnswer={checkAnswer}
         answers={[props.answer1, props.answer2, props.answer3, props.answer4]}

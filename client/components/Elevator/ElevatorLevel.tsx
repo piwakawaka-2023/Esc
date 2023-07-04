@@ -1,9 +1,10 @@
-import { useRef, useState, SetStateAction, Dispatch, useEffect } from 'react'
+import { useState, SetStateAction, Dispatch, useEffect } from 'react'
 import { useSound } from 'use-sound'
 import { ParallaxLayer } from '@react-spring/parallax'
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks'
 import * as actions from '../../actions/questions'
 import ElevatorQuestions from './ElevatorQuestions'
+import { Question } from '../../../models/questions'
 
 import liftBellUrl from '/sounds/bell.wav'
 
@@ -13,15 +14,17 @@ interface Props {
   refProp: React.MutableRefObject<any>
 }
 
-export default function ElevatorLevel({ refProp, levelNum, setLevelNum }: Props) {
+export default function ElevatorLevel({
+  refProp,
+  levelNum,
+  setLevelNum,
+}: Props) {
   const question = useAppSelector((state) => state.question) as Question[]
   const dispatch = useAppDispatch()
   const [playLiftBell] = useSound(liftBellUrl, { volume: 0.1 })
 
   const [questionPassed, setQuestionPassed] = useState(false)
-  const hasQuestionPassed = (response: boolean) => {
-    setQuestionPassed(response)
-  }
+
 
   const liftBellFx = () => {
     playLiftBell()
