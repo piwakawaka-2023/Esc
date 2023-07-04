@@ -434,12 +434,30 @@ p {
 .swipecard {
   max-width: 75px;
   max-height: 75px;
-  z-index: -80;
+  z-index: -70;
 }
 
-.js-carnival {
+.head {
+  max-width: 400x;
+  max-height: 400px;
+  z-index: -90;
+}
+
+.body {
+  max-width: 400x;
+  max-height: 400px;
+  z-index: -90;
+}
+
+.unicorn {
   max-width: 100x;
   max-height: 100px;
+  z-index: -90;
+}
+
+.mole {
+  max-width: 115x;
+  max-height: 115px;
   z-index: -90;
 }
 

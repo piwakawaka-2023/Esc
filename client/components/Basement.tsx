@@ -6,14 +6,16 @@ import { useSound } from 'use-sound'
 import keycard from '/images/keycard.png'
 import mole from '/images/mole.png'
 import unicorn from '/images/unicorn.png'
+import head from '/images/head.png'
+import body from '/images/body.png'
 import { useEffect, useState } from 'react'
 
 export default function Basement() {
   // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
-  const [monster] = useSound(JsCarnival,{ volume: 0.8} )
-  const [key] = useSound(correct, {volume: 0.3} )
+  const [monster] = useSound(JsCarnival, { volume: 0.9 })
+  const [key] = useSound(correct, { volume: 0.3 })
 
   const handlePlayFx = () => {
     play()
@@ -40,93 +42,90 @@ export default function Basement() {
     }
   }, [])
 
-    // Random Swipecard/JS Carnival Position 
+  // Random Swipecard/JS Carnival Position
 
-  
-    const images = [
-      { id: 1, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
-      { id: 2, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
-      { id: 3, src: unicorn, alt: 'JS-carnival-unicorn', keycard: false },
-      { id: 4, src: mole, alt: 'JS-carnival-mole', keycard: false},
-      { id: 5, src: mole, alt: 'JS-carnival-mole', keycard: false},
-      { id: 6, src: keycard, alt: 'keycard', keycard: true },
-    ]
+  const [position, setPosition] = useState({ x: 0, y: 0 })
 
-    const getRandomPosition = () => {
-      const min = 0
-      const max = 800
-      const x = Math.floor(Math.random() * (max - min + 1) + min)
-      const y = Math.floor(Math.random() * (max - min + 1) + min)
-      return { x, y }
-    };
-  
-    const getSpecialPosition = () => {
-      const min = 0
-      const max = 500
-      const x = Math.floor(Math.random() * (max - min + 1) + min)
-      const y = Math.floor(Math.random() * (max - min * 1) + min)
-      return { x, y }
-    }
+  useEffect(() => {
+    const maxWidth = window.innerWidth - 200
+    const maxHeight = window.innerHeight - 200
 
-    const [positions, setPositions] = useState([])
+    const randomX = Math.floor(Math.random() * maxWidth)
+    const randomY = Math.floor(Math.random() * maxHeight)
 
-    useEffect(() => {
-      const generatedPositions = images.map((image) => {
-        if (image.keycard) {
-          return { id: image.id, ...getSpecialPosition() }
-        }
-        return { id: image.id, ...getRandomPosition() }
-      })
-      setPositions(generatedPositions)
-    }, [])
-
+    setPosition({ x: randomX, y: randomY })
+  }, [])
 
   // Show Next button after swipecard clicked
 
   const [nextButton, setnextButton] = useState(false)
 
+  const handleClick = () => {
+    setnextButton(true)
+    key()
+  }
+  // Monster handling
+  const [counter, setCounter] = useState(0)
 
-    const handleSwipeCardClick = () => {
-      setnextButton(true)
-      key()
+  const handleMouseEnter = () => {
+    monster()
+    setCounter((prevCounter) => prevCounter + 1)
+    if (counter === 6) {
+      console.log('dead screen or jumpscare')
     }
-
-    const handleJSClick = () => {
-     monster()
-    }
-
-
-    return (
-      <>
+  }
+  return (
+    <>
       <div>
+        <img
+          src={keycard}
+          alt="swipecard"
+          className="swipecard"
+          onClick={handleClick}
+          style={{
+            position: 'absolute',
+            top: `${position.y}px`,
+            left: `${position.x}px`,
+          }}
+        />
 
-        {images.map((image) => (
-          <img
-            key={image.id}
-            src={image.src}
-            alt={image.alt}
-            className={`image-component ${image.keycard ? 'swipecard' : 'js-carnival'}`}
-            style={{
-              position: 'absolute',
-              left: positions.find((pos) => pos.id === image.id)?.x,
-              top: positions.find((pos) => pos.id === image.id)?.y,
-            }}
-            onClick={image.keycard ? handleSwipeCardClick : () => handleJSClick(image.id)}
-          />
-        ))}
+        <img
+          src={head}
+          className="head"
+          alt="js-head"
+          onMouseEnter={handleMouseEnter}
+        />
+        <img
+          src={body}
+          className="body"
+          alt="js-body"
+          onMouseEnter={handleMouseEnter}
+        />
+        <img
+          src={unicorn}
+          className="unicorn"
+          alt="js-unicorn"
+          onMouseEnter={handleMouseEnter}
+        />
+        <img
+          src={mole}
+          className="mole"
+          alt="js-mole"
+          onMouseEnter={handleMouseEnter}
+        />
 
-      {nextButton && 
-        <Link to={`/game/${userId}/scene/3`}>
-          <button
-            style={{ position: 'fixed', bottom: '0' }}
-            className="blue-button"
-            onClick={() => handlePlayFx()}
-          >Exit
-          </button>
-        </Link>
-        }
-    </div>
+        {nextButton && (
+          <Link to={`/game/${userId}/scene/3`}>
+            <button
+              style={{ position: 'fixed', bottom: '0' }}
+              className="blue-button"
+              onClick={() => handlePlayFx()}
+            >
+              Exit
+            </button>
+          </Link>
+        )}
+      </div>
     </>
-     )
-    }
-
+  )
+}
