@@ -64,7 +64,7 @@ function Board() {
   }
 
   const gridDisplay = board.grid.map(function (row, rowIndex) {
-    if (count === 20) {
+    if (count === 25) {
       navigate('/gameover')
     } else {
       return (
@@ -87,7 +87,7 @@ function Board() {
       <div className="screen" id="yellow-screen">
         <p className="lightoff-header">Turn Off the Lights</p>
         <div className="lightoff-attempts">
-          <p>Attempts left: {20 - count} </p>
+          <p>Attempts left: {25 - count} </p>
         </div>
       </div>
       <div className="board">
