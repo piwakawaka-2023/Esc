@@ -7,6 +7,9 @@ import slackUrl from '/sounds/knock-brush.mp3'
 import ElevatorCode from './ElevatorCode'
 import ElevatorLevel from './ElevatorLevel'
 import Hintss from '../GetAHint'
+import Background from './Background'
+import FlyingElements from './FlyingElements'
+import Lift from './Lift'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
