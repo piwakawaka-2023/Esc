@@ -25,7 +25,6 @@ export default function ElevatorLevel({
 
   const [questionPassed, setQuestionPassed] = useState(false)
 
-
   const liftBellFx = () => {
     playLiftBell()
   }
@@ -34,7 +33,7 @@ export default function ElevatorLevel({
     setLevelNum((prevLevel) => prevLevel + level)
     liftBellFx()
     console.log(typeof level)
-    refProp.current.scrollTo(level + 0.6)
+    refProp.current.scrollTo(level + 0.2)
     setQuestionPassed(false)
   }
 
@@ -45,7 +44,7 @@ export default function ElevatorLevel({
   return (
     <>
       {question.map((qu, i) => (
-        <ParallaxLayer key={`level-${i}`} offset={i + 0.6} speed={0.5}>
+        <ParallaxLayer key={`level-${i}`} offset={i + 0.3} speed={0.5}>
           <div>
             <ElevatorQuestions
               question={qu.question}

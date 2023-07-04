@@ -12,11 +12,11 @@ export default function Lift({ lift, levelNum }: Props) {
       style={{ textAlign: 'left', margin: '50px', width: '20%' }}
     >
       <div id="lift">
+        <img style={{ width: '100%' }} src={lift} alt="lift" />
         <div id="lift-number">
           <p style={{ textAlign: 'center' }}>{levelNum}</p> <p>↓</p>
         </div>
       </div>
-      <img style={{ width: '100%' }} src={lift} alt="lift" />
     </ParallaxLayer>
   )
 }
