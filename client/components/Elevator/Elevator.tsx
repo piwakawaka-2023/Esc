@@ -8,8 +8,10 @@ import ElevatorCode from './ElevatorCode'
 import ElevatorLevel from './ElevatorLevel'
 import Hintss from '../GetAHint'
 import Background from './Background'
-import FlyingElements from './FlyingElements'
-import Lift from './Lift'
+
+import eye from '/images/eye.png'
+import chair from '/images/chair.png'
+import tenticle from '/images/tenticle.png'
 
 export default function Elevator() {
   const [lift, setLift] = useState('/images/lift.jpeg')
@@ -77,7 +79,10 @@ export default function Elevator() {
           {/* <Lift levelNum={levelNum} lift={lift} /> */}
 
           {/* PIN CODE LAYERS */}
-          <ParallaxLayer offset={5.2} style={{ textAlign: 'center' }}>
+          <ParallaxLayer
+            offset={5.2}
+            style={{ textAlign: 'center', zIndex: '3' }}
+          >
             <div>
               <ElevatorCode
                 codeCracked={codeCracked}
@@ -100,7 +105,38 @@ export default function Elevator() {
               )}
             </div>
           </ParallaxLayer>
-          <FlyingElements />
+          <ParallaxLayer
+            offset={5.5}
+            style={{ textAlign: 'right' }}
+            speed={0.5}
+          >
+            <img
+              // style={{ width: '30%', textAlign: 'right' }}
+              src={tenticle}
+              alt="tenticle"
+            />
+          </ParallaxLayer>
+          <ParallaxLayer
+            sticky={{ start: 2.5, end: 2.6 }}
+            style={{ textAlign: 'left', width: '10%' }}
+          >
+            <img
+              style={{ width: '100%', textAlign: 'right' }}
+              src={eye}
+              alt="eye"
+            />
+          </ParallaxLayer>
+          {/* 
+          <ParallaxLayer
+            sticky={{ start: 3.5, end: 5.6 }}
+            style={{ textAlign: 'left', width: '100%' }}
+          >
+            <img
+              style={{ width: '30%', textAlign: 'right' }}
+              src={chair}
+              alt="chair"
+            />
+          </ParallaxLayer> */}
         </Parallax>
         <Hintss level_id={2} />
       </div>
