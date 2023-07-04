@@ -31,6 +31,10 @@ ul {
   padding: 0;
 }
 
+#game-nav{
+  padding: 20px;
+}
+
 .in-game-logo{
   width: 60px;
   height:auto;
@@ -38,7 +42,7 @@ ul {
   right:0;
   top:0;
   z-index: 300;
-  margin: 5px;
+  margin: 10px;
 
 }
 
@@ -54,10 +58,10 @@ ul {
 #stopwatch-time{
   position: fixed;
   right:0;
-  top:40px;
+  top:42px;
   z-index: 300;
   margin-top: 10px;
-  margin-right: 5px;
+  margin-right: 10px;
   color: #0BD7EC;
   font-family: 'Space Mono', monospace;
   text-transform: capitalize;
@@ -243,7 +247,7 @@ ul {
 
 .screen-message {
   font-size: 1.4em;
-  padding:2em;
+  margin:2em;
   font-weight: 400;
 }
 
@@ -431,7 +435,8 @@ input:focus{
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  /* margin: 0 auto; */
+   /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
   animation: 
     typing 3.5s steps(40, end),
@@ -441,7 +446,7 @@ input:focus{
 .type-red{
   border-right: 0.15em solid #EC0B0B ; /* The typwriter cursor */
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: 0.15em solid #0BD7EC ; /* The typwriter cursor */
+  border-right: 0.1em solid #0BD7EC ; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
@@ -485,31 +490,44 @@ input:focus{
 .swipecard {
   max-width: 75px;
   max-height: 75px;
-  z-index: -70;
+  z-index: -60;
 }
 
 .head {
-  max-width: 400x;
+  max-width: 400px;
   max-height: 400px;
   z-index: -90;
+  position: absolute;
+  top: 400px;
+  left: 900px;
 }
 
 .body {
   max-width: 400x;
   max-height: 400px;
   z-index: -90;
+  position: absolute;
+  top: 400px;
+  left: 900px;
 }
 
 .unicorn {
-  max-width: 100x;
-  max-height: 100px;
+  max-width: 120x;
+  max-height: 120px;
   z-index: -90;
+  position: absolute;
+  top: 350px;
+  left: 1550px;
+  rotate: 45deg;
 }
 
 .mole {
-  max-width: 115x;
-  max-height: 115px;
+  max-width: 135x;
+  max-height: 135px;
   z-index: -90;
+  position: absolute;
+  top: 570px;
+  left: 620px;
 }
 
 /* Lights Off MiniGame */
