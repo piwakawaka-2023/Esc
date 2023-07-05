@@ -1,11 +1,6 @@
 import { useEffect } from 'react'
-import WordleForm from '../components/WordleForm'
-import { useParams } from 'react-router-dom'
-import Hintss from './GetAHint'
 
 export function Wordle() {
-  const { userId } = useParams()
-
   //Run JS on this comp
   useEffect(() => {
     const script = document.createElement('script')
@@ -87,10 +82,6 @@ export function Wordle() {
           </div>
         </div>
       </div>
-      <div>
-        <Hintss level_id={4} />
-      </div>
-      <WordleForm userId={userId} />
     </>
   )
 }
