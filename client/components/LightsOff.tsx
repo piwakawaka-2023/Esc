@@ -5,17 +5,17 @@ import Hintss from './GetAHint'
 
 export default function LightsOff() {
   const { userId } = useParams()
-  const [nextButton, setnextButton] = useState(true)
+  // const [nextButton, setnextButton] = useState(true)
 
   return (
     <>
       <div className="lightoff-background">
         <div className="lightoff-img-overlay">
-          <Hintss level_id={1}/>
+          <Hintss level_id={1} />
           <Board />
         </div>
       </div>
-      {nextButton && (
+      {/* {nextButton && (
         <Link to={`/game/${userId}/scene/1/level/2`}>
           <button
             style={{ position: 'fixed', bottom: '0' }}
@@ -24,7 +24,7 @@ export default function LightsOff() {
             Exit
           </button>
         </Link>
-      )}
+      )} */}
     </>
   )
 }
