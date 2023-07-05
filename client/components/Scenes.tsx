@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import logo from '/images/slack-icon.png'
 import pfp from '/images/bossman.png'
 import slackbot from '/images/slackbot.png'
+import glitch from '/images/endscreen.gif'
 import SceneNextButton from './SceneNextButton'
 import slackUrl from '/sounds/wow.mp3'
 import { useSound } from 'use-sound'
@@ -80,6 +81,14 @@ export function getScenes() {
             </div>
           </div>
           <SceneNextButton curScene={curScene} />
+        {curScene.final && 
+        <div>
+          <img src={glitch}
+          className='glitch'
+          alt='glitch-bg'
+          />
+        </div>
+        }
         </div>
       </div>
     </>
