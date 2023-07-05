@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
     },
     {
       id: 2,
-      username: 'Gabby',
+      username: 'Gaby',
       current_level_id: 0,
       time: 1214,
       complete: true,
