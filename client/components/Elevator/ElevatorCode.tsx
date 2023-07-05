@@ -5,6 +5,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import useSound from 'use-sound'
 import incorrectBuzzerUrl from '/sounds/wrong-buzzer.mp3'
 import correctBuzzerUrl from '/sounds/correct-buzzer.mp3'
+import gameoverUrl from '/sounds/gameOver.mp3'
 
 interface Props {
   codeCracked: boolean
@@ -12,9 +13,14 @@ interface Props {
 }
 
 function ElevatorCode(props: Props) {
+  const [colourScreen, setColourScreen] = useState('')
+  const [colourText, setColourText] = useState('')
+  const [colourBox, setBoxColour] = useState('')
+
   const [codeAnswer, setCodeAnswer] = useState('')
   const [playIncorrectBuzzer] = useSound(incorrectBuzzerUrl, { volume: 0.05 })
   const [playCorrectBuzzer] = useSound(correctBuzzerUrl, { volume: 0.2 })
+  const [playGameover] = useSound(gameoverUrl, { volume: 0.1 })
   const [count, setCount] = useState(0)
   const navigate = useNavigate()
 
@@ -31,30 +37,40 @@ function ElevatorCode(props: Props) {
       props.setCodeCracked(true)
     } else {
       if (count === 2) {
+        playGameover()
         navigate('/gameover')
       } else {
         playIncorrectBuzzer()
         props.setCodeCracked(false)
         setCount(count + 1)
+        if (count == 1) {
+          setColourScreen('red-screen')
+          setColourText('red-btn')
+          setBoxColour('red-input')
+        }
       }
     }
   }
 
   return (
     <>
-      <div className="screen screen-sml">
+      <div className="screen screen-sml" id={colourScreen}>
         <h2>Enter the pincode</h2>
         <form onSubmit={handleSubmit}>
           <input
-            className="input-field"
+            id={colourText}
+            className="input-field number"
             type="number"
             min={1000}
             max={9999}
             onChange={handleChange}
+            placeholder="✱✱✱✱"
           />
-          <button className="blue-button">Guess</button>
+          <button className="blue-button" id={colourText}>
+            Guess
+          </button>
         </form>
-        <p>Attempts remaining: {3 - count}</p>
+        <p className="number">Attempts remaining: {3 - count}</p>
       </div>
     </>
   )

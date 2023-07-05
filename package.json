@@ -73,6 +73,7 @@
     "express": "^4.17.2",
     "knex": "^2.3.0",
     "react-confetti": "^6.1.0",
+    "react-rain-animation": "^1.0.4",
     "react-use": "^17.4.0",
     "sqlite3": "^5.1.2",
     "superagent": "7.1.1",

@@ -21,16 +21,9 @@ export default function Leaderboard() {
 
   return (
     <>
-      <Link to="/">
-        <img
-          src={logo}
-          alt="static grey escape logo"
-          className="in-game-logo"
-        />
-      </Link>
       <div className="grey-background">
         <div className="screen" style={{ animation: 'none' }}>
-          <h2 className="screen-message typewriter">HIGHSCORES</h2>
+          <h2 className="screen-message">HIGHSCORES</h2>
           <table>
             <thead>
               <tr>
@@ -42,7 +35,7 @@ export default function Leaderboard() {
               {sortPlayers.map((player) => (
                 <tr key={player.id}>
                   <td>{player.username}</td>
-                  <td>
+                  <td className="number">
                     {Math.floor((player.time % 3600) / 60)
                       .toString()
                       .padStart(2, '0')}
@@ -55,6 +48,11 @@ export default function Leaderboard() {
               ))}
             </tbody>
           </table>
+          <Link to="/">
+            <button className="blue-button blue-button-sml">
+              Back to home
+            </button>
+          </Link>
         </div>
       </div>
     </>

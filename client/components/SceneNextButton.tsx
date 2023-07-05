@@ -28,11 +28,11 @@ export default function SceneNextButton({ curScene }: Props) {
     <>
       {curScene?.final ? (
         <Link to={`/complete`}>
-          <button className="blue-button">Next</button>
+          <button className="blue-button">Close</button>
         </Link>
       ) : (
         <Link to={`level/${curScene?.levelId}`}>
-          <button className="blue-button">Next</button>
+          <button className="blue-button">Close</button>
         </Link>
       )}
     </>

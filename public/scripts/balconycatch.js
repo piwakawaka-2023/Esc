@@ -70,7 +70,7 @@ function createVapes() {
 }
 
 function checkWin() {
-  if (vapeCount == 20) {
+  if (vapeCount == 10) {
     let exitButton = document.createElement('button')
     exitButton.setAttribute('class', 'blue-button')
     exitButton.innerHTML = 'ESCAPE'
@@ -84,8 +84,3 @@ function checkWin() {
 createVapes()
 
 document.addEventListener('keydown', control) //keydown event listener
-
-//create random vape document.createElement
-//create pipe document.createElement
-
-//func make vapes/pipes fall

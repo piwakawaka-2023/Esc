@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import slackUrl from '/sounds/knock-brush.mp3'
 import correct from '/sounds/correct-buzzer.mp3'
 import JsCarnival from '/sounds/jsmonsters.wav'
@@ -21,8 +21,8 @@ export default function Basement() {
   const [play] = useSound(slackUrl, { volume: 0.5 })
   const [monster] = useSound(JsCarnival, { volume: 0.9 })
   const [key] = useSound(correct, { volume: 0.3 })
-  const [dead] = useSound(JsCarnivalDead, {volume: 0.3})
-
+  const [dead] = useSound(JsCarnivalDead, { volume: 0.3 })
+  const navigate = useNavigate()
 
   const handlePlayFx = () => {
     play()
@@ -63,17 +63,15 @@ export default function Basement() {
     setPosition({ x: randomX, y: randomY })
   }, [])
 
-
   // Show Next button after swipecard clicked
 
   const [nextButton, setnextButton] = useState(false)
-
 
   const handleClick = () => {
     setnextButton(true)
     key()
   }
-  
+
   // Monster handling
   const [counter, setCounter] = useState(0)
   const [isDead, setIsDead] = useState(false)
@@ -90,9 +88,9 @@ export default function Basement() {
     if (counter === 6) {
       // monster()
       dead()
+      navigate('/gameover')
     }
   }
-
 
   return (
     <>
@@ -156,7 +154,6 @@ export default function Basement() {
           onMouseEnter={handleMouseEnter}
         />
 
-
         {nextButton && (
           <Link to={`/game/${userId}/scene/3`}>
             <button
@@ -168,13 +165,13 @@ export default function Basement() {
             </button>
           </Link>
         )}
-      
-      <Hintss level_id={2} />
+      </div>
+
+      <Hintss level_id={3} />
       <div>
         <p>Hint</p>
         <p>Look for the swipecard.</p>
       </div>
-
     </>
   )
 }

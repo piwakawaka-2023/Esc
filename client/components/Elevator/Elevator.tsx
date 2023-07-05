@@ -84,7 +84,10 @@ export default function Elevator() {
             <div id="lift">
               <img src={lift} id="lift-pic" alt="lift" />
               <div id="lift-number">
-                <p style={{ textAlign: 'center' }}>{levelNum}</p> <p>↓</p>
+                <p className="number" style={{ textAlign: 'center' }}>
+                  {levelNum}
+                </p>{' '}
+                <p>↓</p>
               </div>
             </div>
           </ParallaxLayer>
