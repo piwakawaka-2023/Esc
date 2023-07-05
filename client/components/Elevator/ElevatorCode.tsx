@@ -13,6 +13,10 @@ interface Props {
 }
 
 function ElevatorCode(props: Props) {
+  const [colourScreen, setColourScreen] = useState('')
+  const [colourText, setColourText] = useState('')
+  const [colourBox, setBoxColour] = useState('')
+
   const [codeAnswer, setCodeAnswer] = useState('')
   const [playIncorrectBuzzer] = useSound(incorrectBuzzerUrl, { volume: 0.05 })
   const [playCorrectBuzzer] = useSound(correctBuzzerUrl, { volume: 0.2 })
@@ -39,16 +43,22 @@ function ElevatorCode(props: Props) {
         playIncorrectBuzzer()
         props.setCodeCracked(false)
         setCount(count + 1)
+        if (count == 1) {
+          setColourScreen('red-screen')
+          setColourText('red-btn')
+          setBoxColour('red-input')
+        }
       }
     }
   }
 
   return (
     <>
-      <div className="screen screen-sml">
+      <div className="screen screen-sml" id={colourScreen}>
         <h2>Enter the pincode</h2>
         <form onSubmit={handleSubmit}>
           <input
+            id={colourText}
             className="input-field number"
             type="number"
             min={1000}
@@ -56,7 +66,9 @@ function ElevatorCode(props: Props) {
             onChange={handleChange}
             placeholder="✱✱✱✱"
           />
-          <button className="blue-button">Guess</button>
+          <button className="blue-button" id={colourText}>
+            Guess
+          </button>
         </form>
         <p className="number">Attempts remaining: {3 - count}</p>
       </div>
