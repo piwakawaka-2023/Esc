@@ -1,6 +1,10 @@
 import { Link, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import BalconyGame from './BalconyGame'
+import ReactRain from 'react-rain-animation'
+
+// import all the styles
+import 'react-rain-animation/lib/style.css'
 
 export default function Balcony() {
   const { userId } = useParams()
@@ -28,6 +32,8 @@ export default function Balcony() {
 
   return (
     <>
+      <ReactRain numDrops="30" />
+
       <BalconyGame />
       <div>
         <Link to={`/game/${userId}/scene/5`} id="balcony-exit">
