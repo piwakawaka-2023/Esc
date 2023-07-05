@@ -10,7 +10,7 @@ export default function GameOver() {
         <div className="screen" id="red-screen">
           <h2>YOU DIED</h2>
           <h3 className="screen-message type-red">
-            For you, bootcamp will never be over...
+            For you, Bootcamp will never be over...
           </h3>
           <a href="/">
             <button className="blue-button" id="red-btn">
