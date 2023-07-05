@@ -19,7 +19,8 @@ exports.seed = async function (knex) {
       level_id: 3,
       text: "Me again, Just checking in that you, still in the building? I left my swipe card in the basement if you're still around maybe you could grab for me? Sorry should've mentioned before you turned all the lights off. Don't mind the javascript carnival gang, they get a little restless down there. But anyways let me know!",
       final: false,
-      slack: 'Enjoy the little things in life.',
+      slack:
+        'You asked me to remind you about this message from @facilitator-piwakawaka-23',
     },
     {
       id: 3,
@@ -34,7 +35,7 @@ exports.seed = async function (knex) {
       text: "Oh, you made it out of the building? Well, thats great then! uhh... i suppose we'll see you tomorrow then.",
       final: false,
       slack:
-        '7:18 PM: 👍 I will remind #teams-meeting at 10:30AM tomorrow morning.',
+        '👍 I will remind you of #teams-meeting at 10:30AM tomorrow morning.',
     },
     {
       id: 5,

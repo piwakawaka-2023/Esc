@@ -375,10 +375,12 @@ input::-webkit-inner-spin-button {
 
 .pfp {
   width: 10%;
+  object-fit:contain;
 }
 
 .slackbot {
   width: 10%;
+  object-fit:contain;
 }
 
 .slack-text {
@@ -404,7 +406,7 @@ input::-webkit-inner-spin-button {
 }
 
 .slackbot-message-text{
-  width: 80%;
+  width: 90%;
   margin-left: 10px;
   flex-direction: column;
 }
@@ -804,7 +806,7 @@ input::-webkit-inner-spin-button {
   border: 2px solid #0BD7EC;
   border-radius: 50%;
   max-width: 200px;
-
+  object-fit: cover;
 }
 
 
