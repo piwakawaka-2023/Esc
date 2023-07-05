@@ -1,6 +1,7 @@
 import { FormEvent, useState, ChangeEvent } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Wordle from './Wordle'
+import Hintss from './GetAHint'
 import incorrectBuzzerUrl from '/sounds/wrong-buzzer.mp3'
 import correctBuzzerUrl from '/sounds/correct-buzzer.mp3'
 import useSound from 'use-sound'
@@ -83,6 +84,9 @@ export function WordleForm() {
             <img id="wordle-note" src="/images/note.png" alt="note" />
           </>
         )}
+      </div>
+      <div>
+        <Hintss level_id={4} />
       </div>
     </div>
   )
