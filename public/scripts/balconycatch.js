@@ -43,6 +43,9 @@ function createVapes() {
   vapes.setAttribute('src', '/images/vape-purple.png')
   vape.appendChild(vapes)
 
+  const i = setInterval(vapeFall, 20)
+  setTimeout(createVapes, 2000)
+
   function vapeFall() {
     if (
       vapeBottom < busBottom + 100 &&
@@ -51,6 +54,7 @@ function createVapes() {
       vapeLeft < busLeft + 150
     ) {
       vape.removeChild(vapes)
+      clearInterval(i)
       vapeCount++
       updateVapeCount(vapeCount)
       checkWin()
@@ -64,9 +68,6 @@ function createVapes() {
     vapes.style.bottom = vapeBottom + 'px'
     vapes.style.left = vapeLeft + 'px'
   }
-
-  setInterval(vapeFall, 20)
-  setTimeout(createVapes, 2000)
 }
 
 function checkWin() {
