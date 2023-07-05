@@ -9,11 +9,14 @@ import { useSound } from 'use-sound'
 
 export default function Welcome() {
   const dispatch = useAppDispatch()
-
   const [play] = useSound(slackUrl, { volume: 0.5 })
 
   const [playing, setPlaying] = useState(false)
-  const [playAmbience] = useSound(ambienceUrl, { volume: 0.8, loop: true })
+  const [playAmbience] = useSound(ambienceUrl, {
+    volume: 0.9,
+    loop: true,
+    playbackRate: 3,
+  })
 
   const handlePlayFx = () => {
     play()

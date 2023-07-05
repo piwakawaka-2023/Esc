@@ -4,6 +4,7 @@ import Wordle from './Wordle'
 import Hintss from './GetAHint'
 import incorrectBuzzerUrl from '/sounds/wrong-buzzer.mp3'
 import correctBuzzerUrl from '/sounds/correct-buzzer.mp3'
+import gameoverUrl from '/sounds/gameover.mp3'
 import useSound from 'use-sound'
 
 // interface Props {
@@ -19,12 +20,14 @@ export function WordleForm() {
   const { userId } = useParams()
   const [playIncorrectBuzzer] = useSound(incorrectBuzzerUrl, { volume: 0.05 })
   const [playCorrectBuzzer] = useSound(correctBuzzerUrl, { volume: 0.2 })
+  const [playGameover] = useSound(gameoverUrl, { volume: 0.2 })
 
   const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault()
     if (input !== passcode) {
       setCount(count + 1)
       if (count >= 1) {
+        playGameover()
         return navigate('/gameover')
       } else {
         playIncorrectBuzzer()
