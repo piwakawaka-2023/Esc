@@ -414,6 +414,12 @@ input::-webkit-inner-spin-button {
   background-color: rgb(234, 248, 255);
 }
 
+.glitch {
+  opacity: 0.2;
+  width: 100vw;
+  height: 100vh;
+}
+
 /* Elevator Styles */
 
 .elevator-shaft{
@@ -529,7 +535,7 @@ input::-webkit-inner-spin-button {
   top: 500px;
   left: 1000px;
   animation-name: shake;
-  animation-duration: 2s;
+  animation-duration: 1s;
   
 }
 
@@ -540,7 +546,8 @@ input::-webkit-inner-spin-button {
   position: absolute;
   top: 500px;
   left: 1000px;
-  animation-duration: 2s;
+  animation-name: shake;
+  animation-duration: 1s;
 }
   
 .head1 {
@@ -551,7 +558,7 @@ input::-webkit-inner-spin-button {
   top: 680px;
   left: 200px;
   rotate: 310deg;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 .head2 {
@@ -561,9 +568,7 @@ input::-webkit-inner-spin-button {
   position: absolute;
   top: 540px;
   left: 1330px;
-  rotate: 15deg;
-  animation-duration: 2s;
-  
+  rotate: 15deg;  
 }
 
 .head3 {
@@ -574,7 +579,6 @@ input::-webkit-inner-spin-button {
   top: 600px;
   left: 620px;
   rotate: 200deg;
-  animation-duration: 2s;
 }
 
 
@@ -586,7 +590,6 @@ input::-webkit-inner-spin-button {
   top: 450px;
   left: 1900px;
   rotate: 45deg;
-  animation-duration: 2s;
 }
 
 .mole {
@@ -596,7 +599,11 @@ input::-webkit-inner-spin-button {
   position: absolute;
   top: 680px;
   left: 700px;
-  animation-duration: 2s;
+}
+
+.fade-to-black{
+transition: background-color 1s;
+background-color: black;
 }
 
 @keyframes shake {
