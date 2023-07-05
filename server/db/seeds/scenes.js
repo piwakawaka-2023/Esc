@@ -34,7 +34,8 @@ exports.seed = async function (knex) {
       level_id: 5,
       text: "Oh, you made it out of the building? Well, thats great then! Uhh... I suppose we'll see you tomorrow then.",
       final: false,
-      slack: ' 👍 I will remind #teams-meeting at 10:30AM tomorrow morning.',
+      slack:
+        ' 👍 I will remind you about the #teams-meeting at 10:30AM tomorrow morning.',
     },
     {
       id: 5,
