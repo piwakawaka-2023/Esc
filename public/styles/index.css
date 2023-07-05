@@ -651,6 +651,10 @@ input::-webkit-inner-spin-button {
   font-size: 1.5em;
 }
 
+#red-text{
+  color: #EC0B0B
+}
+
 .lightoff-attempts {
   width: 20vw;
   background-color: #4B4409;
@@ -660,6 +664,15 @@ input::-webkit-inner-spin-button {
   margin: 0 auto;
   font-size: 1.2em;
   padding: 1px;
+}
+
+#red-box{
+  background-color: #4D0C0C;
+  border-color: #EC0B0B;
+  /* border-bottom: 10px solid #EC0B0B; */
+  animation-name: blinking;
+  animation-duration: 1s;
+  animation-iteration-count: 5000;
 }
 
 .lightoff-img-overlay {
@@ -677,6 +690,10 @@ input::-webkit-inner-spin-button {
   font-family: 'B612 Mono', monospace;
   font-weight: 400;
 }
+
+
+
+
 
 .board {
   margin-top: 50px;
