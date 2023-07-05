@@ -2,15 +2,12 @@ import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import BalconyGame from './BalconyGame'
 import ReactRain from 'react-rain-animation'
-import tetrisUrl from '/sounds/tetris.mp3'
-import { useSound } from 'use-sound'
 
 // import all the styles
 import 'react-rain-animation/lib/style.css'
 
 export default function Balcony() {
   const [playing, setPlaying] = useState(false)
-  const [play, { stop }] = useSound(tetrisUrl, { volume: 0.5, loop: true })
   const { userId } = useParams()
   const [start, setStart] = useState(false)
 
@@ -52,29 +49,19 @@ export default function Balcony() {
 
   return (
     <>
-      {!start ? (
-        <div className="balcony-button">
-          <button className="blue-button" onClick={() => handlePlay()}>
-            Catch the vapes!
-          </button>
-        </div>
-      ) : (
-        <>
-          <ReactRain numDrops="30" />
-          <BalconyGame />
-          <div>
-            <Link to={`/game/${userId}/scene/5`} id="balcony-exit">
-              {/* <button
+      <ReactRain numDrops="30" />
+      <BalconyGame />
+      <div>
+        <Link to={`/game/${userId}/scene/5`} id="balcony-exit">
+          {/* <button
               style={{ position: 'fixed', bottom: '0' }}
               className="blue-button"
               onClick={() => handleStop()}
             >
               Exit
             </button> */}
-            </Link>
-          </div>
-        </>
-      )}
+        </Link>
+      </div>
     </>
   )
 }

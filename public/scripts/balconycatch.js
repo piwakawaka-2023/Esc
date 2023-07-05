@@ -1,3 +1,6 @@
+const tetris = new Audio('/sounds/tetris.mp3')
+tetris.play()
+
 const bus = document.getElementById('bus') //get item by class bus
 const vape = document.querySelector('.vape')
 const exitLink = document.getElementById('balcony-exit')
@@ -79,6 +82,7 @@ function checkWin() {
     exitButton.style.bottom = 0
     exitButton.style.right = '10px'
     exitLink.appendChild(exitButton)
+    tetris.pause()
   }
 }
 
