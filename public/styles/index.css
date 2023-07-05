@@ -392,6 +392,7 @@ input::-webkit-inner-spin-button {
 
 .slack-message-container{
   background-color: rgb(231, 231, 231);
+  color: black;
   border: 1px solid white;
   border-radius: 5px;
   width: 53vw;
@@ -823,6 +824,7 @@ input::-webkit-inner-spin-button {
   background-color: rgb(231, 231, 231);
   border: 1px solid white;
   border-radius: 5px;
+  color: black;
   /* width: 45vw; */
   font-size: .8rem;
   font-family: sans-serif;
