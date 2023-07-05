@@ -5,6 +5,10 @@ import gameoverUrl from '/sounds/gameover.mp3'
 import { useSound } from 'use-sound'
 
 function Board() {
+  const [colourScreen, setColourScreen] = useState('yellow-screen')
+  const [colourText, setColourText] = useState('')
+  const [colourBox, setBoxColour] = useState('')
+
   const size = 3
   const chanceLightStartsOn = 0.25
   const [count, setCount] = useState(0)
@@ -64,6 +68,11 @@ function Board() {
 
   const incCounter = () => {
     setCount(count + 1)
+    if (count > 18) {
+      setColourScreen('red-screen')
+      setColourText('red-text')
+      setBoxColour('red-box')
+    }
   }
 
   const gridDisplay = board.grid.map(function (row, rowIndex) {
@@ -88,10 +97,16 @@ function Board() {
 
   return (
     <>
-      <div className="screen" id="yellow-screen">
-        <p className="lightoff-header">Turn Off the Lights</p>
-        <div className="lightoff-attempts">
-          <p className="number">Attempts left: {25 - count} </p>
+
+      <div className="screen red-blinking" id={colourScreen}>
+        <p className="lightoff-header" id={colourText}>
+          Turn Off the Lights
+        </p>
+        <div className="lightoff-attempts" id={colourBox}>
+          <p className="number" id={colourText}>
+            Attempts left: {25 - count}{' '}
+          </p>
+
         </div>
       </div>
       <div className="board">
