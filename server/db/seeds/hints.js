@@ -16,8 +16,8 @@ exports.seed = async function (knex) {
     {
       id: 4,
       level_id: 4,
-      text: 'The password is on the phone. "the authority to represent someone else, especially in voting"',
+      text: 'The password is on the phone, Your hint for the passcode is "A system or router that provides a gateway between users and the internet"',
     },
-    { id: 5, level_id: 5, text: 'Move that BUS' },
+    { id: 5, level_id: 5, text: 'Move that BUS with the arrow keys' },
   ])
 }
