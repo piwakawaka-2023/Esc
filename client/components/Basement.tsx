@@ -75,13 +75,13 @@ export default function Basement() {
   // Monster handling
   const [counter, setCounter] = useState(0)
   const [isDead, setIsDead] = useState(false)
-  
+
   useEffect(() => {
     if (counter === 6) {
       setIsDead(true)
     }
   }, [counter])
-  
+
   const handleMouseEnter = () => {
     monster()
     setCounter((prevCounter) => prevCounter + 1)
@@ -94,78 +94,77 @@ export default function Basement() {
 
   return (
     <>
-        <img
-          src={keycard}
-          alt="swipecard"
-          className="swipecard"
-          onClick={handleClick}
-          style={{
-            position: 'absolute',
-            top: `${position.y}px`,
-            left: `${position.x}px`,
-          }}
-        />
-    
-    {/* <div className={`head ${isDead ? 'fade-to-black' : ''}`}> */}
+      <img
+        src={keycard}
+        alt="swipecard"
+        className="swipecard"
+        onClick={handleClick}
+        style={{
+          position: 'absolute',
+          top: `${position.y}px`,
+          left: `${position.x}px`,
+        }}
+      />
 
-          {/* attempt to add a fade-to-black css after counter/dead is triggered */}
+      {/* <div className={`head ${isDead ? 'fade-to-black' : ''}`}> */}
 
-        <img
-          src={head}
-          className="head"
-          alt="js-head"
-          onMouseEnter={handleMouseEnter}
-          // onAnimationEnd={handleAnimationEnd}
-        />
-        <img
-          src={body}
-          className="body"
-          alt="js-body"
-          onMouseEnter={handleMouseEnter}
-        />
-        <img
-          src={unicorn}
-          className="unicorn"
-          alt="js-unicorn"
-          onMouseEnter={handleMouseEnter}
-        />
-        <img
-          src={mole}
-          className="mole"
-          alt="js-mole"
-          onMouseEnter={handleMouseEnter}
-        />
-        <img
-          src={head1}
-          className="head1"
-          alt="js-head"
-          onMouseEnter={handleMouseEnter}
-        />
-        <img
-          src={head2}
-          className="head2"
-          alt="js-head"
-          onMouseEnter={handleMouseEnter}
-        />
-        <img
-          src={head3}
-          className="head3"
-          alt="js-head"
-          onMouseEnter={handleMouseEnter}
-        />
+      {/* attempt to add a fade-to-black css after counter/dead is triggered */}
 
-        {nextButton && (
-          <Link to={`/game/${userId}/scene/3`}>
-            <button
-              style={{ position: 'fixed', bottom: '0' }}
-              className="blue-button"
-              onClick={() => handlePlayFx()}
-            >
-              Exit
-            </button>
-          </Link>
-        )}
-      </div>
+      <img
+        src={head}
+        className="head"
+        alt="js-head"
+        onMouseEnter={handleMouseEnter}
+        // onAnimationEnd={handleAnimationEnd}
+      />
+      <img
+        src={body}
+        className="body"
+        alt="js-body"
+        onMouseEnter={handleMouseEnter}
+      />
+      <img
+        src={unicorn}
+        className="unicorn"
+        alt="js-unicorn"
+        onMouseEnter={handleMouseEnter}
+      />
+      <img
+        src={mole}
+        className="mole"
+        alt="js-mole"
+        onMouseEnter={handleMouseEnter}
+      />
+      <img
+        src={head1}
+        className="head1"
+        alt="js-head"
+        onMouseEnter={handleMouseEnter}
+      />
+      <img
+        src={head2}
+        className="head2"
+        alt="js-head"
+        onMouseEnter={handleMouseEnter}
+      />
+      <img
+        src={head3}
+        className="head3"
+        alt="js-head"
+        onMouseEnter={handleMouseEnter}
+      />
+
+      {nextButton && (
+        <Link to={`/game/${userId}/scene/3`}>
+          <button
+            style={{ position: 'fixed', bottom: '0' }}
+            className="blue-button"
+            onClick={() => handlePlayFx()}
+          >
+            Exit
+          </button>
+        </Link>
+      )}
 
       <Hintss level_id={3} />
       <div>
