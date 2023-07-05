@@ -76,11 +76,19 @@ export default function Basement() {
   
   // Monster handling
   const [counter, setCounter] = useState(0)
-
+  const [isDead, setIsDead] = useState(false)
+  
+  useEffect(() => {
+    if (counter === 6) {
+      setIsDead(true)
+    }
+  }, [counter])
+  
   const handleMouseEnter = () => {
     monster()
     setCounter((prevCounter) => prevCounter + 1)
     if (counter === 6) {
+      // monster()
       dead()
     }
   }
@@ -88,7 +96,6 @@ export default function Basement() {
 
   return (
     <>
-      <div>
         <img
           src={keycard}
           alt="swipecard"
@@ -100,6 +107,10 @@ export default function Basement() {
             left: `${position.x}px`,
           }}
         />
+    
+    {/* <div className={`head ${isDead ? 'fade-to-black' : ''}`}> */}
+
+          {/* attempt to add a fade-to-black css after counter/dead is triggered */}
 
         <img
           src={head}
@@ -157,8 +168,7 @@ export default function Basement() {
             </button>
           </Link>
         )}
-      </div>
-
+      
       <Hintss level_id={2} />
       <div>
         <p>Hint</p>

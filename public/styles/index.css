@@ -500,7 +500,7 @@ input:focus{
   top: 500px;
   left: 1000px;
   animation-name: shake;
-  animation-duration: 2s;
+  animation-duration: 1s;
   
 }
 
@@ -511,7 +511,8 @@ input:focus{
   position: absolute;
   top: 500px;
   left: 1000px;
-  animation-duration: 2s;
+  animation-name: shake;
+  animation-duration: 1s;
 }
   
 .head1 {
@@ -522,7 +523,7 @@ input:focus{
   top: 680px;
   left: 200px;
   rotate: 310deg;
-  animation-duration: 2s;
+  animation-duration: 1s;
 }
 
 .head2 {
@@ -532,9 +533,7 @@ input:focus{
   position: absolute;
   top: 540px;
   left: 1330px;
-  rotate: 15deg;
-  animation-duration: 2s;
-  
+  rotate: 15deg;  
 }
 
 .head3 {
@@ -545,7 +544,6 @@ input:focus{
   top: 600px;
   left: 620px;
   rotate: 200deg;
-  animation-duration: 2s;
 }
 
 
@@ -557,7 +555,6 @@ input:focus{
   top: 450px;
   left: 1900px;
   rotate: 45deg;
-  animation-duration: 2s;
 }
 
 .mole {
@@ -567,7 +564,11 @@ input:focus{
   position: absolute;
   top: 680px;
   left: 700px;
-  animation-duration: 2s;
+}
+
+.fade-to-black{
+transition: background-color 1s;
+background-color: black;
 }
 
 @keyframes shake {
