@@ -34,7 +34,7 @@ export default function ElevatorLevel({
   const incrLevel = (level: number, answer: string) => {
     setLevelNum(levelArr[-1 + level])
     liftBellFx()
-    if (answer == 'Africa') {
+    if (answer == 'Jupiter') {
       refProp.current.scrollTo(level + 1.2)
       console.log('question4')
     } else {

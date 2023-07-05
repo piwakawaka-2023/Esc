@@ -35,12 +35,12 @@ exports.seed = async function (knex) {
     },
     {
       id: 4,
-      question: 'What is the only continent with land in all four hemispheres?',
-      answer1: 'Africa',
-      answer2: 'Asia',
-      answer3: 'Antartica',
-      answer4: 'South America',
-      correct: 'Africa',
+      question: 'Which planet do the Galilean Moons orbit?',
+      answer1: 'Jupiter',
+      answer2: 'Saturn',
+      answer3: 'Uranus',
+      answer4: 'Kepler-186',
+      correct: 'Jupiter',
     },
   ])
 }
