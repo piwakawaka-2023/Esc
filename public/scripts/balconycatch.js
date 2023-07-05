@@ -2,7 +2,6 @@ const bus = document.getElementById('bus') //get item by class bus
 const vape = document.querySelector('.vape')
 const exitLink = document.getElementById('balcony-exit')
 let busLeft = parseInt(window.getComputedStyle(bus).getPropertyValue('left')) //get bus left property
-console.log(busLeft)
 let busBottom = parseInt(
   window.getComputedStyle(bus).getPropertyValue('bottom')
 ) // get bus right property
@@ -65,6 +64,7 @@ function createVapes() {
     vapes.style.bottom = vapeBottom + 'px'
     vapes.style.left = vapeLeft + 'px'
   }
+
   setInterval(vapeFall, 20)
   setTimeout(createVapes, 2000)
 }

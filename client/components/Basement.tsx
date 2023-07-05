@@ -167,10 +167,6 @@ export default function Basement() {
       )}
 
       <Hintss level_id={3} />
-      <div>
-        <p>Hint</p>
-        <p>Look for the swipecard.</p>
-      </div>
     </>
   )
 }
