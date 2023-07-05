@@ -23,7 +23,7 @@ export default function BalonyStatsScreen() {
         {/* <strong>Pipes:</strong>
         <p id="pipe-count"></p>{' '} */}
         <p>
-          <strong>Missed:</strong>
+          <strong>Lives:</strong>
         </p>
         <p id="missed-score"></p>
       </div>

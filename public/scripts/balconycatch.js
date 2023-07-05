@@ -2,13 +2,15 @@ const tetris = new Audio('/sounds/tetris.mp3')
 tetris.play()
 
 const bus = document.getElementById('bus') //get item by class bus
+const gameNav = document.getElementById('game-stats') //get item by class bus
+
 const vape = document.querySelector('.vape')
 const exitLink = document.getElementById('balcony-exit')
 let busLeft = parseInt(window.getComputedStyle(bus).getPropertyValue('left')) //get bus left property
 let busBottom = parseInt(
   window.getComputedStyle(bus).getPropertyValue('bottom')
 ) // get bus right property
-let missed = 0
+let missed = 10
 let vapeCount = 0
 
 function updatedMissed(missed) {
@@ -17,10 +19,10 @@ function updatedMissed(missed) {
 }
 function updateVapeCount(vapeCount) {
   const missedScore = document.getElementById('vape-count')
-  missedScore.innerHTML = `${vapeCount}`
+  missedScore.innerHTML = `${vapeCount}/10`
 }
 
-updatedMissed(0)
+updatedMissed(10)
 updateVapeCount(0)
 
 function moveBusRight() {
@@ -64,8 +66,9 @@ function createVapes() {
     }
     if (vapeBottom === busBottom) {
       vape.removeChild(vapes)
-      missed++
+      missed--
       updatedMissed(missed)
+      checkLose()
     }
     vapeBottom -= 5
     vapes.style.bottom = vapeBottom + 'px'
@@ -76,13 +79,22 @@ function createVapes() {
 function checkWin() {
   if (vapeCount == 10) {
     let exitButton = document.createElement('button')
-    exitButton.setAttribute('class', 'blue-button')
+    exitButton.setAttribute('id', 'red-screen')
     exitButton.innerHTML = 'ESCAPE'
     exitButton.style.position = 'fixed'
     exitButton.style.bottom = 0
     exitButton.style.right = '10px'
     exitLink.appendChild(exitButton)
     tetris.pause()
+  }
+}
+
+function checkLose() {
+  if (missed == 3) {
+    gameNav.setAttribute('class', 'screen red-screen')
+  }
+  if (missed == 0) {
+    window.location.href = '/gameover'
   }
 }
 
