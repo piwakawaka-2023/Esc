@@ -16,6 +16,7 @@ export default function Welcome() {
     volume: 0.9,
     loop: true,
     playbackRate: 3,
+    interrupt: true,
   })
 
   const handlePlayFx = () => {

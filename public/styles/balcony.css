@@ -21,6 +21,10 @@ body{
   position: relative;
 }
 
+.balcony-button {
+  margin-top: 300px;
+}
+
 #game-stats{
   display: flex;
   flex-direction: row;
