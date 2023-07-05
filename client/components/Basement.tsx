@@ -1,12 +1,16 @@
 import { Link, useParams } from 'react-router-dom'
 import slackUrl from '/sounds/knock-brush.mp3'
-import JsCarnival from '/sounds/jscarnivalsound.wav'
 import correct from '/sounds/correct-buzzer.mp3'
+import JsCarnival from '/sounds/jsmonsters.wav'
+import JsCarnivalDead from '/sounds/basement-dead.mp3'
 import { useSound } from 'use-sound'
 import keycard from '/images/keycard.png'
 import mole from '/images/mole.png'
 import unicorn from '/images/unicorn.png'
 import head from '/images/head.png'
+import head1 from '/images/head1.png'
+import head2 from '/images/head2.png'
+import head3 from '/images/head5.png'
 import body from '/images/body.png'
 import { useEffect, useState } from 'react'
 import Hintss from './GetAHint'
@@ -15,10 +19,10 @@ export default function Basement() {
   // Sound
   const { userId } = useParams()
   const [play] = useSound(slackUrl, { volume: 0.5 })
-
   const [monster] = useSound(JsCarnival, { volume: 0.9 })
-
   const [key] = useSound(correct, { volume: 0.3 })
+  const [dead] = useSound(JsCarnivalDead, {volume: 0.3})
+
 
   const handlePlayFx = () => {
     play()
@@ -69,6 +73,7 @@ export default function Basement() {
     setnextButton(true)
     key()
   }
+  
   // Monster handling
   const [counter, setCounter] = useState(0)
 
@@ -76,9 +81,11 @@ export default function Basement() {
     monster()
     setCounter((prevCounter) => prevCounter + 1)
     if (counter === 6) {
-      console.log('dead screen or jumpscare')
+      dead()
     }
   }
+
+
   return (
     <>
       <div>
@@ -99,6 +106,7 @@ export default function Basement() {
           className="head"
           alt="js-head"
           onMouseEnter={handleMouseEnter}
+          // onAnimationEnd={handleAnimationEnd}
         />
         <img
           src={body}
@@ -116,6 +124,24 @@ export default function Basement() {
           src={mole}
           className="mole"
           alt="js-mole"
+          onMouseEnter={handleMouseEnter}
+        />
+        <img
+          src={head1}
+          className="head1"
+          alt="js-head"
+          onMouseEnter={handleMouseEnter}
+        />
+        <img
+          src={head2}
+          className="head2"
+          alt="js-head"
+          onMouseEnter={handleMouseEnter}
+        />
+        <img
+          src={head3}
+          className="head3"
+          alt="js-head"
           onMouseEnter={handleMouseEnter}
         />
 
