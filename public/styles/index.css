@@ -213,9 +213,19 @@ ul {
   padding: 50px;
   box-shadow: 0 0 10px #0BD7EC;
   animation: zoom-in 2s ease;
+  color: #0BD7EC;
 }
 
 #red-screen{
+  border-color: #EC0B0B;
+  background-color: #4D0C0C;
+  color: #EC0B0B;
+  background-image: url(#);
+  box-shadow: 0 0 10px #EC0B0B;
+
+}
+
+.red-screen{
   border-color: #EC0B0B;
   background-color: #4D0C0C;
   color: #EC0B0B;
