@@ -15,12 +15,12 @@ export function getScenes() {
   const { id } = useParams()
   const dispatch = useAppDispatch()
 
+  //add current time to slackbot
   const today = new Date()
   const hours = today.getHours()
   const minutes = today.getMinutes()
   const amPm = hours >= 12 ? 'pm' : 'am'
   const time = hours + ':' + minutes + amPm
-  console.log(time)
 
   // slack notification sound
   const [play] = useSound(slackUrl, { volume: 0.5 })
@@ -33,13 +33,14 @@ export function getScenes() {
   const [audioPlay, setAudioPlay] = useState(false)
   const [showContent, setShowContent] = useState(false)
 
-  const handleClick = () => {
+  setTimeout(() => {
+    console.log('delayed for 1 second')
     setShowContent(true)
     if (!audioPlay) {
       setAudioPlay(true)
       handlePlayFx()
     }
-  }
+  }, 5000)
 
   // Finding correct scene by ID
 
@@ -52,7 +53,7 @@ export function getScenes() {
 
   return (
     <>
-      <div className="grey-background" onClick={handleClick}>
+      <div className="grey-background">
         <div className="screen" style={{ animation: 'none' }}>
           <div className="slack-card">
             <div className="slack-sidecard">
@@ -69,25 +70,31 @@ export function getScenes() {
               </div>
             </div>
             <div className="slack-messagecard">
-              <img src={pfp} className="pfp" alt="icon" />
-
-              <p>
-                <b>Facilitator-Piwakawaka-23 </b>
-                {time}
-              </p>
-              <p className="message-txt">{curScene?.text} </p>
-              <br />
+              <div className="slack-message-container">
+                <img src={pfp} className="pfp" alt="icon" />
+                <div className="slackbot-message-text">
+                  <p>
+                    <b>Facilitator-Piwakawaka-23 </b>
+                    {time}
+                  </p>
+                  <p className="message-txt">{curScene?.text} </p>
+                </div>
+              </div>
               {showContent && (
                 <>
-                  <img
-                    src={slackbot}
-                    className="slackbot"
-                    alt="slackbot-icon"
-                  />
-
-                  <br />
-                  <p className="message-txt">{curScene?.slack} </p>
-                  <div className="scene-card"></div>
+                  <div className="slack-message-container slackbot-blue">
+                    <img
+                      src={slackbot}
+                      className="slackbot"
+                      alt="slackbot-icon"
+                    />
+                    <div className="slackbot-message-text">
+                      <p>
+                        <b>Slackbot-Piwakawaka-23 </b>
+                      </p>
+                      <p className="message-txt">{curScene?.slack} </p>
+                    </div>
+                  </div>
                 </>
               )}
             </div>

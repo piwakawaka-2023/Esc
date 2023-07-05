@@ -21,13 +21,6 @@ export default function Leaderboard() {
 
   return (
     <>
-      <Link to="/">
-        <img
-          src={logo}
-          alt="static grey escape logo"
-          className="in-game-logo"
-        />
-      </Link>
       <div className="grey-background">
         <div className="screen" style={{ animation: 'none' }}>
           <h2 className="screen-message">HIGHSCORES</h2>
@@ -55,6 +48,11 @@ export default function Leaderboard() {
               ))}
             </tbody>
           </table>
+          <Link to="/">
+            <button className="blue-button blue-button-sml">
+              Back to home
+            </button>
+          </Link>
         </div>
       </div>
     </>
