@@ -32,7 +32,7 @@ export default function Complete() {
         </div>
         <div className="screen">
           <h2 className="screen-message typewriter">
-            ...congratulations on escaping
+            ...CONGRATULATIONS on escaping
           </h2>
           <a href="/">
             <button className="blue-button" onClick={() => handleStop()}>

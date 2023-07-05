@@ -9,15 +9,15 @@ exports.seed = async function (knex) {
     {
       id: 1,
       level_id: 1,
-      text: "Hey, Cheers for sticking back to finish up the app deployment! Please dont forget to turn off the lights and close down before you lock up for the night. Also, the elevator repair guys will be in tomorrow instead- so just a reminder to be careful in the elevator! not that you'll have any trouble with that haha. But give me a shout if you get stuck. See you tomorrow for the teams meeting!",
+      text: "Hey, Cheers for sticking back to finish up the app deployment! Please dont forget to turn off the lights and close down before you lock up for the night. Also, the elevator repair guys will be in tomorrow instead- so just a reminder to be careful in the elevator! Not that you'll have any trouble with that haha. But give me a shout if you get stuck. See you tomorrow for the teams meeting!",
       final: false,
       slack:
-        "Not everyone is a 'Guy'.. 'Guys' is a gendered pronoun. We recommend an alternative like 'crew'. We appreciate your help in building an inclusive environment at Dev!",
+        "Not everyone is a 'Guy'... 'Guys' is a gendered pronoun. We recommend an alternative like 'crew'. We appreciate your help in building an inclusive environment at Dev!",
     },
     {
       id: 2,
       level_id: 3,
-      text: "Me again, Just checking in that you're still in the building? I left my swipe card in the basement if you're still around maybe you could grab for me? Sorry should've mentioned before you turned all the lights off. Don't mind the javascript carnival gang, they get a little restless down there. But anyways let me know!",
+      text: "Me again... Just checking if you're still in the building? I left my swipe card in the basement if you're still around maybe you could grab it for me? Sorry I should've asked before you turned off all the lights. Don't mind the clutter, I'm going to clean it tomorrow, let me know how you go!",
       final: false,
       slack:
         'You asked me to remind you about this message from @facilitator-piwakawaka-23',
@@ -25,14 +25,14 @@ exports.seed = async function (knex) {
     {
       id: 3,
       level_id: 4,
-      text: 'Thanks so much for grabbing my swipecard! You really made quick work of handling the javascript carnival guys huh! Just a quick reminder that the whole building is locked so dont forget the building code.',
+      text: 'Thankyou so much for grabbing my swipecard! You really made quick work getting around the clutter!! Just a quick reminder that the whole building is locked so dont forget the building code.',
       final: false,
       slack: 'Spread love everywhere you go.',
     },
     {
       id: 4,
       level_id: 5,
-      text: "Oh, you made it out of the building? Well, thats great then! uhh... i suppose we'll see you tomorrow then.",
+      text: "Oh, you made it out of the building? Well, thats great then! Uhh... I suppose we'll see you tomorrow then.",
       final: false,
       slack: ' 👍 I will remind #teams-meeting at 10:30AM tomorrow morning.',
     },
