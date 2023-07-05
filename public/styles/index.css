@@ -525,8 +525,11 @@ input::-webkit-inner-spin-button {
   max-height: 400px;
   z-index: -90;
   position: absolute;
-  top: 400px;
-  left: 900px;
+  top: 500px;
+  left: 1000px;
+  animation-name: shake;
+  animation-duration: 2s;
+  
 }
 
 .body {
@@ -534,18 +537,55 @@ input::-webkit-inner-spin-button {
   max-height: 400px;
   z-index: -90;
   position: absolute;
-  top: 400px;
-  left: 900px;
+  top: 500px;
+  left: 1000px;
+  animation-duration: 2s;
 }
+  
+.head1 {
+  max-width: 470px;
+  max-height: 470px;
+  z-index: -90;
+  position: absolute;
+  top: 680px;
+  left: 200px;
+  rotate: 310deg;
+  animation-duration: 2s;
+}
+
+.head2 {
+  max-width: 350px;
+  max-height: 350px;
+  z-index: -90;
+  position: absolute;
+  top: 540px;
+  left: 1330px;
+  rotate: 15deg;
+  animation-duration: 2s;
+  
+}
+
+.head3 {
+  max-width: 400px;
+  max-height: 400px;
+  z-index: -90;
+  position: absolute;
+  top: 600px;
+  left: 620px;
+  rotate: 200deg;
+  animation-duration: 2s;
+}
+
 
 .unicorn {
   max-width: 120x;
   max-height: 120px;
   z-index: -90;
   position: absolute;
-  top: 350px;
-  left: 1550px;
+  top: 450px;
+  left: 1900px;
   rotate: 45deg;
+  animation-duration: 2s;
 }
 
 .mole {
@@ -553,9 +593,18 @@ input::-webkit-inner-spin-button {
   max-height: 135px;
   z-index: -90;
   position: absolute;
-  top: 570px;
-  left: 620px;
+  top: 680px;
+  left: 700px;
+  animation-duration: 2s;
 }
+
+@keyframes shake {
+  0% { transform: translateX(0) }
+  25% { transform: translateX(5px) }
+  50% { transform: translateX(-5px) }
+  75% { transform: translateX(5px) }
+  100% { transform: translateX(0) }
+ }
 
 /* Lights Off MiniGame */
 
