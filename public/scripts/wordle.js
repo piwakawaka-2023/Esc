@@ -65,9 +65,6 @@ function handleSubmitWord() {
 
   guessWordCount += 1
 
-  if (currentWord === word) {
-    window.alert('Congratulations')
-  }
   if (guessedWords.length === 6) {
     window.alert(`Sorry you have no more guesses, the password is ${word}`)
   }
