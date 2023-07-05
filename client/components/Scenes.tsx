@@ -100,18 +100,14 @@ export function getScenes() {
               )}
             </div>
           </div>
-
-        {curScene?.final && 
-        <div>
-          <img src={glitch}
-          className='glitch'
-          alt='glitch-bg'
-          />
-        </div>
-        }
+          {curScene?.final ? (
+            <div>
+              <img src={glitch} className="glitch" alt="glitch-bg" />
+            </div>
+          ) : (
+            <div></div>
+          )}
           <SceneNextButton curScene={curScene} />
-
-
         </div>
       </div>
     </>
