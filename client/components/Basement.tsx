@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import slackUrl from '/sounds/knock-brush.mp3'
 import correct from '/sounds/correct-buzzer.mp3'
 import JsCarnival from '/sounds/jsmonsters.wav'
@@ -21,8 +21,8 @@ export default function Basement() {
   const [play] = useSound(slackUrl, { volume: 0.5 })
   const [monster] = useSound(JsCarnival, { volume: 0.9 })
   const [key] = useSound(correct, { volume: 0.3 })
-  const [dead] = useSound(JsCarnivalDead, {volume: 0.3})
-
+  const [dead] = useSound(JsCarnivalDead, { volume: 0.3 })
+  const navigate = useNavigate()
 
   const handlePlayFx = () => {
     play()
@@ -71,7 +71,7 @@ export default function Basement() {
     setnextButton(true)
     key()
   }
-  
+
   // Monster handling
   const [counter, setCounter] = useState(0)
 
@@ -80,9 +80,9 @@ export default function Basement() {
     setCounter((prevCounter) => prevCounter + 1)
     if (counter === 6) {
       dead()
+      navigate('/gameover')
     }
   }
-
 
   return (
     <>
