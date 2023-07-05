@@ -1,7 +1,7 @@
 import Cell from './LightsOffCell'
 import { useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import gameoverUrl from '/sounds/gameover.mp3'
+import gameoverUrl from '/sounds/gameOver.mp3'
 import { useSound } from 'use-sound'
 
 function Board() {
@@ -14,7 +14,7 @@ function Board() {
   const [count, setCount] = useState(0)
   const { userId, id } = useParams()
   const navigate = useNavigate()
-  const [playGameover] = useSound(gameoverUrl, { volume: 0.2 })
+  const [playGameover] = useSound(gameoverUrl, { volume: 0.1 })
 
   const lightsGrid = Array(size)
     .fill(0)
@@ -97,7 +97,6 @@ function Board() {
 
   return (
     <>
-
       <div className="screen red-blinking" id={colourScreen}>
         <p className="lightoff-header" id={colourText}>
           Turn Off the Lights
@@ -106,7 +105,6 @@ function Board() {
           <p className="number" id={colourText}>
             Attempts left: {25 - count}{' '}
           </p>
-
         </div>
       </div>
       <div className="board">
