@@ -15,7 +15,7 @@ import tenticle from '/images/tenticle.png'
 import bg1 from '/images/bg1.png'
 
 export default function Elevator() {
-  const [lift, setLift] = useState('/images/lift.jpeg')
+  const [lift, setLift] = useState('/images/lift.png')
   const [viewExit, setViewExit] = useState(false)
   const [viewOpen, setViewOpen] = useState(true)
   const [levelNum, setLevelNum] = useState('3')
@@ -26,7 +26,7 @@ export default function Elevator() {
   const { userId } = useParams()
 
   const handleClick = () => {
-    setLift('/images/liftgiff.gif')
+    setLift('/images/lift.gif')
     setViewExit(true)
     setViewOpen(false)
     liftDoorFx()
@@ -82,7 +82,12 @@ export default function Elevator() {
             }}
           >
             <div id="lift">
-              <img src={lift} id="lift-pic" alt="lift" />
+              <img
+                src={lift}
+                style={{ minWidth: '300px%' }}
+                id="lift-pic"
+                alt="lift"
+              />
               <div id="lift-number">
                 <p className="number" style={{ textAlign: 'center' }}>
                   {levelNum}
@@ -143,7 +148,7 @@ export default function Elevator() {
             style={{ textAlign: 'left', width: '10%' }}
           >
             <img
-              style={{ width: '100%', textAlign: 'right' }}
+              style={{ width: '100%', textAlign: 'right', height: 'auto' }}
               src={eye}
               alt="eye"
             />
